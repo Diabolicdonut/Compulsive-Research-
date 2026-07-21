@@ -1,16 +1,17 @@
-Compulsive Research — Table of Contents Repair
+Compulsive Research — Canonical Navigation and TOC Repair
 
-Updated articles
-- Entry 001: Black Lotus
-- Entry 002: Ancestral Recall
-- Entry 103: Brainstorm
-- Entry 250: Eternal Dragon
+Article navigation
+- removed the full-screen embedded article reader
+- removed the redundant reader close control and all associated reader code
+- published landing-page entries now open the canonical article HTML files directly
+- retained each article's existing return link to Compulsive Research
+- eliminated base64-embedded duplicate article copies from index.html
 
-Repair
-- every table-of-contents link explicitly scrolls to its matching section
-- direct section hashes work on load
-- active TOC state updates after selection
-- the embedded landing-page reader contains the corrected article code
-- the reader bridge ignores internal TOC hash links
+Table of contents
+- restored native fragment navigation for every article table of contents
+- validated every TOC href against a real, unique section ID in its article
+- section links now remain on the article page and scroll to the intended section
 
-All twenty waves remain collapsed by default.
+Landing page
+- all twenty waves remain collapsed by default
+- search and publication filters remain intact

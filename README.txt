@@ -1,4 +1,4 @@
-COMPULSIVE RESEARCH — BRAINSTORM EDITION
+COMPULSIVE RESEARCH — CANONICAL ARTICLE NAVIGATION EDITION
 
 Upload the contents of this folder to the root of a GitHub Pages repository.
 
@@ -9,6 +9,10 @@ HTML pages
 - 103-brainstorm.html
 - 250-eternal-dragon.html
 
-The landing page contains all twenty collapsed waves and embeds all four
-published articles for reliable previewing. Each article also exists once as
-a canonical root-level page.
+The landing page contains all twenty collapsed waves. Each published entry links
+directly to its single canonical root-level article page. Articles are no longer
+opened inside a duplicate embedded reader.
+
+Article table-of-contents links use ordinary page fragments and move directly to
+the corresponding section. The article's existing return link is the sole
+navigation control back to Compulsive Research.
