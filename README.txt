@@ -1,12 +1,14 @@
-COMPULSIVE RESEARCH — COLLAPSIBLE WAVES EDITION
+COMPULSIVE RESEARCH — WORKING LINKS / COLLAPSED WAVES
 
-Upload this folder to the root of a GitHub Pages repository.
+Upload the contents of this folder to the root of a GitHub Pages repository.
 
-- index.html contains the preservation introduction and all twenty collapsible waves
-- each wave contains fifty numbered entries
-- published entries link to complete long-form articles
-- articles/ contains Black Lotus, Ancestral Recall, and Eternal Dragon
-- data/archive.json contains public archive metadata
+- index.html contains all twenty collapsible waves
+- every wave is collapsed by default
+- published entry rows link directly to root-level article files
+- hash links from articles open the matching wave and entry
+- articles/ contains compatibility redirects for older links
 
-There are no separate wave pages. Article navigation returns to the appropriate
-wave or entry anchor on the landing page.
+Canonical articles
+- 001-black-lotus.html
+- 002-ancestral-recall.html
+- 250-eternal-dragon.html
