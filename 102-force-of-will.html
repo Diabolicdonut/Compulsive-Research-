@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A long-form magazine history of Force of Will: its controversial Alliances design, alternate cost, tournament rise, role in Vintage and Legacy, deck-building demands, artwork, descendants, and lasting cultural meaning.">
+<title>Force of Will: The Counterspell Before the First Turn — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=all&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=all&format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.force-negation .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Negation&format=image&version=art_crop)!important
+}
+.cost-grid,.probability-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.cost-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.probability-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.cost-step,.probability-step{background:var(--white);padding:23px}
+.cost-step b,.probability-step b{
+  display:block;font:900 2.05rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.cost-step span,.probability-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.probability-step b{font-size:1.65rem}
+.force-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note b{color:var(--ink)}
+.stack-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stack-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.stack-row:last-child{border-bottom:0}.stack-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.stack-row p{margin:0}
+@media(max-width:750px){.cost-grid,.probability-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.cost-grid,.probability-grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero force-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-03">← Wave 03 · Ice Age through Visions</a>
+<div class="eyebrow">Entry 102 · Wave 03 · Ice Age, Alliances, Mirage, and Visions</div>
+<h1>The Counterspell Before the First Turn</h1>
+<p class="deckline">Force of Will asks its caster to lose a card and a life so that the game does not end while ordinary mana is still waiting to matter.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Alliances, 1996</span><span class="pill">Approximately 25 minute read</span></div>
+</div></header>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The counterspell before the first turn</a><a href="#origin">Stop Spell</a><a href="#cycle">The pitch cycle</a><a href="#cost">The real price of free</a><a href="#turn-zero">Before mana becomes permission</a><a href="#early">From Alliances to Extended</a><a href="#vintage">The glue of Vintage</a><a href="#legacy">Legacy's unwritten constitution</a><a href="#tempo">Tempo spends cards to buy time</a><a href="#combo">The shield and the weapon</a><a href="#blue-count">The blue-card tax</a><a href="#formats">A life across formats</a><a href="#descendants">The Forces that followed</a><a href="#art">The image of refusal</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article">
+<section id="opening"><div class="chapter-number">I · The question</div><h2>The counterspell before the first turn</h2>
+<p class="opening dropcap">A player with no lands untapped is supposed to be defenseless. Force of Will made that information unreliable.</p>
+<p>The card costs five mana. Almost nobody first learned to fear it because somebody paid five mana.</p>
+<p>Instead, Force of Will is announced by placing two blue cards on the table: the Force itself and another card exiled from the hand. One life is paid. The threatening spell is countered. No Island moves. No permanent on the battlefield explains what happened. The defense came from cards that were hidden and from a cost that conventional mana accounting did not reveal.</p>
+<p>That moment changed how powerful Magic is played. A combo deck can no longer assume the opponent is helpless on turn one. A control player may tap out without surrendering every answer. A tempo deck can commit its mana to a threat and still protect the lead. A Vintage player facing artifact mana, tutors, and restricted spells has an answer that exists on the same accelerated timescale.</p>
+<div class="card-lead"><img alt="Force of Will from Alliances" src="https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=all&format=image&version=normal"><div><div class="oracle"><b>Force of Will</b> · {3}{U}{U}<br>Instant<br><br>You may pay 1 life and exile a blue card from your hand rather than pay this spell's mana cost.<br><br>Counter target spell.</div><div class="stats"><div class="stat"><b>First printed</b>Alliances · June 10, 1996</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Illustrated by</b>Terese Nielsen</div><div class="stat"><b>Historical status</b>Legacy and Vintage pillar</div></div></div></div>
+<p>The transaction is not generous. When cast for its alternate cost, Force of Will usually trades two cards and one life for one opposing card. Its greatness begins where that arithmetic stops: some spells cannot be permitted to resolve, and some turns are too early for a fair answer to be available.</p></section>
+<section id="origin"><div class="chapter-number">II · Alliances</div><h2>Stop Spell</h2>
+<p>Force of Will began as a solution to a practical design problem: how could a player interact while tapped out—or before taking a turn—without allowing every deck to splash blue countermagic?</p>
+<p>Mark Rosewater's history of alternate playing costs identifies the Alliances design team as Skaff Elias, Jim Lin, Dave Petty, and Chris Page, the East Coast Playtesters who helped shape early Magic. The card's working name was <em>Stop Spell</em>. In the team's running protest against the set's gorilla theme, it also acquired the absurd temporary name “Gorilla, Gorilla, Gorilla, Gorilla, Gorilla, Stop That!”</p>
+<p>The joke obscures how radical the card was. Mana was the game's principal scheduling system. A counterspell required blue mana to be held open, giving the opponent visible information and forcing the defender to sacrifice development. A spell that ignored mana threatened both color identity and the rhythm by which players knew when it was safe to act.</p>
+<p>The designers solved the color problem by requiring another blue card. They solved the power problem by making the caster pay twice: one card from the hand and one life. Rosewater wrote that a version requiring only the extra card proved too strong during development, so the life payment was added.</p>
+<div class="pullquote">The card was not designed to make countermagic free. It was designed to make helplessness uncertain.<small>The invention inside the alternate cost</small></div>
+<p>Even inside Wizards, the pitch cards were controversial. Rosewater later recalled that Customer Service appealed to company president Peter Adkison not to print them. The concern was understandable. “Free spell” would become one of the most dangerous phrases in Magic design. Force of Will survived because its cost is visible in resources even when it is invisible in mana.</p></section>
+<div class="art-break force-art"><div class="art-caption"><b>The original Alliances artwork</b>The figure does not calmly negate a spell. She appears to tear through it by concentration alone. The image makes refusal physical: magic stopped by an act of will intense enough to consume part of the caster.</div></div>
+<section id="cycle"><div class="chapter-number">III · The pitch cards</div><h2>The cycle that taught cards to pay for spells</h2>
+<p>Force of Will was one member of a five-color Alliances cycle. <span class="card-name" data-card="Bounty of the Hunt" tabindex="0">Bounty of the Hunt</span> converted a green card into temporary growth. <span class="card-name" data-card="Pyrokinesis" tabindex="0">Pyrokinesis</span> converted a red card into divided creature damage. <span class="card-name" data-card="Contagion" tabindex="0">Contagion</span> used a black card and a life to shrink creatures. <span class="card-name" data-card="Scars of the Veteran" tabindex="0">Scars of the Veteran</span> turned a white card into damage prevention. Force converted a blue card and a life into the broadest reactive effect in the game: counter target spell.</p>
+<p>The cycle's common principle was color commitment without mana. A deck could not casually use Force unless it contained enough blue cards to feed it. The alternate cost therefore asked for something more structural than a splash. The card reached backward into deck construction and demanded that the list be blue even when the spell itself required no blue mana at the moment of use.</p>
+<p>The individual effects were also chosen to be reactive. A free proactive spell can accelerate a player toward victory before an opponent can respond. The Alliances pitch cards were built to answer, prevent, or alter something already happening. Later design would repeatedly rediscover how thin that boundary is.</p>
+<p>Only one member of the cycle became a permanent institution across multiple competitive formats. Countering any spell is more universal than modifying combat or answering creatures, and the games where Force is most necessary are precisely the games where universality matters.</p></section>
+<section id="cost"><div class="chapter-number">IV · The exchange</div><h2>The real price of free</h2>
+<p>“Free counterspell” is useful shorthand and bad accounting. A typical alternate-cost Force consumes two cards from the hand and one life to counter one card. The caster begins the exchange down a card.</p>
+<div class="cost-grid"><div class="cost-step"><b>−1</b><span>Force of Will leaves the hand and becomes a spell.</span></div><div class="cost-step"><b>−1</b><span>Another blue card is exiled to pay the alternate cost.</span></div><div class="cost-step"><b>−1 life</b><span>The final development correction added a life payment.</span></div><div class="cost-step"><b>+time</b><span>The caster preserves mana, survives the turn, or protects a decisive advantage.</span></div></div>
+<p>The last line is the reason the card is powerful. Cards are not the only resource. Force buys time, preserves battlefield position, protects life total, and prevents an opposing engine from generating far more than one card. Countering <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span> is not an even one-for-one in strategic consequence. Countering <span class="card-name" data-card="Doomsday" tabindex="0">Doomsday</span>, <span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span>, <span class="card-name" data-card="Show and Tell" tabindex="0">Show and Tell</span>, or a lethal storm spell may be the difference between continuing the game and losing immediately.</p>
+<p>Force is therefore a test of valuation. The target does not need to be expensive; it needs to be important. Pitching a blue card to counter a one-mana spell can be correct when the one-mana spell is <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> and the Ritual is the bridge to a hand the opponent cannot otherwise beat.</p>
+<p>It can also be wrong. Using Force on a replaceable threat in a fair matchup may leave the caster behind when the opponent simply casts another creature. The card rewards players who distinguish “this is inconvenient” from “this must not resolve.”</p>
+<div class="force-note"><b>Force is card disadvantage, not strategic disadvantage.</b> The alternate cost is justified when the target, the timing, or the protected position is worth more than the extra blue card. Against fair decks after sideboarding, that condition may disappear—and experienced players often remove some or all Forces.</div></section>
+<section id="turn-zero"><div class="chapter-number">V · Hidden permission</div><h2>Before mana becomes permission</h2>
+<p>Before Force of Will, the question “Can my opponent counter this?” was often answered by the battlefield. Two untapped Islands meant caution. Tapped lands meant opportunity. Force moved part of that answer into the hidden zone.</p>
+<div class="stack-sequence"><div class="stack-row"><strong>Visible</strong><p>The blue player taps out. Conventional permission appears unavailable.</p></div><div class="stack-row"><strong>Hidden</strong><p>Two cards remain in hand. Either could be Force of Will; the other could be its payment.</p></div><div class="stack-row"><strong>Decision</strong><p>The opponent must choose whether to commit a critical spell into uncertain interaction.</p></div><div class="stack-row"><strong>Result</strong><p>Even when Force is absent, its possibility changes sequencing, bait spells, and the value of information.</p></div></div>
+<p>This is the card's psychological legacy. Force of Will is played when it is cast, but it also influences every turn in which it might be cast. Combo players learn to probe with discard, bait permission, count blue cards, or assemble redundant protection. Blue players learn to preserve plausible resources and avoid revealing which card is expendable.</p>
+<p>The hard-cast mode matters too. Five mana is inefficient for a counterspell, but long games eventually make it available. A Force drawn late can become a conventional one-for-one instead of a two-for-one. Control mirrors sometimes turn on whether the player can wait long enough to pay {3}{U}{U} and keep every card in hand.</p></section>
+<section id="early"><div class="chapter-number">VI · The first years</div><h2>From Alliances to Extended</h2>
+<p>Force entered tournament Magic in an era already defined by <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>, <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Thawing Glaciers" tabindex="0">Thawing Glaciers</span>, <span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span>, and the first attempts to formalize professional play. In Ice Age–Alliances environments, blue-white control could combine Force with Counterspell and Swords to Plowshares while developing slow land engines. The card immediately demonstrated its intended purpose: the control deck could act without becoming completely exposed.</p>
+<p>Its deeper identity emerged as card pools grew. Extended combined old fast mana, efficient tutors, cheap threats, and combo engines. The format produced decks in which Force was not merely a control card. Trix used <span class="card-name" data-card="Illusions of Grandeur" tabindex="0">Illusions of Grandeur</span> and <span class="card-name" data-card="Donate" tabindex="0">Donate</span>, backed by Necropotence, hand disruption, and Force. Miracle Grow used a ten-land mana base, <span class="card-name" data-card="Gush" tabindex="0">Gush</span>, <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, and Force to create a deck that spent almost no mana defending its creatures.</p>
+<p>Wizards' retrospective on Extended captured the era with a short exchange: one player opens on Swamp, Dark Ritual, Necropotence; the opponent Forces it; the first player Forces back. That stack contains Force's entire paradox. The card policing fast broken Magic was also one of the best cards in the fast broken deck.</p>
+<p>By the early 2000s, Force had become less a card associated with Alliances than a rule of older formats. If the card pool allowed explosive openings, blue decks were expected to register it.</p></section>
+<section id="vintage"><div class="chapter-number">VII · Type 1</div><h2>The glue of Vintage</h2>
+<p>Writers were calling Force of Will “the glue that holds Type 1 together” by the early 2000s. The phrase survived because it describes a structural job rather than a metagame role.</p>
+<p>Vintage permits the Power Nine, restricted tutors and draw spells, Workshop mana, Bazaar engines, and combinations that can create overwhelming advantage immediately. The format does not require every deck to play Force—Workshop and Bazaar strategies often interact through other means—but blue decks need an answer that can operate at the speed of the threats.</p>
+<p>Unlike <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>, <span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span>, <span class="card-name" data-card="Ponder" tabindex="0">Ponder</span>, and many other pillars of blue Vintage, Force of Will has remained unrestricted. Four copies do not generate the broken action; they distribute access to resistance. That distinction is important. Restricting the card would make the most explosive openings harder to contest and increase the value of winning the die roll or drawing the right restricted card.</p>
+<p>Vintage also reveals the subtleties of Force fights. A player may Force an opposing Ancestral Recall, only to expose both players to a second counter. A combo player can protect the spell that wins; a control player can defend a hate permanent; a tempo deck can use Force to make <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> and a cheap threat decisive. The card does not make Vintage fair. It gives unfair decks a common language in which to dispute the stack.</p></section>
+<section id="legacy"><div class="chapter-number">VIII · The format</div><h2>Legacy's unwritten constitution</h2>
+<p>Legacy's identity is often described through dual lands, fetchlands, Brainstorm, Wasteland, and Force of Will. Of those cards, Force is the one most responsible for allowing the format to contain both fast combo and interactive blue decks without requiring every answer to begin on the battlefield.</p>
+<p>The format's legal card pool includes turn-one kills, graveyard engines, prison pieces, uncounterable threats, mana denial, and highly efficient creatures. Force cannot answer everything. It cannot remove a permanent that has resolved. It can be beaten by discard, redundancy, <span class="card-name" data-card="Cavern of Souls" tabindex="0">Cavern of Souls</span>, <span class="card-name" data-card="Veil of Summer" tabindex="0">Veil of Summer</span>, or simply by presenting more must-counter spells than the blue player has cards.</p>
+<p>That limitation is healthy. Force is a safety valve, not a guarantee. It reduces the number of non-games without eliminating the possibility that a prepared proactive deck will break through.</p>
+<p>It also shapes what “blue deck” means. Brainstorm fixes hands; Force turns surplus blue cards into emergency interaction. Ponder finds the right resource; Force makes the wrong blue resource useful at the critical moment. Together they encourage lists with dense blue cores and flexible splashes. A card that asks for another blue card rewards the format's most efficient selection spells, and those selection spells make Force more reliable.</p>
+<div class="pullquote">Legacy is not fair because Force of Will exists. Legacy is playable because the unfair decks must account for it.<small>The difference between balance and resistance</small></div></section>
+<section id="tempo"><div class="chapter-number">IX · Aggro-control</div><h2>Tempo spends cards to buy time</h2>
+<p>Control decks use Force to reach a later game. Tempo decks use it to prevent a later game from arriving.</p>
+<p>Miracle Grow, Threshold, Canadian Threshold, and eventually RUG Delver all understood that card disadvantage can be irrelevant when the opponent is denied the time to use extra cards. A turn-one <span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span> followed by Wasteland and Daze creates a short window. Force protects that window from the one spell that would reset the race, resolve a superior threat, or establish an engine.</p>
+<p>Suppose the Delver player Forces a removal spell by pitching Ponder. On paper, two cards answered one. On the battlefield, Delver continues attacking, the opponent spent mana during a constrained turn, and the tempo deck may need only two more draw steps. The lost Ponder might never have produced value before the game ended.</p>
+<p>This is why Force should not be evaluated in isolation from clock and mana denial. Its cost is highest in a long attrition game and lowest when the caster has already converted the game into a race measured in one or two turns.</p>
+<p>Tempo also made Force culturally visible. The familiar Legacy opening—fetchland, Delver, pass with no mana—announces confidence that the deck can protect itself through cards rather than lands. The opponent knows the shields may be down and must play as though they are not.</p></section>
+<section id="combo"><div class="chapter-number">X · The paradox</div><h2>The shield and the weapon</h2>
+<p>Force of Will is often defended as the card that stops combo. Combo players agree that it is excellent—and put four copies in their own decks.</p>
+<p>Reanimator can pitch a spare blue card to protect <span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span>. Show and Tell can force through its namesake spell. Doomsday can defend the pile. Flash used Force to protect one of the most oppressive combos in Legacy history. High Tide and other blue combo decks use the card because they need to commit mana on the decisive turn and cannot afford to hold open ordinary permission.</p>
+<p>This dual use is not a design failure so much as a consequence of universal interaction. A counterspell answers the opponent's attempt to win and the opponent's attempt to stop you. Force therefore rewards whichever player better manages cards, information, and timing.</p>
+<p>The card's policing effect comes from distribution. Many blue archetypes can play Force, so a fast deck must prepare for resistance across the field. Its enabling effect comes from concentration. A particular combo deck can surround Force with discard, tutors, cantrips, and redundant protection.</p>
+<p>Grand Prix Columbus 2007 provided the clearest warning. Hulk Flash became so powerful that Force was both the emergency answer and part of the combo deck's protection suite. Steve Sadin won the event with four Force of Will, four Daze, four Counterbalance, and four Sensei's Divining Top. Flash was banned shortly afterward. Force remained, because the answer was not the reason the threat was broken.</p></section>
+<section id="blue-count"><div class="chapter-number">XI · Construction</div><h2>The blue-card tax</h2>
+<p>Force does not merely occupy four slots. It asks the rest of the deck to support it.</p>
+<p>A hand containing Force and no other blue card has a five-mana counterspell. A hand containing multiple Forces can pitch one to another, but doing so consumes the card that might have answered the next threat. Deck builders therefore count blue cards with unusual attention, distinguishing cards that are blue in the deck list from cards they are actually willing to exile in a matchup.</p>
+<p>The following opening-hand probabilities assume a sixty-card deck, four Forces, no mulligans, and a requirement to draw at least one Force plus another blue card. They are not deck-building commandments; cantrips, London mulligans, matchup plans, and blue cards that cannot be spared all change the practical result.</p>
+<div class="probability-grid"><div class="probability-step"><b>30.8%</b><span>16 total blue cards</span></div><div class="probability-step"><b>33.1%</b><span>18 total blue cards</span></div><div class="probability-step"><b>34.9%</b><span>20 total blue cards</span></div><div class="probability-step"><b>36.2%</b><span>22 total blue cards</span></div><div class="probability-step"><b>37.3%</b><span>24 total blue cards</span></div></div>
+<p>The modest change between columns explains why “blue count” is only part of the problem. The quality and replaceability of the blue cards matter. Brainstorm can turn an awkward card into something useful before it is pitched. A second legendary permanent may be expendable. A combo piece that happens to be blue may technically pay for Force but be strategically impossible to lose.</p>
+<p>Sideboarding changes the equation again. Against fast combo, the card disadvantage is secondary and all four Forces often remain. Against creature decks built from redundant threats, Force may be trimmed because every exchange helps the opponent's attrition plan. The card is iconic, but it is not sacred. Knowing when to remove it is one of the format's recurring tests.</p></section>
+<section id="formats"><div class="chapter-number">XII · Legality</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Legacy</h3><p>Legal as a four-of and central to blue tempo, control, and combo. Its presence is built into the format's risk calculations.</p></div><div class="format-card"><span class="impact">Structural</span><h3>Vintage</h3><p>Legal and unrestricted. Four copies remain a principal defense against the format's fastest openings and restricted engines.</p></div><div class="format-card"><span class="impact">Powerful, optional</span><h3>Commander</h3><p>Legal in multiplayer, where protecting a decisive spell can matter more than the two-card cost, though table context changes its value.</p></div><div class="format-card"><span class="impact">Card-pool exclusion</span><h3>Modern and Pioneer</h3><p>Not legal because Alliances and its supplemental reprints do not enter those card pools.</p></div><div class="format-card"><span class="impact">Digital restraint</span><h3>Historic and Brawl</h3><p>After its 2026 Arena arrival, Force was pre-banned in Historic and later banned in Brawl.</p></div><div class="format-card"><span class="impact">Arena eternal</span><h3>Timeless</h3><p>Available in Arena's highest-powered constructed environment, where free interaction answers similarly accelerated threats.</p></div></div>
+<p>Force's format history is unusual because its paper legality has been stable where it matters most. It was not restricted in Vintage or banned in Legacy despite being one of their most-played blue cards. Policy has generally treated it as infrastructure: powerful enough to define the environment, but also part of the environment's capacity to resist more dangerous cards.</p></section>
+<section id="descendants"><div class="chapter-number">XIII · The family</div><h2>The Forces that followed</h2>
+<p>Magic returned to alternate-cost interaction repeatedly, but almost every descendant narrows the original or changes the timing window.</p>
+<div class="inline-image force-negation"><div class="image"></div><div class="copy"><div class="eyebrow">Modern Horizons · 2019</div><h3>Force of Negation</h3><p>The clearest descendant protects the opponent's turn rather than the caster's combo turn. Its alternate cost works only when it is not your turn, and it counters only noncreature spells.</p></div></div>
+<p><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span> inherited the blue-card pitch cost but redirects a targeted spell instead of countering it. <span class="card-name" data-card="Foil" tabindex="0">Foil</span> asks for an Island and another card, making the cost more specific and often more severe. <span class="card-name" data-card="Disrupting Shoal" tabindex="0">Disrupting Shoal</span> exiles a blue card with the correct mana value, converting flexibility into a matching puzzle. <span class="card-name" data-card="Pact of Negation" tabindex="0">Pact of Negation</span> costs no mana now but creates a lethal obligation on the next upkeep.</p>
+<p>Modern Horizons deliberately revisited the Alliances cycle with Force of Negation and a new Force in each color. The restrictions show how carefully contemporary design approaches free spells. Force of Vigor is exceptional against artifacts and enchantments. Force of Despair answers creatures that entered that turn. Force of Virtue supports combat. Force of Rage creates temporary attackers. None is a universal answer at any moment.</p>
+<p>The broader lineage includes <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span>, <span class="card-name" data-card="Grief" tabindex="0">Grief</span>, <span class="card-name" data-card="Subtlety" tabindex="0">Subtlety</span>, and other cards that exchange hand resources for tempo. Their successes and controversies confirm what Alliances discovered: alternate costs create meaningful play when they answer emergencies, but the same technology becomes dangerous when it proactively strips or overwhelms an opponent before mana can mediate the game.</p></section>
+<section id="art"><div class="chapter-number">XIV · The object</div><h2>The image of refusal</h2>
+<p>The original Force of Will is inseparable from its Alliances art. A figure leans into a burst of blue-white energy, hair and clothing swept by the pressure of the act. The image contains strain. This is not a wizard casually dismissing lesser magic; it is someone paying the card's hidden cost.</p>
+<p>That physicality supports the name. “Counterspell” describes a game action. “Force of Will” describes why the action succeeds. The spell is stopped because the caster gives up something—another thought, another possibility, a fragment of life—and insists that reality refuse the opponent's version of events.</p>
+<p>Later printings transformed Force from an uncommon expansion card into a premium icon. Eternal Masters gave it mythic rarity and new presentation. Double Masters and Dominaria Remastered offered additional art and showcase treatments. Secrets of Strixhaven's 2026 Mystical Archive placed it among the game's canonical spells and finally brought it to Arena.</p>
+<p>Different artworks emphasize different parts of the card: impact, command, scholarship, or elemental opposition. The original remains the most direct expression of the mechanic because the subject looks as though two cards and one life might actually have been spent.</p></section>
+<section id="memory"><div class="chapter-number">XV · The tell</div><h2>What players remember</h2>
+<div class="memory"><div class="memory-grid"><div><blockquote>“They tapped out. I thought I was safe.”</blockquote><cite>The first lesson Force teaches</cite></div><div><blockquote>“Do you have the blue card?”</blockquote><cite>The question behind every Force fight</cite></div></div></div>
+<p>Players remember Force of Will less as a single deck than as a recurring interruption. The opponent begins a sequence that should be decisive. The blue player pauses, separates two cards from the hand, and the entire game changes direction.</p>
+<p>They remember pitching the wrong card and losing three turns later because it was needed. They remember forcing a bait spell and watching the real threat resolve. They remember declining to Force, trusting a topdeck, or hard-casting it for five mana in a game that had outlived every expectation.</p>
+<p>Most of all, they remember learning that tapped out does not mean powerless. That lesson becomes permanent. Once a player has seen Force of Will, every blue hand with two cards in it contains a possibility the battlefield cannot disprove.</p></section>
+<section id="decklists" class="deck-archive"><div class="chapter-number">XVI · The record</div><h2>The deck archive</h2><p class="deck-intro">These lists show Force serving four different jobs: hidden mana in Miracle Grow, protection in broken combo, tempo in Legacy, and unrestricted infrastructure in modern Vintage.</p><details class="deck"><summary><span><strong>Alan Comer — Miracle Grow</strong><small>9th place · Grand Prix Las Vegas 2001 · Extended</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Force of Will is part of the deck’s hidden mana base. With only ten lands, Miracle Grow could tap out for a threat, return Islands to Gush, and still defend itself through Force, Daze, and Foil.</p><div class="deck-meta"><div><b>Alan Comer — Miracle Grow</b><div class="small">9th place · Grand Prix Las Vegas 2001 · Extended</div></div><button class="copy" data-target="force-deck-0">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gaea&#x27;s Skyfolk" tabindex="0">Gaea&#x27;s Skyfolk</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lord of Atlantis" tabindex="0">Lord of Atlantis</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merfolk Looter" tabindex="0">Merfolk Looter</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Land Grant" tabindex="0">Land Grant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sleight of Hand" tabindex="0">Sleight of Hand</span></div></div><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Curiosity" tabindex="0">Curiosity</span></div></div><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Foil" tabindex="0">Foil</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 10</h4><div class="row"><span class="qty">6</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chill" tabindex="0">Chill</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Emerald Charm" tabindex="0">Emerald Charm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div></div></div></div>
+<pre hidden id="force-deck-0">Alan Comer — Miracle Grow
+9th place · Grand Prix Las Vegas 2001 · Extended
+
+Creatures · 15
+3 Gaea&#x27;s Skyfolk
+4 Lord of Atlantis
+4 Merfolk Looter
+4 Quirion Dryad
+
+Sorceries · 8
+4 Land Grant
+4 Sleight of Hand
+
+Artifacts · 4
+4 Winter Orb
+
+Enchantments · 4
+4 Curiosity
+
+Instants · 19
+4 Brainstorm
+4 Daze
+3 Foil
+4 Force of Will
+4 Gush
+
+Lands · 10
+6 Island
+4 Tropical Island
+
+Sideboard · 15
+2 Boomerang
+4 Chill
+3 Emerald Charm
+2 Misdirection
+4 Submerge</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-10-extended-decks-all-time-2008-02-07">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Steven Sadin — Hulk Flash</strong><small>Champion · Grand Prix Columbus 2007 · Legacy</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>The most infamous lesson in Force’s double identity: the format needed free countermagic to fight Flash, while the Flash deck itself used four Forces and four Dazes to protect the combo.</p><div class="deck-meta"><div><b>Steven Sadin — Hulk Flash</b><div class="small">Champion · Grand Prix Columbus 2007 · Legacy</div></div><button class="copy" data-target="force-deck-1">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Body Snatcher" tabindex="0">Body Snatcher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Carrion Feeder" tabindex="0">Carrion Feeder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Confidant" tabindex="0">Dark Confidant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karmic Guide" tabindex="0">Karmic Guide</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kiki-Jiki, Mirror Breaker" tabindex="0">Kiki-Jiki, Mirror Breaker</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Protean Hulk" tabindex="0">Protean Hulk</span></div></div><div class="group"><h4>Instants and sorceries · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flash" tabindex="0">Flash</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div></div></div><div class="deck-col"><div class="group"><h4>Other spells · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterbalance" tabindex="0">Counterbalance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sensei&#x27;s Divining Top" tabindex="0">Sensei&#x27;s Divining Top</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverent Silence" tabindex="0">Reverent Silence</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div></div>
+<pre hidden id="force-deck-1">Steven Sadin — Hulk Flash
+Champion · Grand Prix Columbus 2007 · Legacy
+
+Lands · 14
+3 Flooded Strand
+3 Island
+4 Polluted Delta
+1 Swamp
+1 Tropical Island
+1 Tundra
+1 Underground Sea
+
+Creatures · 12
+1 Body Snatcher
+1 Carrion Feeder
+4 Dark Confidant
+1 Karmic Guide
+1 Kiki-Jiki, Mirror Breaker
+4 Protean Hulk
+
+Instants and sorceries · 22
+4 Brainstorm
+4 Daze
+1 Echoing Truth
+4 Flash
+4 Force of Will
+1 Massacre
+4 Mystical Tutor
+
+Other spells · 12
+4 Chrome Mox
+4 Counterbalance
+4 Sensei&#x27;s Divining Top
+
+Sideboard · 15
+4 Leyline of the Void
+3 Massacre
+4 Quirion Dryad
+1 Reverent Silence
+3 Swords to Plowshares</pre><p class="small">Source: <a href="https://www.mtgtop8.com/event?d=206744&amp;e=387&amp;f=LE">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Gaudenis Vidugiris — RUG Delver</strong><small>Champion · Grand Prix Atlanta 2012 · Legacy</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>RUG Delver converted Force from emergency protection into tempo. Trading two cards was acceptable when the countered spell represented the opponent’s chance to stabilize before Delver, Mongoose, and Wasteland ended the game.</p><div class="deck-meta"><div><b>Gaudenis Vidugiris — RUG Delver</b><div class="small">Champion · Grand Prix Atlanta 2012 · Legacy</div></div><button class="copy" data-target="force-deck-2">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scavenging Ooze" tabindex="0">Scavenging Ooze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div></div><div class="group"><h4>Spells · 30</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thought Scour" tabindex="0">Thought Scour</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cursed Totem" tabindex="0">Cursed Totem</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gilded Drake" tabindex="0">Gilded Drake</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scavenging Ooze" tabindex="0">Scavenging Ooze</span></div></div></div></div>
+<pre hidden id="force-deck-2">Gaudenis Vidugiris — RUG Delver
+Champion · Grand Prix Atlanta 2012 · Legacy
+
+Creatures · 12
+4 Nimble Mongoose
+3 Tarmogoyf
+1 Scavenging Ooze
+4 Delver of Secrets
+
+Lands · 18
+4 Wasteland
+3 Volcanic Island
+3 Tropical Island
+4 Misty Rainforest
+4 Scalding Tarn
+
+Spells · 30
+4 Brainstorm
+3 Lightning Bolt
+4 Force of Will
+4 Daze
+2 Spell Snare
+4 Ponder
+4 Spell Pierce
+3 Thought Scour
+2 Fire // Ice
+
+Sideboard · 15
+1 Red Elemental Blast
+2 Cursed Totem
+1 Gilded Drake
+1 Pyroblast
+4 Submerge
+2 Ancient Grudge
+3 Surgical Extraction
+1 Scavenging Ooze</pre><p class="small">Source: <a href="https://articles.starcitygames.com/articles/victory-at-gp-atlanta-1st/">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Max Gilmore — Esper Control</strong><small>Champion · North American Vintage Championship 2024</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Nearly three decades after Alliances, the Vintage champion still registered four Forces. Restricted draw spells and artifact mana change around it; the format’s universal answer remains unrestricted.</p><div class="deck-meta"><div><b>Max Gilmore — Esper Control</b><div class="small">Champion · North American Vintage Championship 2024</div></div><button class="copy" data-target="force-deck-3">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nethergoyf" tabindex="0">Nethergoyf</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza&#x27;s Saga" tabindex="0">Urza&#x27;s Saga</span></div></div><div class="group"><h4>Spells · 33</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindbreak Trap" tabindex="0">Mindbreak Trap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lurrus of the Dream-Den" tabindex="0">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div></div></div></div>
+<pre hidden id="force-deck-3">Max Gilmore — Esper Control
+Champion · North American Vintage Championship 2024
+
+Creatures · 9
+2 Lavinia, Azorius Renegade
+2 Orcish Bowmasters
+4 Psychic Frog
+1 Nethergoyf
+
+Lands · 18
+1 Strip Mine
+3 Wasteland
+3 Underground Sea
+3 Tundra
+1 Karakas
+3 Flooded Strand
+3 Scalding Tarn
+1 Urza&#x27;s Saga
+
+Spells · 33
+1 Brainstorm
+4 Force of Will
+4 Swords to Plowshares
+1 Demonic Tutor
+1 Time Walk
+1 Ancestral Recall
+1 Black Lotus
+1 Lotus Petal
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+2 Ponder
+2 Spell Pierce
+1 Nihil Spellbomb
+1 Mental Misstep
+1 Gitaxian Probe
+1 Treasure Cruise
+1 Dig Through Time
+3 Force of Negation
+1 Dress Down
+2 Lórien Revealed
+1 Vexing Bauble
+
+Sideboard · 15
+2 Null Rod
+1 The Tabernacle at Pendrell Vale
+1 Pithing Needle
+1 Mindbreak Trap
+1 Nihil Spellbomb
+4 Containment Priest
+2 Fatal Push
+1 Lurrus of the Dream-Den
+2 Consign to Memory</pre><p class="small">Source: <a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">open the historical record</a></p></div></details></section>
+<section id="printings"><div class="chapter-number">XVII · The archive</div><h2>Printings and sources</h2>
+<p>Force of Will began as an Alliances uncommon and later became a mythic centerpiece of reprint products. Its long scarcity helped turn it into both an entry cost for Eternal formats and a prestige object; successive reprints expanded the available art and frames without reducing its symbolic status.</p>
+<div class="printings"><figure class="printing"><img alt="Alliances Force of Will" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=all&format=image&version=normal"><figcaption>Alliances · 1996 · original printing</figcaption></figure><figure class="printing"><img alt="Eternal Masters Force of Will" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=ema&format=image&version=normal"><figcaption>Eternal Masters · 2016</figcaption></figure><figure class="printing"><img alt="Double Masters Force of Will" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=2xm&format=image&version=normal"><figcaption>Double Masters · 2020</figcaption></figure><figure class="printing"><img alt="Dominaria Remastered Force of Will" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=dmr&format=image&version=normal"><figcaption>Dominaria Remastered · 2023</figcaption></figure><figure class="printing"><img alt="Secrets of Strixhaven Force of Will" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Force%20of%20Will&set=soa&format=image&version=normal"><figcaption>Secrets of Strixhaven Mystical Archive · 2026</figcaption></figure></div>
+<h3>Research sources</h3><ol class="sources"><li><a href="https://magic.wizards.com/en/news/making-magic/free-play-2002-08-19">Mark Rosewater, “Free Play”</a><span>Original design name, development history, alternate-cost goals, and the addition of the life payment.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/on-the-horizons-part-2-2021-06-14">Mark Rosewater, “On the Horizons, Part 2”</a><span>The Alliances pitch cycle, its designers, and its internal controversy.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/twenty-things-were-going-kill-magic-2013-08-01">Mark Rosewater, “Twenty Things That Were Going to Kill Magic”</a><span>Chris Page's tapped-out inspiration and the origins of the pitch cards.</span></li><li><a href="https://magic.wizards.com/en/news/feature/best-instants-all-time-2003-06-27">Wizards of the Coast, “Best Instants of All Time”</a><span>Force's transformation of the information represented by untapped Islands.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-blue-cards-2003-08-15">Wizards of the Coast, “The Top 50 Blue Cards”</a><span>The period description of Force as the glue holding Type 1 together.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-10-extended-decks-all-time-2008-02-07">Wizards of the Coast, “Top 10 Extended Decks of All Time”</a><span>Miracle Grow, Trix, and the role of Force in Extended's defining decks.</span></li><li><a href="https://magic.wizards.com/en/news/card-preview/flash-hulk-2018-02-27">Wizards of the Coast, “Flash Hulk”</a><span>Grand Prix Columbus 2007 history and the notorious combo sequence.</span></li><li><a href="https://www.mtgtop8.com/event?d=206744&e=387&f=LE">Grand Prix Columbus 2007 deck archive</a><span>Steven Sadin's exact winning Hulk Flash list.</span></li><li><a href="https://articles.starcitygames.com/articles/victory-at-gp-atlanta-1st/">Gaudenis Vidugiris, “Victory at GP Atlanta”</a><span>The winning 2012 RUG Delver list and tournament report.</span></li><li><a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">North American Eternal Weekend 2024 coverage</a><span>Max Gilmore's Vintage Championship list.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted List</a><span>Current paper and digital format status.</span></li><li><a href="https://magic.wizards.com/en/news/mtg-arena/announcements-april-20-2026">MTG Arena Announcements, April 20, 2026</a><span>Historic pre-ban and Wizards' description of Force's power.</span></li><li><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026">Banned and Restricted Announcement, June 29, 2026</a><span>The Brawl ban following Force's Arena release.</span></li><li><a href="https://scryfall.com/search?order=released&q=%21%22Force+of+Will%22&unique=prints">Scryfall Force of Will printing archive</a><span>Oracle text, printings, artwork, release records, and image references.</span></li></ol>
+<p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
+<nav class="end-nav"><a href="index.html#entry-101"><small>Previous entry · 101</small>Necropotence</a><a href="103-brainstorm.html"><small>Next entry · 103</small>Brainstorm</a></nav></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br>Entry 102 follows Force of Will from a controversial pitch spell to the hidden permission system that defines Eternal Magic.</aside></div>
+<div id="preview"><img alt=""></div><footer class="footer">Compulsive Research · Entry 102 · Force of Will · Independent Magic history project.</footer><script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+
+
+</script></body></html>
