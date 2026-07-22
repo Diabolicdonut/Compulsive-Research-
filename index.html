@@ -4,6 +4,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="0" http-equiv="Expires"/>
+<meta content="37" name="compulsive-research-version"/>
 <meta content="Compulsive Research preserves 1,000 influential Magic cards and an expanding collection of honorable mentions." name="description"/>
 <title>Compulsive Research — Preserving 1,000 Influential Magic Cards</title>
 <style>
@@ -5287,11 +5291,51 @@ h3{letter-spacing:-.025em}
 </main>
 <footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
 <script>
+
+const publishedArticleMap={"001":"001-black-lotus.html","002":"002-ancestral-recall.html","003":"003-time-walk.html","004":"004-mox-pearl.html","005":"005-mox-sapphire.html","011":"011-lightning-bolt.html","012":"012-counterspell.html","013":"013-dark-ritual.html","014":"014-swords-to-plowshares.html","018":"018-wrath-of-god.html","019":"019-armageddon.html","022":"022-serra-angel.html","024":"024-hypnotic-specter.html","025":"025-royal-assassin.html","102":"102-force-of-will.html","103":"103-brainstorm.html","250":"250-eternal-dragon.html"};
+
+function repairPublishedEntries(){
+  Object.entries(publishedArticleMap).forEach(([number,filename])=>{
+    const id='entry-'+number;
+    let row=document.getElementById(id);
+    if(!row)return;
+
+    // A restored Android/WebView page can retain markup from an older archive.
+    // Recreate the published row as an anchor instead of trusting that cached tag.
+    if(row.tagName!=='A'){
+      const link=document.createElement('a');
+      [...row.attributes].forEach(attr=>link.setAttribute(attr.name,attr.value));
+      link.innerHTML=row.innerHTML;
+      row.replaceWith(link);
+      row=link;
+    }
+
+    row.classList.add('entry','entry-published');
+    row.classList.remove('hidden');
+    row.dataset.status='published';
+    row.href=filename;
+
+    const name=row.querySelector('.entry-name')?.textContent?.trim()||('Entry '+number);
+    row.setAttribute('aria-label','Read the complete article for '+name);
+
+    let open=row.querySelector('.entry-open');
+    if(!open){
+      const oldStatus=row.querySelector('.entry-status');
+      if(oldStatus)oldStatus.remove();
+      open=document.createElement('span');
+      open.className='entry-open';
+      row.appendChild(open);
+    }
+    open.textContent='Read article →';
+  });
+  archiveRows=[...document.querySelectorAll('.wave-panel .entry')];
+}
+
 const wavePanels=[...document.querySelectorAll('details.wave-panel')];
 const honorablePanels=[...document.querySelectorAll('details.honorable-panel')];
 const archiveSearch=document.getElementById('archive-search');
 const publicationFilter=document.getElementById('publication-filter');
-const archiveRows=[...document.querySelectorAll('.wave-panel .entry')];
+let archiveRows=[...document.querySelectorAll('.wave-panel .entry')];
 const honorableRows=[...document.querySelectorAll('.honorable-panel .honorable-entry')];
 const honorableSection=document.getElementById('honorable-mentions');
 const archiveCount=document.getElementById('archive-count');
@@ -5311,12 +5355,14 @@ function openHashTarget(){
 }
 
 function initializeWaveState(){
+  repairPublishedEntries();
   collapseAllWaves();
   openHashTarget();
 }
 
 document.addEventListener('DOMContentLoaded',initializeWaveState);
 window.addEventListener('pageshow',()=>{
+  repairPublishedEntries();
   if(!location.hash)collapseAllWaves();
   else openHashTarget();
 });
