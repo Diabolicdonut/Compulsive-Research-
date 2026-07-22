@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A long-form magazine history of Mox Jet: the Power Nine, zero-mana acceleration, Mind Twist, Demonic Tutor, Dark Ritual, Yawgmoth’s Will, Vintage combo, artwork, descendants, decklists, and player memory." name="description"/>
+<title>Mox Jet: The Mox That Made Every Bargain Earlier — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.timewalk-title{
+  letter-spacing:-.045em;
+  font-kerning:none;
+  font-variant-ligatures:none
+}
+@media(max-width:750px){
+  .timewalk-title{
+    letter-spacing:0;
+    line-height:.91
+  }
+}
+
+.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.timewalk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important}
+.time-warp-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Warp&format=image&version=art_crop)!important
+}
+.turn-grid,.exchange-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.turn-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.turn-step,.exchange-step{background:var(--white);padding:20px}
+.turn-step b,.exchange-step b{display:block;font:900 1.5rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.turn-step span,.exchange-step span{font:12.5px/1.48 Inter,system-ui,sans-serif;color:var(--muted)}
+.time-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.time-note b{color:var(--ink)}
+.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
+@media(max-width:900px){.turn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.turn-grid,.exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.turn-grid,.exchange-grid{grid-template-columns:1fr}}
+
+
+.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.moxpearl-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important}
+.mox-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.mana-grid,.pearl-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.mana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pearl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mana-step,.pearl-step{background:var(--white);padding:23px}
+.mana-step b,.pearl-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.mana-step span,.pearl-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.mox-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.mox-note b{color:var(--ink)}
+.mox-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mox-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mox-row:last-child{border-bottom:0}.mox-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mox-row p{margin:0}
+@media(max-width:750px){.mana-grid,.pearl-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mana-grid,.pearl-grid{grid-template-columns:1fr}}
+
+
+
+.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.hero.moxsapphire-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.art-break.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important}
+.blue-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.sapphire-grid,.blue-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.sapphire-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.blue-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sapphire-step,.blue-step{background:var(--white);padding:23px}
+.sapphire-step b,.blue-step b{display:block;font:900 1.48rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.sapphire-step span,.blue-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.sapphire-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.sapphire-note b{color:var(--ink)}
+.blue-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.blue-row{display:grid;grid-template-columns:126px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.blue-row:last-child{border-bottom:0}.blue-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.blue-row p{margin:0}
+@media(max-width:750px){.sapphire-grid,.blue-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sapphire-grid,.blue-grid{grid-template-columns:1fr}}
+
+
+.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxjet-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important}
+.black-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.jet-grid,.black-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.jet-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.black-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.jet-step,.black-step{background:var(--white);padding:23px}
+.jet-step b,.black-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.jet-step span,.black-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.jet-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.jet-note b{color:var(--ink)}
+@media(max-width:750px){.jet-grid,.black-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.jet-grid,.black-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero moxjet-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 006 · Wave 01 · The Foundational Canon</div>
+<h1>The Mox That Made Every Bargain Earlier</h1>
+<p class="deckline">Mox Jet took black’s most dangerous exchanges—discard, tutors, graveyard recursion, and combo—and moved them one turn closer to the opening hand.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 23 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="005-mox-sapphire.html">← Entry 005 · Mox Sapphire</a><div class="center">Entry 006 of 1,000</div><a href="index.html#entry-007">Entry 007 · Mox Ruby →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The Mox that made every bargain earlier</a><a href="#origin">Five jewels in Alpha</a><a href="#zero">Why zero was the mistake</a><a href="#jet">Second among the five</a><a href="#black">What one black mana bought</a><a href="#mindtwist">Mind Twist before development</a><a href="#tutors">Demonic Tutor and the value of one black</a><a href="#early">Worlds, The Deck, and powered control</a><a href="#ritual">Mox Jet and Dark Ritual</a><a href="#graveyard">Yawgmoth’s Will and the mana that returns</a><a href="#combo">Storm, Doomsday, and black combo</a><a href="#artifacts">The artifact bargain</a><a href="#restriction">Restriction and exclusion</a><a href="#vintage">Mox Jet in Vintage</a><a href="#descendants">Every Mox after the Moxen</a><a href="#cube">Powered Cube</a><a href="#art">Dan Frazier’s black jewel</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article"><section id="opening"><div class="chapter-number">I · The jewel</div><h2>The Mox that made every bargain earlier</h2>
+<p class="opening dropcap">Mox Jet is a Swamp that arrives before the game has made room for a Swamp.</p>
+<p>It costs zero mana, occupies no land drop, remains on the battlefield, and taps immediately for black. Its rules text is almost aggressively ordinary: add one black mana. The mistake is not hidden in a combo clause or unusual timing rule. The mistake is that the mana appears without asking the player to spend mana or time first.</p>
+<p>That single black mana has always carried unusually sharp consequences. It can become <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Duress" tabindex="0">Duress</span>, <span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span>, <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span>, <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>, or the first spell in a graveyard-fueled combo turn. Black’s greatest cards frequently trade one resource for another: life for cards, cards for mana, creatures for advantage, or certainty for risk. Mox Jet lets those bargains begin before the ordinary mana curve says they should.</p>
+<div class="card-lead"><img alt="Mox Jet from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Mox%20Jet&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Mox Jet</b> · {0}<br/>Artifact<br/><br/>{T}: Add {B}.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Dan Frazier</div><div class="stat"><b>Historical status</b>Power Nine · Restricted in Vintage</div></div></div></div>
+<p>Among the original Moxen, Jet has often been placed immediately behind Sapphire. The cards are mechanically identical except for color. The ranking therefore says less about the jewelry than about what black mana was capable of buying: the best tutor, devastating hand destruction, ritual acceleration, and eventually the game’s most abusive graveyard recursion.</p>
+<p>Mox Jet is not merely “the black Mox.” It is the permanent first step in black’s long history of turning resources into leverage before the opponent has established any resources of their own.</p></section><section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Five jewels in Alpha</h2>
+<p>Alpha introduced five Moxen, one for each color. Their names came from gemstones—pearl, sapphire, jet, ruby, and emerald—and their function was perfectly parallel. Each cost zero and tapped for one colored mana.</p>
+<p>The cycle appears simple because the land system around it is so familiar. Lands are not merely mana producers; they are the game’s pacing mechanism. A player normally receives one new land drop per turn. The Moxen bypassed that rationing while looking like modest artifacts rather than spectacular spells.</p>
+<p>Richard Garfield and the early designers understood that fast mana was exciting, but the first set did not yet have decades of evidence showing how ruthlessly competitive players would convert one extra mana into tempo. Alpha placed Mox Jet beside <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span>, <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span>, and <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>. Black therefore began the game with both the strongest permanent colored acceleration and a separate burst-mana spell.</p>
+<p>The visual cycle reinforced the connection. Dan Frazier painted each Mox as an intimate object of wealth and occult utility. Mox Jet’s dark stone feels less reflective than Sapphire or Pearl, a dense black center held inside gold ornament. The image communicates value without explaining the scale of the rules error.</p>
+<div class="pullquote">The Moxen looked like treasures. Competitive Magic discovered that they were turns.<small>Limited Edition Alpha · 1993</small></div></section><div class="art-break moxjet-art"><div class="art-caption"><b>Dan Frazier’s original Mox Jet artwork</b>The black stone is held inside the same gold vocabulary as the other Alpha Moxen, but its darkness gives the object the feel of a secret rather than a reflection.</div></div><section id="zero"><div class="chapter-number">III · The missing cost</div><h2>Why zero was the mistake</h2>
+<p>Mana acceleration normally asks for an investment. A two-mana artifact that produces one mana begins repaying its cost later. A creature that taps for mana must usually survive summoning sickness. A land uses the one land drop allocated to the turn.</p>
+<p>Mox Jet asks for none of those things. It can be played before a land, after a land, or between spells. It increases storm count. It becomes material for <span class="card-name" data-card="Tinker" tabindex="0">Tinker</span>. It can be replayed from the graveyard. It remains available on later turns rather than disappearing like Dark Ritual.</p>
+<div class="jet-grid"><div class="jet-step"><b>0 mana</b><span>No prior resource must be spent to deploy it.</span></div><div class="jet-step"><b>+1 source</b><span>It produces black mana without consuming the turn’s land drop.</span></div><div class="jet-step"><b>Permanent</b><span>The acceleration remains available every turn unless answered.</span></div><div class="jet-step"><b>Artifact</b><span>It also counts as a spell, permanent, sacrifice object, and combo material.</span></div></div>
+<p>A useful way to understand the card is to imagine beginning the game with an extra land already in play and an unchanged seven-card hand. That description is not exact—the Mox occupies a card slot and can be destroyed—but it captures the turn-structure violation. The player has effectively moved part of turn two into turn one.</p>
+<p>The card disadvantage of drawing an artifact instead of a land is real only at the margins. In decks filled with powerful spells and card draw, the immediate sequencing advantage frequently produces more than enough value to repay the physical card.</p></section><section id="jet"><div class="chapter-number">IV · The ranking</div><h2>Second among the five</h2>
+<p>The five original Moxen share text, mana value, type line, rarity, and artist. Any ranking among them is therefore a ranking of colors and historical card pools.</p>
+<p>Wizards’ own 2005 artifact retrospective placed Sapphire first and Jet next, pointing specifically to <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span>, <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, and the existence of genuinely black-powered decks. That judgment captures Jet’s peculiar strength. Blue mana turns acceleration into more cards and permission. Black mana turns it into selection, hand destruction, ritual chains, and recursion.</p>
+<p>Jet is also often the most important nonblue Mox in multicolor Vintage decks. A single black source can activate the restricted tutors that find any card, cast removal such as <span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span>, or begin a combo line involving Dark Ritual and <span class="card-name" data-card="Doomsday" tabindex="0">Doomsday</span>. The deck may contain many blue cards, but the black splash is frequently compressed into uniquely powerful effects. Jet supplies that splash without requiring another land.</p>
+<div class="jet-note"><b>The color test:</b> if every Mox had to be evaluated only by the spells it enables, Jet’s case begins with the game’s best unrestricted-style tutor effects and some of its most punishing resource conversion.</div>
+<p>The comparison does not make Jet fair. It makes the absurdity easier to see. The “second-best Mox” is still a zero-mana permanent mana source restricted in the only sanctioned constructed format where it can be played.</p></section><section id="black"><div class="chapter-number">V · The color around it</div><h2>What one black mana bought</h2>
+<p>Black’s earliest identity was built around access at a price. It could kill creatures, attack hands, tutor for cards, reanimate the dead, and exchange life for power. These effects were often more efficient than comparable effects in other colors because black accepted costs that other colors did not.</p>
+<p>Mox Jet reduces the timing cost without changing the printed bargain. A <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span> cast from Jet plus a land does not merely find the best card; it finds it before the opponent has developed enough mana to contest the plan. A turn-one <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> created by Jet, Swamp, and Dark Ritual is not as famous as the pure Swamp-Ritual opening, but Jet leaves a permanent black source behind for the next turn.</p>
+<div class="black-grid"><div class="black-step"><b>Discard</b><span>Duress, Thoughtseize, Mind Twist, and Specters remove the opponent’s future before it resolves.</span></div><div class="black-step"><b>Tutors</b><span>Demonic and Vampiric Tutor convert black mana into access to the strongest singleton.</span></div><div class="black-step"><b>Recursion</b><span>Yawgmoth’s Will and reanimation effects turn the graveyard into a second hand.</span></div></div>
+<p>Black mana is particularly valuable in powered formats because restricted cards increase the value of tutoring. When a deck may play only one Ancestral Recall, one Time Walk, one Black Lotus, and one Yawgmoth’s Will, the spell that finds the correct singleton becomes disproportionately important.</p>
+<p>Jet therefore does more than fix black. It accelerates the color whose strongest effects make the rest of the Power Nine easier to locate and reuse.</p></section><section id="mindtwist"><div class="chapter-number">VI · The empty hand</div><h2>Mind Twist before development</h2>
+<p><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> is one of the clearest demonstrations of why Jet mattered. The spell converts mana into random cards removed from the opponent’s hand. The earlier it happens, the more completely it attacks the game the opponent intended to play.</p>
+<p>Black Lotus created the most spectacular openings, but Mox Jet contributed both acceleration and the correct color. A powered start could cast a large Mind Twist before the opponent had spent any of the cards being discarded. Unlike late-game discard, which may hit excess lands, an early Twist attacks the opening hand at maximum density.</p>
+<p>The interaction also reveals why symmetrical card accounting can mislead. A player may spend several cards—Mox, Lotus, the Twist itself—to remove several opposing cards. Yet the caster keeps the battlefield mana that remains, chooses when the exchange happens, and may leave the opponent unable to make meaningful plays.</p>
+<p>Random discard added another layer. The opponent could not protect the most important spell by choosing a less important card. Jet helped turn black mana into uncertainty before ordinary sequencing had begun.</p>
+<p>Mind Twist eventually became restricted in Vintage and banned in Legacy, but the strategic pattern survived: fast black mana plus hand disruption is not merely an exchange of cards. It is an attempt to decide which player gets to participate in the first several turns.</p></section><section id="tutors"><div class="chapter-number">VII · Access</div><h2>Demonic Tutor and the value of one black</h2>
+<p>If Mind Twist showed black mana as denial, <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span> showed it as access. Two mana found any card with no reveal requirement and no restriction by card type.</p>
+<p>Mox Jet allows the tutor to occur while preserving the land drop or while leaving another color available. In a powered deck, the target might be Black Lotus for acceleration, Ancestral Recall for cards, Time Walk for tempo, Balance for recovery, or a narrow answer that exists as a singleton because the tutor effectively increases its availability.</p>
+<p><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span> later compressed the cost to one black mana and two life, making Jet itself enough to cast the tutor. The card placed the selection on top of the library rather than into hand, but instant speed and the one-mana cost allowed end-step setup or immediate conversion through a draw spell.</p>
+<p>These tutors explain why Jet’s color remains relevant even in decks whose visible identity is blue. The black cards need not occupy many slots. Their function is to connect the hand to the exact restricted card that matters.</p>
+<div class="pullquote">Sapphire accelerates the cards you drew. Jet accelerates the cards that find what you should have drawn.<small>The tutor relationship</small></div></section><section id="early"><div class="chapter-number">VIII · The first canon</div><h2>Worlds, The Deck, and powered control</h2>
+<p>Zak Dolan’s 1994 World Championship deck included all five Moxen and Black Lotus inside a U/W/G control shell. Mox Jet was not there because the deck contained a large black package. It was there because zero-mana acceleration was worth playing even when the color contribution was minor.</p>
+<p>Brian Weissman’s foundational Type I control strategy made Jet’s black mana more explicit. <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span> and <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> sat beside blue card draw, countermagic, white removal, and red sideboard cards. The five-color mana base treated each Mox as a permanent source that reduced the cost of operating a deck built from the strongest cards across Magic.</p>
+<p>The Deck established a lasting Vintage principle: a powerful control deck did not need to be “a black deck” to need Mox Jet. It needed black for a small number of effects that had no adequate replacement in other colors.</p>
+<p>Jet also supported the control deck after the explosive opening. It helped cast Disrupting Scepter activations, left lands available for Mana Drain and Counterspell, and survived through turns in which the deck traded one-for-one until card advantage took over.</p>
+<p>The Mox was therefore both acceleration and infrastructure. The same artifact that enabled an early tutor remained on the battlefield to cast ordinary spells ten turns later.</p></section><section id="ritual"><div class="chapter-number">IX · Two kinds of fast mana</div><h2>Mox Jet and Dark Ritual</h2>
+<p><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> and Mox Jet are Alpha’s two great statements about black acceleration. They are often grouped together, but they solve different problems.</p>
+<p>Dark Ritual converts one card into three black mana once. It produces a larger burst and can create openings such as turn-one Hypnotic Specter or Necropotence. Mox Jet produces only one, but it asks for no mana, remains in play, and combines with Ritual rather than competing with it.</p>
+<p>A hand containing both can reach four black mana before the first land has finished defining the turn. That amount can cast a threat, a tutor plus another spell, or begin a combo sequence while leaving the Mox behind as continuing development.</p>
+<div class="jet-grid"><div class="jet-step"><b>Dark Ritual</b><span>One card becomes three black mana for a single turn.</span></div><div class="jet-step"><b>Mox Jet</b><span>One card becomes one black mana every turn.</span></div><div class="jet-step"><b>Together</b><span>The burst arrives without sacrificing future mana development.</span></div><div class="jet-step"><b>Result</b><span>Black can act explosively now and still begin the next turn ahead.</span></div></div>
+<p>The contrast also helps explain later design. Temporary black rituals were gradually reduced or moved toward red, while permanent zero-mana acceleration became almost entirely conditional. Alpha had printed both extremes at once.</p></section><section id="graveyard"><div class="chapter-number">X · The second hand</div><h2>Yawgmoth’s Will and the mana that returns</h2>
+<p><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span> transformed Mox Jet from acceleration into recursion material. For one turn, the graveyard becomes a hand, and cards played from it go to exile afterward.</p>
+<p>A zero-mana artifact is ideal under Will. Mox Jet can be cast from the graveyard without consuming the mana needed for the rest of the turn. It then produces black mana, effectively paying back part of the spell that enabled its return. Black Lotus, the other Moxen, and rituals create the same feedback loop at greater scale.</p>
+<p>This interaction changed how players evaluated spent fast mana. A Mox sacrificed to Tinker or destroyed earlier was not necessarily gone. Under Yawgmoth’s Will it could become another spell for storm count and another mana source for the combo turn.</p>
+<p>Black’s relationship with the graveyard made Jet distinct from a simple additional land. Lands can also be replayed under certain effects, but the Mox is a zero-mana spell and artifact. Every one of those identities can matter simultaneously.</p>
+<p>Yawgmoth’s Will is now restricted in Vintage, yet its presence remains central to the mythology of powered black mana: the turn in which all the resources already spent are cast again, with Mox Jet helping finance its own return.</p></section><section id="combo"><div class="chapter-number">XI · The engine</div><h2>Storm, Doomsday, and black combo</h2>
+<p>Modern Vintage combo decks use Mox Jet as both color source and spell. In Storm, it increases spell count for free, fixes black for tutors and rituals, and can be replayed through graveyard recursion. In <span class="card-name" data-card="Doomsday" tabindex="0">Doomsday</span>, it helps cast the namesake sorcery while preserving lands for cantrips and protection.</p>
+<p>The 2026 Vintage Doomsday list preserved in this article’s archive shows the role clearly. Jet sits beside four Dark Rituals, Demonic Tutor, Vampiric Tutor, black removal, blue card selection, and free countermagic. The deck is predominantly blue-black, but its decisive action requires three black mana. Jet is both the smallest permanent contribution and one of the cleanest ways to reach that threshold early.</p>
+<p>Black combo also benefits from the way Jet reduces color tension. Underground Sea can remain untapped for a blue cantrip or Flusterstorm while the Mox supplies black. A hand with multiple restricted artifacts can develop mana without exposing every land to Wasteland.</p>
+<p>In these decks, “one black mana” is not modest. It is one-third of Doomsday, the cost of a Ritual, the activation point for a tutor, or the first step toward replaying the graveyard.</p></section><section id="artifacts"><div class="chapter-number">XII · The type line</div><h2>The artifact bargain</h2>
+<p>Mox Jet is better than a land because it does not use a land drop, but worse because it can be attacked as an artifact. Vintage makes that vulnerability meaningful.</p>
+<p><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span>, <span class="card-name" data-card="Stony Silence" tabindex="0">Stony Silence</span>, and <span class="card-name" data-card="Collector Ouphe" tabindex="0">Collector Ouphe</span> can stop its mana ability. <span class="card-name" data-card="Force of Vigor" tabindex="0">Force of Vigor</span>, Ancient Grudge, and other artifact removal can destroy it. Sphere effects may tax the act of casting it even though the printed mana value is zero.</p>
+<p>The artifact type also creates advantages. Jet can be sacrificed to <span class="card-name" data-card="Tinker" tabindex="0">Tinker</span>, counted for Metalcraft, bounced and replayed for storm, or returned under Yawgmoth’s Will. A card that exists to produce mana becomes combo material whenever the deck needs a different resource.</p>
+<p>This tension is one of Vintage’s defining feedback loops. The format contains artifact hate because the Moxen are so efficient; the Moxen remain powerful because the decks using them can deploy threats and answers before the hate arrives.</p>
+<p>The card has no printed drawback. The format has spent decades inventing external drawbacks for it.</p></section><section id="restriction"><div class="chapter-number">XIII · Format law</div><h2>Restriction and exclusion</h2>
+<p>The original Moxen were placed on Magic’s earliest restricted lists. One copy was permitted in Type I, but four copies were recognized as too much permanent acceleration for a functional competitive environment.</p>
+<p>Mox Jet remains restricted in Vintage. It is banned in Legacy and Commander and lies outside the card pools of formats beginning with later sets. Its ordinary sanctioned constructed home is therefore the format specifically designed to manage Magic’s most powerful historical cards.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>One copy remains legal in control, combo, and artifact strategies.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Legacy and Commander</h3><p>The card’s age would otherwise qualify it, but its efficiency is excluded.</p></div><div class="format-card"><span class="impact">Curated</span><h3>Powered Cube</h3><p>Draft environments provide controlled access to the original Mox experience.</p></div></div>
+<p>Restriction reduces consistency without erasing the card’s identity. Tutors and card draw make singletons more accessible in Vintage than in ordinary formats, and graveyard recursion can allow the one physical copy to be cast more than once.</p>
+<p>The one-copy rule has also made drawing Jet feel ceremonial. A hand with the black Mox is not merely a statistically common opening from a four-of mana base. It is a particular powered hand whose sequencing possibilities immediately widen.</p></section><section id="vintage"><div class="chapter-number">XIV · The living format</div><h2>Mox Jet in Vintage</h2>
+<p>Vintage has changed dramatically around Mox Jet. Creature decks became more efficient, free countermagic multiplied, artifacts gained stronger hate, and black acquired new threats such as <span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span> and <span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span>. Jet remained useful because its effect is abstract: begin with more mana than the land system permits.</p>
+<p>Control decks use it to cast black interaction while keeping blue mana open. Combo decks use it for tutors, rituals, and storm count. Tinker decks use it as both mana and a sacrifice object. Hatebear decks may use it to accelerate the very permanents intended to disable opposing Moxen.</p>
+<p>The black Mox is especially valuable in contemporary blue-black shells because the color requirements are compressed and demanding. A deck may need black on turn one for removal, multiple black mana for Doomsday, and blue on the same turn for cantrips or protection. Jet adds a source without increasing the land count.</p>
+<p>Its continued restriction is the proof of scale. Thousands of cards have been printed since Alpha. The surrounding strategies have changed repeatedly. A zero-mana permanent black source has never stopped being one of the best cards those strategies can register.</p></section><section id="descendants"><div class="chapter-number">XV · Design echo</div><h2>Every Mox after the Moxen</h2>
+<p>Every later Mox design begins with an admission: the original cycle cannot be repeated without a condition.</p>
+<p><span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span> requires a discarded land. <span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span> exiles a colored card. <span class="card-name" data-card="Mox Opal" tabindex="0">Mox Opal</span> asks for Metalcraft and is legendary. <span class="card-name" data-card="Mox Amber" tabindex="0">Mox Amber</span> depends on legendary permanents. <span class="card-name" data-card="Mox Tantalite" tabindex="0">Mox Tantalite</span> delays the reward through suspend.</p>
+<p>Chrome Mox is the most thematically appropriate descendant for Jet. It can produce black, often by exiling a black card, but the acceleration costs a second card and constrains deck construction. That lost card is the safety valve missing from Alpha.</p>
+<div class="inline-image black-descendant"><div class="image"></div><div class="copy"><div class="kicker">The imprinted descendant</div><h3>Chrome Mox</h3><p>Chrome Mox recreates zero-mana colored acceleration only after another card is exiled from the hand. The drawback makes visible the resource payment Mox Jet never had to make.</p></div></div>
+<p>Several descendants have still required bans or restrictions. That history emphasizes how little design space exists around the original promise. Even when a Mox has conditions, zero-mana acceleration can remain format-defining.</p></section><section id="cube"><div class="chapter-number">XVI · Curated power</div><h2>Powered Cube</h2>
+<p>Powered Cube gives Mox Jet a second active life outside Vintage. The card can be drafted, played, and experienced without requiring ownership of a Reserved List original or entry into a sanctioned powered format.</p>
+<p>Jet is an extremely high pick because it is both universal acceleration and premium black fixing. Reanimator, Storm, artifact decks, midrange, and control can all use it. Even a deck with only a light black splash may take Jet early because the opportunity cost of a zero-mana source is so low.</p>
+<p>The draft environment also makes its artifact identity visible. A player may sacrifice it, recur it, count it for artifact synergies, or deliberately pass it because the deck is built around Null Rod-style effects. Those decisions reveal more texture than the simple rules text suggests.</p>
+<p>Wizards’ Arena Powered Cube presentation preserved Dan Frazier’s original artwork for the Moxen, recognizing that the images are part of the experience of “power” as much as the effects.</p></section><section id="art"><div class="chapter-number">XVII · The object</div><h2>Dan Frazier’s black jewel</h2>
+<p>Dan Frazier’s Mox cycle depicts objects small enough to hold and important enough to build a mythology around. Mox Jet is framed by curling gold forms around a black stone that seems to absorb rather than reflect light.</p>
+<p>The composition makes the artifact feel ancient and wearable, halfway between jewelry and a ritual implement. That ambiguity suits black mana. The object is valuable, but its value seems tied to secrecy, ownership, and a power not fully visible on the surface.</p>
+<p>Later versions of Mox-like cards often emphasize machinery, magical energy, or grander settings. The Alpha Moxen remain intimate. Their scale makes the rules text more unsettling: the game’s mana system is being broken by something that can fit in a palm.</p>
+<p>Frazier’s cycle became one of Magic’s most recognizable linked groups of images. The color of the stone changes; the promise remains the same.</p></section><section id="memory"><div class="chapter-number">XVIII · The opening hand</div><h2>What players remember</h2>
+<p>Players remember Mox Jet as the black corner of a powered hand: a source that appears before the first land and immediately asks what resource should be attacked or converted.</p>
+<p>Sometimes the memory is a tutor cast while every land remains untapped. Sometimes it is a Dark Ritual chain, a first-turn threat, or a Yawgmoth’s Will that replays the Mox and turns the graveyard into a storm engine. In Cube, the memory may begin with the draft pick itself—the moment a black jewel appears and archetype commitments temporarily stop mattering.</p>
+<p>Jet’s reputation is less singular than Black Lotus and less automatically dominant than Sapphire, but that is part of its identity. It is the Mox most closely associated with bargains: a card that accelerates the color already willing to spend cards, life, creatures, and graveyards for access to stronger effects.</p>
+<div class="memory"><div class="memory-grid"><blockquote>Mox Jet does not ask what black mana costs. It removes the turn in which you were supposed to pay it.</blockquote><cite>The permanent ritual</cite></div></div></section><section id="decklists"><div class="chapter-number">XIX · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists trace Mox Jet from the first World Championship and the birth of formal control theory through Gush-era Vintage and a contemporary Doomsday shell. In each deck, Jet converts black mana into access, disruption, or combo velocity.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion registered all five Moxen. Jet supplied a free permanent source and demonstrated that powered acceleration was worth playing even when black was only a small part of the deck.</p><button class="copy" data-target="mox-jet-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="mox-jet-deck-0">Zak Dolan — U/W/G Stasis Control
+World Champion · Worlds 1994
+
+Creatures · 11
+1 Clone
+2 Old Man of the Sea
+1 Time Elemental
+1 Vesuvan Doppelganger
+1 Birds of Paradise
+1 Ley Druid
+4 Serra Angel
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
+
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Enchantments · 4
+1 Control Magic
+2 Stasis
+1 Kismet
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Strip Mine
+
+Sideboard · 15
+1 Kismet
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck">
+<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck used Lotus to reach Mind Twist, Disrupting Scepter, and the mana advantage required to convert answers into permanent control. Its presence in the first famous control deck demonstrates that Lotus was not merely a combo card; it was the best possible opening resource for almost any strategy.</p>
+<div class="deck-meta"><div><b>Brian Weissman</b><div class="small">Foundational Type I control archetype · mid-1990s</div></div>
+<button class="copy" data-target="mox-jet-deck-1">Copy decklist</button></div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
+</div>
+<pre hidden="" id="mox-jet-deck-1">Brian Weissman — The Deck
+Foundational Type I control archetype · mid-1990s
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Enchantments · 2
+2 Moat
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod's Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
+</div>
+</details><details class="deck">
+<summary><span><strong>Stephen Menendian — Gro-A-Tog</strong><small>Champion · Gen Con Vintage Championship 2007</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>In Gush-based Vintage, Ancestral Recall was simultaneously raw card advantage, a cheap blue spell for Quirion Dryad, a Merchant Scroll target, and material that could be replayed with Yawgmoth’s Will.</p>
+<div class="deck-meta">
+<div><b>Stephen Menendian</b><div class="small">Champion · Gen Con Vintage Championship 2007</div></div>
+<button class="copy" data-target="mox-jet-deck-2">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Instants and sorceries · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire / Ice" tabindex="0">Fire / Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
+</div>
+<pre hidden="" id="mox-jet-deck-2">Stephen Menendian — Gro-A-Tog
+Champion · Gen Con Vintage Championship 2007
+
+Creatures · 5
+1 Psychatog
+4 Quirion Dryad
+
+Lands · 14
+3 Flooded Strand
+1 Island
+1 Library of Alexandria
+3 Polluted Delta
+2 Tropical Island
+3 Underground Sea
+1 Volcanic Island
+
+Instants and sorceries · 35
+1 Ancestral Recall
+4 Brainstorm
+1 Cunning Wish
+1 Demonic Tutor
+4 Duress
+4 Force of Will
+4 Gush
+2 Mana Drain
+4 Merchant Scroll
+2 Misdirection
+1 Mystical Tutor
+3 Opt
+1 Red Elemental Blast
+1 Time Walk
+1 Vampiric Tutor
+1 Yawgmoth's Will
+
+Other spells · 6
+1 Black Lotus
+1 Fastbond
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+
+Sideboard · 15
+1 Ancient Grudge
+1 Berserk
+1 Fire / Ice
+1 Island
+1 Oxidize
+2 Pithing Needle
+2 Pyroblast
+1 Rack and Ruin
+1 Red Elemental Blast
+1 Rushing River
+3 Yixlid Jailer</pre>
+<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">open the historical record</a></p>
+</div>
+</details><details class="deck"><summary><span><strong>Vintage Doomsday</strong><small>Metagame example · Wizards B&amp;R announcement, February 2026</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">This official metagame example shows Jet in a contemporary blue-black combo shell: it helps reach three black mana for Doomsday, casts tutors and disruption, and remains a free spell for tightly sequenced turns.</p><button class="copy" data-target="mox-jet-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thassa's Oracle" tabindex="0">Thassa's Oracle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><h4>Artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mishra's Bauble" tabindex="0">Mishra's Bauble</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mindbreak Trap" tabindex="0">Mindbreak Trap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Snuff Out" tabindex="0">Snuff Out</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Steel Sabotage" tabindex="0">Steel Sabotage</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Unable to Scream" tabindex="0">Unable to Scream</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Soul-Guide Lantern" tabindex="0">Soul-Guide Lantern</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lurrus of the Dream-Den" tabindex="0">Lurrus of the Dream-Den</span></div></div><div class="deck-col"><h4>Spells · 34</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flusterstorm" tabindex="0">Flusterstorm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Unable to Scream" tabindex="0">Unable to Scream</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Doomsday" tabindex="0">Doomsday</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><h4>Lands · 14</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Undercity Sewers" tabindex="0">Undercity Sewers</span></div></div></div><pre hidden="" id="mox-jet-deck-3">Vintage Doomsday
+Metagame example · Wizards B&amp;R announcement, February 2026
+
+Creatures · 6
+1 Thassa's Oracle
+1 Tamiyo, Inquisitive Student
+4 Psychic Frog
+
+Artifacts · 6
+1 Mox Sapphire
+1 Mox Jet
+3 Mishra's Bauble
+1 Black Lotus
+
+Spells · 34
+4 Force of Will
+1 Ancestral Recall
+4 Ponder
+1 Mental Misstep
+1 Treasure Cruise
+1 Vampiric Tutor
+3 Flusterstorm
+3 Force of Negation
+1 Gitaxian Probe
+1 Time Walk
+4 Dark Ritual
+1 Gush
+1 Unable to Scream
+1 Dig Through Time
+1 Brainstorm
+4 Doomsday
+1 Demonic Tutor
+1 Daze
+
+Lands · 14
+2 Flooded Strand
+4 Underground Sea
+2 Misty Rainforest
+2 Scalding Tarn
+1 Island
+2 Polluted Delta
+1 Undercity Sewers
+
+Sideboard · 15
+2 Mindbreak Trap
+1 Consign to Memory
+1 Snuff Out
+1 Steel Sabotage
+3 Unable to Scream
+1 Soul-Guide Lantern
+1 Thoughtseize
+4 Leyline of the Void
+1 Lurrus of the Dream-Den</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-february-9-2026">Wizards of the Coast, February 2026 Banned and Restricted announcement</a></p></div></details></section><section id="printings"><div class="chapter-number">XX · The record</div><h2>Printings and sources</h2>
+<p>Mox Jet was first printed in Limited Edition Alpha and retained the original Dan Frazier artwork through Beta and Unlimited. Revised changed the frame and presentation while preserving the card’s function. As a Reserved List card, the original tournament-legal object is not available for ordinary reprinting.</p>
+<div class="source-list"><a href="https://magic.wizards.com/en/news/feature/power-nine-2003-10-15"><b>Wizards of the Coast, “The Power Nine”</b><span>The original Moxen and their place among Magic’s most powerful cards.</span></a><a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28"><b>Wizards of the Coast, “The Top 50 Artifacts of All Time”</b><span>Ranks Jet directly behind Sapphire because of Mind Twist, Demonic Tutor, and black decks.</span></a><a href="https://magic.wizards.com/en/news/making-magic/the-deck-2014-02-17"><b>Mark Rosewater, “The Deck”</b><span>Brian Weissman’s foundational Type I control list and strategy.</span></a><a href="https://magic.wizards.com/en/banned-restricted-list"><b>Wizards of the Coast, Banned and Restricted Lists</b><span>Current Vintage restriction and Legacy prohibition.</span></a><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-february-9-2026"><b>Wizards of the Coast, February 2026 B&amp;R announcement</b><span>Contemporary Vintage Doomsday deck example.</span></a><a href="https://magic.wizards.com/en/news/announcements/official-reprint-policy"><b>Wizards of the Coast, Official Reprint Policy</b><span>Mox Jet’s Reserved List status.</span></a><a href="https://magic.wizards.com/en/news/mtg-arena/announcing-the-arena-powered-cube"><b>Wizards of the Coast, Arena Powered Cube</b><span>Digital access to the original Moxen with Dan Frazier’s artwork.</span></a><a href="https://www.mtgtop8.com/event?e=15&amp;f=VI"><b>Gen Con Vintage Championship 2007</b><span>Stephen Menendian’s Gro-A-Tog list.</span></a></div>
+<div class="end-nav"><a href="005-mox-sapphire.html"><small>Previous entry · 005</small>Mox Sapphire</a><a href="index.html#entry-007"><small>Next entry · 007</small>Mox Ruby</a></div>
+</section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 005 follows Mox Pearl inside the Foundational Canon, examining the blue Mox as permanent acceleration, permission, combo material, collectible object, and enduring design prohibition.</aside></div>
+<div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · Entry 005 · Mox Sapphire · Independent Magic history project.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body>
+</html>
