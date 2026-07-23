@@ -1,0 +1,973 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Nevinyrral’s Disk: Alpha, the visible board wipe, Necropotence, Nevinyrral’s Necro, Draw-Go, Larry Niven, Commander, artwork, printings, and decklists."><title>Nevinyrral’s Disk: The Table Had One Turn Left — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+</style></head>
+<body><header class="hero disk-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-042#entry-042">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 042 · The Foundational Canon</div>
+<h1>The Table Had One Turn Left</h1>
+<p class="deckline">Nevinyrral’s Disk gave every color a visible apocalypse, clearing artifacts, creatures, and enchantments while forcing the entire table to play beneath the threat of the next untap step.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 32 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="041-icy-manipulator.html">← Entry 041 · Icy Manipulator</a><div class="center">Entry 042 of 1,000</div><a href="index.html?focus=entry-043#entry-043">Entry 043 · Jayemdae Tome →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Table Had One Turn Left</a>
+<a href="#alpha">Alpha’s colorless apocalypse</a>
+<a href="#warning">Why it enters tapped</a>
+<a href="#scope">Everything except the lands</a>
+<a href="#rules">What Nevinyrral’s Disk actually does</a>
+<a href="#threat">The threat was often stronger than the blast</a>
+<a href="#colors">The answer colors were not supposed to have</a>
+<a href="#necro">Necropotence and rebuilding first</a>
+<a href="#worlds">Nevinyrral’s Necro</a>
+<a href="#draw-go">Draw-Go’s battlefield reset</a>
+<a href="#stack">Activate, then save the Disk</a>
+<a href="#survive">Indestructible, regeneration, and repetition</a>
+<a href="#name">Larry Niven written backward</a>
+<a href="#lore">The lich finally receives a face</a>
+<a href="#decline">Why the warning became too slow</a>
+<a href="#commander">The Commander institution</a>
+<a href="#descendants">The descendants of the Disk</a>
+<a href="#art">Two visions of annihilation</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Warning</div><h2>The Table Had One Turn Left</h2>
+<p class="opening dropcap">Nevinyrral’s Disk does not surprise the battlefield. It arrives tapped, sits in plain sight, and gives every player one full turn to decide what matters enough to save, spend, sacrifice, counter, or destroy before the world ends.</p>
+<p>That warning is the card’s identity. A conventional sweeper clears what has already happened. The Disk changes what happens next. Creatures remain in hand. Enchantments are withheld. Artifacts are activated early. Opponents attack the player who controls the button because everyone understands what untapping will mean.</p>
+<p>For early black and blue decks, the artifact was more than a board wipe. It was access to kinds of removal their colors did not naturally possess. It destroyed the enchantments black could not touch, the creatures blue could not efficiently kill, and the artifacts threatening either strategy. Four generic mana bought an apocalypse almost anyone could cast.</p>
+<div class="card-lead"><img alt="Nevinyrral's Disk from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Nevinyrral’s Disk</h3><p><b>{4} · Artifact</b></p><p>This artifact enters tapped.</p><p>{1}, {T}: Destroy all artifacts, creatures, and enchantments.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Mark Tedin</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Colorless battlefield reset</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Device</div><h2>Alpha’s colorless apocalypse</h2>
+<p>Alpha distributed mass destruction unevenly. White received <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>. Red received <span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span>. Black had <span class="card-name" data-card="Pestilence" tabindex="0">Pestilence</span> and sacrifice, but no clean answer to every creature, artifact, and enchantment. Blue could counter threats before they resolved but had difficulty permanently removing those already on the battlefield.</p>
+<p>Nevinyrral’s Disk gave every color a shared emergency exit. Its generic mana cost made it splashable in the literal sense that no splash was required. A mono-black deck, mono-blue deck, five-color control deck, or artifact prison deck could all reserve four slots for the same promise: if the battlefield became unmanageable, reset it.</p>
+<p>The original card was a <i>Mono Artifact</i>, an early type used for artifacts whose abilities required tapping. The modern card retains the physical rhythm without the obsolete type line: cast it, wait, untap it, and decide whether the table still deserves to exist.</p>
+</section>
+
+<div class="pullquote">The Disk’s first effect was not destruction. It was making every permanent temporary.<small>A visible apocalypse changes play before it happens</small></div>
+
+<section id="warning"><div class="chapter-number">III · The Delay</div><h2>Why it enters tapped</h2>
+<p>If Nevinyrral’s Disk entered untapped, five mana would buy an immediate colorless sweeper that destroyed three permanent types. Entering tapped creates counterplay and transforms the card from a spell into a looming event.</p>
+<p>The opponent receives a window to attack, remove the Disk, counter the activation with a specialized effect, phase out important permanents, or force the controller to detonate earlier than intended. The controller must survive the turn in which four mana produced no immediate battlefield change.</p>
+<p>That delay also creates bluffing. Once the Disk untaps, its controller may never need to activate it. The table must behave as though the activation is available, and that behavioral restraint can be more valuable than the cards eventually destroyed.</p>
+</section>
+
+<section id="scope"><div class="chapter-number">IV · The Boundary</div><h2>Everything except the lands</h2>
+<p>The Disk destroys artifacts, creatures, and enchantments. Lands survive unless they also possess one of those types. Planeswalkers are not named and ordinarily survive as well.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Destroyed</span><h3>The developed board</h3><p>Creatures, artifact mana, Equipment, prison pieces, Auras, global enchantments, and artifact creatures all disappear together.</p></div>
+<div class="format-card"><span class="impact">Preserved</span><h3>The means to rebuild</h3><p>Ordinary lands remain, allowing both players to redeploy immediately after the reset.</p></div>
+<div class="format-card"><span class="impact">Conditional</span><h3>Additional card types</h3><p>An artifact land or animated creature-land is destroyed because it matches a named type; an ordinary planeswalker is not.</p></div>
+</div>
+<p>Leaving lands intact separates the Disk from <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> and <span class="card-name" data-card="Obliterate" tabindex="0">Obliterate</span>. It does not restart the entire game. It clears the investments made with mana while preserving the mana itself, turning the next hand and draw step into the beginning of a new battlefield.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Activation</div><h2>What Nevinyrral’s Disk actually does</h2>
+<p>The Disk enters the battlefield tapped. Its activated ability costs one mana and tapping the Disk. When the ability resolves, every artifact, creature, and enchantment is destroyed simultaneously.</p>
+<p>The Disk is not sacrificed as part of the activation cost. It remains on the battlefield while the ability is on the stack and is normally destroyed by its own effect when that effect resolves. Removing the Disk after activation does not stop the ability. Once activated, the destruction exists independently of its source.</p>
+<p>Because everything is destroyed simultaneously, leaves-the-battlefield and death triggers see the complete event. A creature with indestructible survives. A permanent that regenerates survives after becoming tapped, having its damage removed, and being removed from combat under the applicable regeneration rules.</p>
+<div class="article-note"><b>The important distinction.</b> Destroying the Disk in response to its activation does not save the battlefield. The activation must be countered, its targets do not exist, or the affected permanents must be protected from destruction.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Mark Tedin’s original Nevinyrral’s Disk</b>The artifact appears less like a weapon than a sealed mechanism whose geometry contains a catastrophe. Its small scale makes the implied radius of destruction more unsettling.</div></div>
+
+<section id="threat"><div class="chapter-number">VI · The Leverage</div><h2>The threat was often stronger than the blast</h2>
+<p>An untapped Disk turns every new permanent into a wager. The opponent may deploy enough pressure to force activation, but each additional card increases the loss when the Disk detonates. Holding back preserves resources but gives the controller time.</p>
+<p>This is the classic tension of a visible sweeper. The controller is not merely trading one card for several. The controller is controlling the rate at which the opponent is willing to commit cards to the battlefield.</p>
+<p>A skilled Disk player could wait until the final safe moment, absorbing damage or tolerating inconvenient permanents to increase the eventual exchange. A skilled opponent could present just enough pressure to demand the explosion without losing the entire hand.</p>
+</section>
+
+<section id="colors"><div class="chapter-number">VII · The Access</div><h2>The answer colors were not supposed to have</h2>
+<p>Black historically kills creatures and attacks hands, but it has difficulty destroying artifacts and enchantments. Blue counters spells and returns permanents, but permanent mass removal is not central to its identity. Nevinyrral’s Disk allowed both colors to bypass those limitations.</p>
+<p>The cost was speed and self-destruction. The artifact announced itself, entered tapped, and erased the controller’s own permanents. That price made the effect acceptable as a colorless tool rather than a routine spell available without compromise.</p>
+<p>For mono-colored control, this mattered enormously. A resolved <span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span>, <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, <span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span>, creature swarm, or opposing artifact engine no longer represented a permanent failure of deck construction. The Disk could eventually answer it.</p>
+</section>
+
+<section id="necro"><div class="chapter-number">VIII · The Bargain</div><h2>Necropotence and rebuilding first</h2>
+<p>Nevinyrral’s Disk destroys enchantments, including the controller’s own <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>. That apparent conflict became part of the strategy rather than a reason to exclude the artifact.</p>
+<p>Necropotence allowed black decks to exchange life for a stocked hand. Once the necessary cards had been acquired, the Disk could clear creatures, artifacts, hate enchantments, and Necropotence itself. Both players lost the battlefield, but the Necro player often began the next game with more cards.</p>
+<p>The Disk also answered permanent types black otherwise struggled to remove. Losing Necropotence was acceptable when the alternative was losing the game to something the deck could not meaningfully touch.</p>
+</section>
+
+<section id="worlds"><div class="chapter-number">IX · The Namesake</div><h2>Nevinyrral’s Necro</h2>
+<p>At the 1996 World Championship, Scott Johns reached the quarterfinals with a mono-black deck recorded as “Nevinyrral’s Necro.” The name placed the Disk beside Necropotence as a defining engine rather than a generic utility card.</p>
+<p>Johns played three copies in a documented 61-card main deck and another in the sideboard. Icequake and Strip Mine attacked mana. Hymn to Tourach and Hypnotic Specter attacked the hand. The Disk ensured that whatever reached the battlefield could still be erased.</p>
+<p>Henry Stern and Mark Justice also placed Necropotence decks in the same Top 8 with four and three main-deck Disks respectively. The artifact was not an eccentric choice. It was part of how Black Summer’s dominant strategy protected itself from the permanent-based answers opponents brought to defeat it.</p>
+</section>
+
+<section id="draw-go"><div class="chapter-number">X · The Permission</div><h2>Draw-Go’s battlefield reset</h2>
+<p>Randy Buehler’s 1998 World Championship deck represented the opposite color and a similar need. Mono-blue Draw-Go wanted to counter everything important, spend unused mana on <span class="card-name" data-card="Whispers of the Muse" tabindex="0">Whispers of the Muse</span>, and win eventually with <span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span> or animated lands.</p>
+<p>No permission deck counters every spell. A cheap threat may resolve before countermagic is ready. Several threats may overwhelm the available answers. An uncounterable or tactically protected permanent may enter play. Four Nevinyrral’s Disks gave Draw-Go a way to repair those failures.</p>
+<p>The artifact’s delay suited the deck. Counters protected it during the vulnerable turn, and the threat of activation discouraged further development. Once the Disk cleared the board, the blue deck returned to the phase of the game it preferred: both players with mana, but only one player with a hand full of permission.</p>
+</section>
+
+<section id="stack"><div class="chapter-number">XI · The Escape</div><h2>Activate, then save the Disk</h2>
+<p>Because the Disk is not sacrificed to activate, its controller can respond to the activation by removing it from the battlefield. A bounce spell can return it to hand. A sacrifice outlet can convert it into another resource. The destruction still resolves.</p>
+<p>This creates a classic asymmetry: activate the Disk, cast <span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span> or <span class="card-name" data-card="Capsize" tabindex="0">Capsize</span> on it, let the board disappear, and recast the saved artifact later. The same principle works with blink or phase effects that remove the Disk from the battlefield before resolution.</p>
+<p>The sequence is mana-intensive, but in slow control mirrors it changes a one-use emergency button into a recurring plan. The controller preserves the very card responsible for destroying everything else.</p>
+</section>
+
+<section id="survive"><div class="chapter-number">XII · The Recurrence</div><h2>Indestructible, regeneration, and repetition</h2>
+<p>If Nevinyrral’s Disk is indestructible, its own ability does not destroy it. The artifact remains tapped on the battlefield and can untap for another activation. <span class="card-name" data-card="Darksteel Forge" tabindex="0">Darksteel Forge</span> creates the most famous version, making the controller’s artifacts—including the Disk—indestructible while the Disk destroys opposing creatures and enchantments.</p>
+<p>Older cards capable of regenerating artifacts could also preserve it because the effect destroys rather than sacrifices. Modern Commander decks use indestructibility, recursion, untapping, and artifact retrieval to threaten repeated resets.</p>
+<p>This is possible because the original design did not include a sacrifice cost. One missing word created decades of interactions in which the apocalypse survived itself.</p>
+</section>
+
+<section id="name"><div class="chapter-number">XIII · The Reversal</div><h2>Larry Niven written backward</h2>
+<p>“Nevinyrral” is “Larry Niven” reversed. The name points toward Niven’s <i>The Magic Goes Away</i> stories, in which magic consumes a finite resource called mana and a spinning device demonstrates how that resource can be exhausted from an area.</p>
+<p>Magic borrowed more than a hidden name. The concept of mana as a resource tied to place and the image of a disk that annihilates magical potential resonate directly with the card’s function. Artifacts, creatures, and enchantments—the visible products of magic—are removed while the lands that produced the mana remain.</p>
+<p>For decades, the card existed before the character. Players knew Nevinyrral only through the possessive apostrophe and the machine carrying his name.</p>
+</section>
+
+<section id="lore"><div class="chapter-number">XIV · The Lich</div><h2>The lich finally receives a face</h2>
+<p>Later Dominaria lore identified Nevinyrral as a lich and necromancer of Urborg who destroyed his own city rather than allow enemies to claim its magical knowledge. The Disk became his final act of spite: annihilation as denial.</p>
+<p>Commander Legends finally printed <span class="card-name" data-card="Nevinyrral, Urborg Tyrant" tabindex="0">Nevinyrral, Urborg Tyrant</span> in 2020. The legendary creature protects itself from artifacts, creatures, and enchantments, creates Zombies when it enters based on recent deaths, and can reproduce the Disk’s destruction when it dies.</p>
+<p>The design closed a circle almost twenty-eight years old. A card named after an unseen owner became the mechanical blueprint for the owner’s eventual card.</p>
+</section>
+
+<section id="decline"><div class="chapter-number">XV · The Tempo</div><h2>Why the warning became too slow</h2>
+<p>Competitive Magic grew faster and more immediate. Creatures began generating value as they entered. Planeswalkers created resources while surviving the Disk. Artifact and enchantment removal became more available. Four mana spent on a tapped permanent could concede too much tempo.</p>
+<p>Modern sweepers often resolve immediately, exile rather than destroy, or leave behind a body and additional value. Control decks became less willing to reveal the answer a full turn before using it.</p>
+<p>The Disk did not become weak. The price of waiting became larger. Its modern competitive appearances tend to involve formats, decks, or matchups where universal coverage and artifact synergy matter more than immediate speed.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XVI · The Table</div><h2>The Commander institution</h2>
+<p>Commander restored the Disk’s natural scale. Multiplayer boards accumulate creatures, artifacts, enchantments, tokens, Equipment, and engines from several players. One card capable of destroying nearly all of them can generate enormous card advantage.</p>
+<p>The visible warning becomes political. Casting the Disk announces that the controller can reset the table, but also invites opponents to negotiate, redirect attacks, remove the artifact, or force its use. The controller may receive protection from players who fear another opponent’s battlefield more.</p>
+<p>Its survival interactions also become practical. <span class="card-name" data-card="Avacyn, Angel of Hope" tabindex="0">Avacyn, Angel of Hope</span>, Darksteel Forge, untap effects, artifact recursion, and Nevinyrral himself turn the Disk from a panic button into a deck-building axis.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XVII · The Bloodline</div><h2>The descendants of the Disk</h2>
+<p><span class="card-name" data-card="Oblivion Stone" tabindex="0">Oblivion Stone</span> replaces the waiting period with a larger activation cost and fate counters that can preserve chosen permanents. <span class="card-name" data-card="Perilous Vault" tabindex="0">Perilous Vault</span> exiles rather than destroys and removes itself as part of the cost. <span class="card-name" data-card="Boompile" tabindex="0">Boompile</span> is cheaper to activate but submits the apocalypse to a coin flip.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Oblivion%20Stone&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The configurable descendant</div><h3>Oblivion Stone</h3><p><span class="card-name" data-card="Oblivion Stone" tabindex="0">Oblivion Stone</span> preserves the Disk’s colorless reset while allowing its controller to mark selected permanents with fate counters. It costs more to detonate but can make the destruction deliberately one-sided.</p></div></div>
+<p><span class="card-name" data-card="All Is Dust" tabindex="0">All Is Dust</span> makes each player sacrifice colored permanents. <span class="card-name" data-card="Ugin, the Spirit Dragon" tabindex="0">Ugin, the Spirit Dragon</span> attaches a selective reset to a planeswalker. <span class="card-name" data-card="The Stone Brain" tabindex="0">The Stone Brain</span> shares none of the effect but preserves the tradition of artifacts whose names promise something terrible once activated.</p>
+<p>The descendants alter speed, scope, survival, and protection, but the central question remains Nevinyrral’s: how much warning should a colorless card give before it removes the battlefield?</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVIII · The Image</div><h2>Two visions of annihilation</h2>
+<p>Mark Tedin’s original art depicts a compact disk surrounded by darkness and controlled energy. Its scale is ambiguous. The device may fit in a hand, sit within a larger machine, or represent an impossible mechanism viewed without environmental context.</p>
+<p>Steve Argyle’s From the Vault interpretation expands the artifact into an ornate black-metal device with blue power burning through its rings. The newer image makes the Disk feel legendary and catastrophic, an object worthy of the lore later built around its owner.</p>
+<p>The two artworks approach the same fear differently. Tedin presents a mysterious machine whose purpose is unclear. Argyle presents a weapon whose purpose is unmistakable.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XIX · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Historic Standard</span><h3>A control cornerstone</h3><p>Necropotence and Draw-Go used the Disk as a universal answer through some of the most important tournaments of the 1990s.</p></div>
+<div class="format-card"><span class="impact">Modern and Eternal</span><h3>Legal, highly specialized</h3><p>Modern Horizons 2 made it Modern legal, while Legacy and Vintage have always valued the effect more historically than currently.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A multiplayer staple</h3><p>Large boards, artifact recursion, indestructibility, and politics restore the scale at which a visible universal reset is most meaningful.</p></div>
+</div>
+<p>The Disk is not Pauper legal because it has no qualifying common printing. In Cube, it is strongest in environments that support artifact control, slower games, and colors that need access to a broad sweeper.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XX · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The Disk was tapped. Everyone knew exactly how long they had.</blockquote><cite>Nevinyrral’s Disk created suspense by placing the answer on the battlefield before permitting the answer to function.</cite></div>
+<p>Players remember counting whether the Disk’s controller could survive one more attack. They remember holding creatures in hand, destroying their own value artifacts before the blast, and deciding whether forcing the activation was worth losing the current board.</p>
+<p>They remember the old Mark Tedin machinery, the apostrophe in the impossible name, and the revelation that the name was Larry Niven backward. Most of all, they remember the untap step when a permanent stopped being an artifact and became a threat to everything.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXI · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve the Disk’s two defining competitive identities: the universal reset that made mono-black Necropotence resilient in 1996 and the four-copy battlefield answer in Randy Buehler’s 1998 World Championship Draw-Go deck.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Leon Lindback — Necropotence</strong><small>Pro Tour New York 1996 · Finalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Lindback's Necropotence deck used two main-deck Disks and two more in the sideboard. Black could kill creatures and strip hands, but it struggled against opposing artifacts and enchantments. Disk supplied a universal reset, and Necropotence supplied the cards needed to rebuild first.</p>
+<div class="deck-meta"><div><b>Leon Lindback — Necropotence</b><div class="small">Pro Tour New York 1996 · Finalist · 60/15</div></div><button class="copy" data-target="leon-lindback-necropotence">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Knight of Stromgald" tabindex="0">Knight of Stromgald</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div></div><div class="group"><h4>Instants · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Soul Burn" tabindex="0">Soul Burn</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ebon Stronghold" tabindex="0">Ebon Stronghold</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">17</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Apocalypse Chime" tabindex="0">Apocalypse Chime</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ashes to Ashes" tabindex="0">Ashes to Ashes</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Safe Haven" tabindex="0">Safe Haven</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Stromgald Cabal" tabindex="0">Stromgald Cabal</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Torture" tabindex="0">Torture</span></div></div></div></div>
+<pre hidden id="leon-lindback-necropotence">Leon Lindback — Necropotence
+Pro Tour New York 1996 · Finalist · 60/15
+
+Creatures · 11
+4 Hypnotic Specter
+3 Knight of Stromgald
+4 Order of the Ebon Hand
+
+Instants · 5
+1 Dark Banishing
+4 Dark Ritual
+
+Sorceries · 9
+4 Drain Life
+4 Hymn to Tourach
+1 Soul Burn
+
+Artifacts · 7
+1 Ivory Tower
+1 Jalum Tome
+2 Nevinyrral&#x27;s Disk
+2 Serrated Arrows
+1 Zuran Orb
+
+Enchantments · 5
+1 Dance of the Dead
+4 Necropotence
+
+Lands · 23
+2 Ebon Stronghold
+4 Strip Mine
+17 Swamp
+
+Sideboard · 15
+1 Apocalypse Chime
+1 Ashes to Ashes
+1 City of Brass
+1 Feldon&#x27;s Cane
+1 Jalum Tome
+1 Meekstone
+2 Nevinyrral&#x27;s Disk
+3 The Rack
+1 Safe Haven
+1 Serrated Arrows
+1 Stromgald Cabal
+1 Torture</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Scott Johns — Nevinyrral’s Necro</strong><small>World Championship 1996 · Quarterfinalist · documented 61/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The archetype name made the card's importance explicit. Three main-deck Disks gave Johns a reset against creatures, Serrated Arrows, enchantments, and problematic permanents, while Necropotence turned the post-destruction game into an asymmetric recovery race.</p>
+<div class="deck-meta"><div><b>Scott Johns — Nevinyrral’s Necro</b><div class="small">World Championship 1996 · Quarterfinalist · documented 61/15</div></div><button class="copy" data-target="scott-johns-nevinyrrals-necro">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Knight of Stromgald" tabindex="0">Knight of Stromgald</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div></div><div class="group"><h4>Instants and Sorceries · 18</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Contagion" tabindex="0">Contagion</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Icequake" tabindex="0">Icequake</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and Enchantments · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">18</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Contagion" tabindex="0">Contagion</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Demonic Consultation" tabindex="0">Demonic Consultation</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dystopia" tabindex="0">Dystopia</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Infernal Darkness" tabindex="0">Infernal Darkness</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div></div></div></div>
+<pre hidden id="scott-johns-nevinyrrals-necro">Scott Johns — Nevinyrral’s Necro
+World Championship 1996 · Quarterfinalist · documented 61/15
+
+Creatures · 10
+4 Hypnotic Specter
+4 Knight of Stromgald
+2 Sengir Vampire
+
+Instants and Sorceries · 18
+3 Contagion
+4 Dark Ritual
+3 Drain Life
+4 Hymn to Tourach
+4 Icequake
+
+Artifacts and Enchantments · 9
+1 Ivory Tower
+4 Necropotence
+3 Nevinyrral&#x27;s Disk
+1 Zuran Orb
+
+Lands · 24
+2 Mishra&#x27;s Factory
+4 Strip Mine
+18 Swamp
+
+Sideboard · 15
+1 Contagion
+2 Dance of the Dead
+3 Dark Banishing
+2 Demonic Consultation
+4 Dystopia
+2 Infernal Darkness
+1 Nevinyrral&#x27;s Disk</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Randy Buehler — Draw-Go</strong><small>World Championship 1998 · Champion · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Buehler's nearly creatureless mono-blue deck used four Disks as its battlefield answer. Countermagic prevented the most dangerous spells, Disk cleaned up whatever resolved, and Rainbow Efreet or animated lands survived as the eventual path to victory.</p>
+<div class="deck-meta"><div><b>Randy Buehler — Draw-Go</b><div class="small">World Championship 1998 · Champion · 60/15</div></div><button class="copy" data-target="randy-buehler-draw-go">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creature · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span></div></div><div class="group"><h4>Instants · 29</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dismiss" tabindex="0">Dismiss</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dissipate" tabindex="0">Dissipate</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force Spike" tabindex="0">Force Spike</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Whispers of the Muse" tabindex="0">Whispers of the Muse</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">18</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Quicksand" tabindex="0">Quicksand</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stalking Stones" tabindex="0">Stalking Stones</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Capsize" tabindex="0">Capsize</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Grindstone" tabindex="0">Grindstone</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sea Sprite" tabindex="0">Sea Sprite</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div></div>
+<pre hidden id="randy-buehler-draw-go">Randy Buehler — Draw-Go
+World Championship 1998 · Champion · 60/15
+
+Creature · 1
+1 Rainbow Efreet
+
+Instants · 29
+4 Counterspell
+4 Dismiss
+2 Dissipate
+3 Forbid
+4 Force Spike
+4 Impulse
+3 Mana Leak
+1 Memory Lapse
+4 Whispers of the Muse
+
+Artifacts · 4
+4 Nevinyrral&#x27;s Disk
+
+Lands · 26
+18 Island
+4 Quicksand
+4 Stalking Stones
+
+Sideboard · 15
+2 Capsize
+1 Grindstone
+4 Hydroblast
+4 Sea Sprite
+4 Wasteland</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXII · The Object</div><h2>Printings and sources</h2>
+<p>Nevinyrral’s Disk carried Mark Tedin’s original artwork from Alpha through Fifth Edition. After more than a decade without a new paper treatment, From the Vault: Relics introduced Steve Argyle’s interpretation in 2010. That artwork became the modern standard across Eternal Masters, Commander products, Modern Horizons 2, and Commander Masters.</p>
+<div class="printings">
+<figure class="printing"><img alt="Nevinyrral's Disk from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Mark Tedin · original printing</figcaption></figure>
+<figure class="printing"><img alt="Nevinyrral's Disk from Fifth Edition" src="https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&amp;set=5ed&amp;format=image&amp;version=normal"><figcaption>Fifth Edition · 1997<br>Mark Tedin · final core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Nevinyrral's Disk from From the Vault Relics" src="https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&amp;set=v10&amp;format=image&amp;version=normal"><figcaption>From the Vault: Relics · 2010<br>Steve Argyle · first new artwork</figcaption></figure>
+<figure class="printing"><img alt="Nevinyrral's Disk from Commander Legends" src="https://api.scryfall.com/cards/cmr/696?format=image&amp;version=normal"><figcaption>Commander Legends · 2020<br>Steve Argyle · extended-art treatment</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/266/nevinyrrals-disk">Scryfall — Nevinyrral’s Disk, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original type, artist, rarity, rulings, legality, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Nevinyrral%27s%20Disk">Wizards of the Coast Gatherer — Nevinyrral’s Disk</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://mtg.wiki/page/1996_Pro_Tour_New_York/Standard_decks">Pro Tour New York 1996 — Standard deck archive</a><span>Leon Lindback’s complete Necropotence list, finalist result, and contemporary deck description.</span></li>
+<li><a href="https://mtg.wiki/page/1996_World_Championships/Standard_decks">1996 World Championships — Standard deck archive</a><span>Scott Johns’s Nevinyrral’s Necro list and the Disk-heavy Necropotence decks played by Henry Stern and Mark Justice.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=375422&amp;e=9238">MTGTop8 — Scott Johns, Nevinyrral’s Necro</a><span>Quarterfinal result and documented 61-card main deck with three Disks plus one in the sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/1998-randy-buehler-world-championship-decks/">Randy Buehler — Draw-Go, 1998 World Championship</a><span>Complete World Championship decklist containing four Nevinyrral’s Disks.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/your-wish-my-commander-legends-part-2-2020-11-02">Wizards of the Coast — Your Wish Is My Commander Legends, Part 2</a><span>Official design discussion of Nevinyrral, Urborg Tyrant and the decision to finally represent the Disk’s famous owner.</span></li>
+<li><a href="https://magic.wizards.com/en/news/card-preview/legendary-characters-commander-legends-part-1-2020-10-30">Wizards of the Coast — The Legendary Characters of Commander Legends</a><span>Official character and setting context for Commander Legends.</span></li>
+<li><a href="https://mtg.wiki/page/Nevinyrral">MTG Wiki — Nevinyrral</a><span>Historical lore summary, Larry Niven name reversal, and the connection to <i>The Magic Goes Away</i>.</span></li>
+<li><a href="https://scryfall.com/card/v10/11/nevinyrrals-disk">Scryfall — From the Vault: Relics Nevinyrral’s Disk</a><span>Steve Argyle artwork and premium reprint reference.</span></li>
+<li><a href="https://scryfall.com/card/cmr/696/nevinyrrals-disk">Scryfall — Commander Legends extended-art Nevinyrral’s Disk</a><span>Extended-art treatment and modern Commander printing reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Nevinyrral%27s+Disk%22&amp;unique=prints">Scryfall — Nevinyrral’s Disk printing search</a><span>Cross-set frame, artwork, date, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Leon Lindback’s and Randy Buehler’s lists are preserved as conventional 60-card main decks. Scott Johns’s Worlds list is preserved at its documented 61-card size rather than silently normalized.</div>
+<div class="end-nav"><a href="041-icy-manipulator.html"><small>Previous numbered entry</small>Icy Manipulator</a><a href="index.html?focus=entry-043#entry-043"><small>Next numbered entry</small>Jayemdae Tome</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 042</b><br>Nevinyrral’s Disk made universal destruction colorless, visible, and delayed—an answer whose threat could control the battlefield before its activation ever resolved.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
