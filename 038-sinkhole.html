@@ -1,0 +1,895 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Sinkhole: Alpha, land destruction, tempo, Dark Ritual, Old School, Eva Green, Pox, Legacy, Pauper, artwork, printings, and decklists."><title>Sinkhole: The Land You Needed Was Gone — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+</style></head>
+<body><header class="hero sinkhole-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-038#entry-038">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 038 · The Foundational Canon</div>
+<h1>The Land You Needed Was Gone</h1>
+<p class="deckline">Sinkhole established the most punishing rate for unconditional land destruction, transforming two black mana into a missing turn, a broken color, and an enduring argument about whether players should be allowed to attack mana this efficiently.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 29 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="037-mind-twist.html">← Entry 037 · Mind Twist</a><div class="center">Entry 038 of 1,000</div><a href="index.html?focus=entry-039#entry-039">Entry 039 · Stone Rain →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Land You Needed Was Gone</a><a href="#alpha">Alpha’s two-mana benchmark</a>
+<a href="#removal">Land destruction is not removal</a><a href="#tempo">The stolen turn</a>
+<a href="#rules">What Sinkhole actually does</a><a href="#black">Why the spell was black</a>
+<a href="#ritual">Dark Ritual and the impossible curve</a><a href="#old-school">The Old School vise</a>
+<a href="#suicide">Suicide Black and Eva Green</a><a href="#pox">Pox and total resource denial</a>
+<a href="#wasteland">The partnership with Wasteland</a><a href="#decline">Why two mana stopped being enough</a>
+<a href="#legacy">Legacy legality and modern reality</a><a href="#pauper">The common too strong for Pauper</a>
+<a href="#descendants">The descendants of Sinkhole</a><a href="#art">A landscape collapsing</a>
+<a href="#formats">A life across formats</a><a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a><a href="#sources">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Collapse</div><h2>The Land You Needed Was Gone</h2>
+<p class="opening dropcap">Sinkhole is only four words long. It destroys no creature, draws no card, and places nothing on the battlefield. Yet for much of Magic’s early history, those four words could remove an entire turn.</p>
+<p>A land is not merely a permanent. It is permission to participate in the game at a particular scale. The first land enables one-mana spells. The second enables Counterspell, Hymn to Tourach, and nearly every early piece of efficient interaction. The third begins the midgame. Sinkhole attacks that progression before it becomes action.</p>
+<p>At two black mana, the spell established the most frightening rate ever printed for unconditional land destruction. Stone Rain became the normal language of the effect at three mana. Sinkhole remained the forbidden comparison: cleaner, faster, and capable of turning a single stumble into a game from which the opponent never fully returned.</p>
+<div class="card-lead"><img alt="Sinkhole from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Sinkhole&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Sinkhole</h3><p><b>{B}{B} · Sorcery</b></p><p>Destroy target land.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Sandra Everingham</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Historical role</b>Tempo and resource denial</div></div></div></div></section>
+
+<section id="alpha"><div class="chapter-number">II · The Rate</div><h2>Alpha’s two-mana benchmark</h2>
+<p>Alpha gave every color a startlingly efficient expression of its identity. White received <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>. Blue received <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>. Red received <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>. Black received several candidates, and Sinkhole was among the most revealing.</p>
+<p>The comparison with <span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span> is immediate. Both cards contain the same essential instruction, but Sinkhole costs one mana less and demands double black. That single mana changes the effect’s strategic category. A three-mana land-destruction spell usually trades a turn for a turn. A two-mana land-destruction spell can keep an opponent from ever reaching three.</p>
+<p>Its rarity makes the original design even stranger. Sinkhole was common in Alpha, Beta, and Unlimited. One of the game’s most punishing forms of interaction was presented not as an exceptional build-around, but as a basic tool of black magic.</p></section>
+
+<div class="pullquote">Sinkhole did not answer the spell. It erased the turn in which the spell would have been cast.<small>Mana denial as temporal advantage</small></div>
+
+<section id="removal"><div class="chapter-number">III · The Resource</div><h2>Land destruction is not removal</h2>
+<p>Destroying a creature usually answers a resource the opponent has already spent mana to deploy. Destroying a land attacks the resource that would have paid for future cards. The exchange may be one-for-one on paper, but its consequences extend beyond the card count.</p>
+<p>A destroyed land can strand several spells at once. It can break a color pair, shut off double-colored costs, remove a utility effect, and force the opponent to spend the next draw step looking for mana instead of action. Against a hand with only two lands, Sinkhole can convert every expensive card into dead weight.</p>
+<p>This is why land destruction produces such a distinctive emotional response. Creature removal says, “That threat is gone.” Sinkhole says, “You may not get to play the threats you kept.”</p></section>
+
+<section id="tempo"><div class="chapter-number">IV · The Missing Turn</div><h2>The stolen turn</h2>
+<p>Sinkhole is most powerful when the caster is already doing something else. A land destroyed without pressure may simply be replaced. A land destroyed while <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>, <span class="card-name" data-card="Nantuko Shade" tabindex="0">Nantuko Shade</span>, <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span>, or <span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span> is attacking becomes damage, discarded cards, and lost opportunities.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Turn two</span><h3>Break the curve</h3><p>The opponent expects to reach three mana. Sinkhole returns the game to one or two and invalidates the planned sequence.</p></div>
+<div class="format-card"><span class="impact">With pressure</span><h3>Convert mana into damage</h3><p>Every turn spent replaying lands is another attack the defending player cannot answer efficiently.</p></div>
+<div class="format-card"><span class="impact">Against a splash</span><h3>Remove a color</h3><p>Destroying the only source of a color can blank multiple cards even when the opponent still has other lands.</p></div></div>
+<p>The spell therefore belongs to tempo decks as much as dedicated prison decks. Its best casts do not create a permanent lock. They create just enough delay for an existing advantage to become irreversible.</p></section>
+
+<section id="rules"><div class="chapter-number">V · The Text</div><h2>What Sinkhole actually does</h2>
+<p>Sinkhole targets any land and destroys it when the spell resolves. The land may be basic or nonbasic, tapped or untapped, animated or ordinary. If the target is illegal when Sinkhole resolves, the spell does not resolve and no land is destroyed.</p>
+<p>Destroying a land places it in its owner’s graveyard. Indestructible lands survive, and replacement effects can change where the land goes. A land that has become a creature is still a legal target because it remains a land.</p>
+<div class="article-note"><b>The modern simplicity.</b> Sinkhole’s Oracle text is identical in substance to the sentence players have understood since 1993. Its power came not from a rules exploit, but from an effect and cost that required almost no explanation.</div></section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Sandra Everingham’s original Sinkhole</b>The image presents the spell as sudden geological absence: a stable landscape opened into a void large enough to swallow the structures built upon it.</div></div>
+
+<section id="black"><div class="chapter-number">VI · The Color</div><h2>Why the spell was black</h2>
+<p>Early Magic allowed black to destroy nearly every resource. It killed creatures, discarded cards, sacrificed permanents, drained life, and attacked lands. Sinkhole fit a version of black defined by ruthless subtraction: anything could be removed if the result advanced black’s position.</p>
+<p>Red eventually became the primary color of direct land destruction, with Stone Rain serving as the foundational template. Black retained narrower or more conditional versions—effects tied to Swamps, life loss, sacrifice, or broader resource attrition—but the clean two-mana statement was not repeated at Sinkhole’s rate.</p>
+<p>The card is therefore both a foundational black spell and a historical color-pie artifact. It records a time before Magic had fully decided which color should own the simplest form of land destruction.</p></section>
+
+<section id="ritual"><div class="chapter-number">VII · The Acceleration</div><h2>Dark Ritual and the impossible curve</h2>
+<p><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> made Sinkhole’s timing more violent. A turn-one Ritual could cast a threat; a later Ritual could combine land destruction with discard or another spell in the same turn. Reid Duke described the appeal of a turn-two sequence containing both Sinkhole and <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span>: the opponent lost a land and two random cards before establishing a normal game.</p>
+<p>That interaction illustrates why temporary mana and resource denial are natural partners. Ritual spends a card to jump ahead for one turn. Sinkhole ensures the opponent cannot immediately catch up. The caster converts a temporary lead into a structural one.</p>
+<p>Dark Ritual also allowed black decks to maintain pressure without choosing between development and denial. The deck could cast a creature and remove a land while the opponent was still trying to assemble the mana to answer either.</p></section>
+
+<section id="old-school"><div class="chapter-number">VIII · The Vise</div><h2>The Old School vise</h2>
+<p>In Old School mono-black, Sinkhole rarely operated alone. <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> attacked another land. <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> and <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> attacked the hand. <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> continued the discard while <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> punished the empty state.</p>
+<p>The plan was a vise. If the opponent held expensive cards, land destruction prevented them from being cast. If the opponent deployed lands and emptied the hand, discard and The Rack changed the pressure. Sinkhole made both halves better because it kept cards trapped where black could reach them.</p>
+<p>Its double-black cost was rarely a drawback in these decks. Mono-black mana bases wanted Swamps for <span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span>, <span class="card-name" data-card="Nantuko Shade" tabindex="0">Nantuko Shade</span>, and consistency. Sinkhole rewarded that commitment with an effect no splash color could provide at the same speed.</p></section>
+
+<section id="suicide"><div class="chapter-number">IX · The Attack</div><h2>Suicide Black and Eva Green</h2>
+<p>Later aggressive black decks inherited the same logic. Suicide Black accepted painful cards and fragile resources in exchange for speed. Eva Green added <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span> and efficient green sideboard cards, but the central sequence remained recognizably black: discard the answer, destroy the land, attack with a threat too large to ignore.</p>
+<p>In 2008 discussions of Eva Green, players described Sinkhole and Wasteland as the eight-card land-destruction package that supplied the deck’s tempo. The spell was acknowledged as a poor late topdeck in some matchups, but its purpose was not long-game value. It was to make the early game last long enough for Tombstalker, Tarmogoyf, and Nantuko Shade to finish it.</p>
+<p>That distinction matters. Sinkhole was not included because destroying lands is always powerful. It was included because a particular deck could convert one missing land drop into lethal pressure.</p></section>
+
+<section id="pox"><div class="chapter-number">X · The Attrition</div><h2>Pox and total resource denial</h2>
+<p><span class="card-name" data-card="Pox" tabindex="0">Pox</span> and <span class="card-name" data-card="Smallpox" tabindex="0">Smallpox</span> attack several resource types at once. Sinkhole gives the archetype precision. It can remove the land that survived the symmetrical effects, cut off a color, or prevent an opponent from rebuilding after both hands and battlefields have been reduced.</p>
+<p>Reid Duke’s 2011 Mono-Black Pox list placed four Sinkholes beside four Wastelands, four Smallpoxes, discard, and Liliana of the Veil. Duke’s explanation was direct: Legacy decks were built to operate on few lands, and that apparent efficiency made them vulnerable to a strategy capable of removing even those few.</p>
+<p>Pox demonstrates Sinkhole’s second great identity. In Eva Green it stole a turn for an attacker. In Pox it helped create a world where turns continued, but neither player possessed enough resources to use them normally.</p></section>
+
+<section id="wasteland"><div class="chapter-number">XI · The Partnership</div><h2>The partnership with Wasteland</h2>
+<p><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> changed the context of Sinkhole without replacing it immediately. Wasteland costs no mana to activate, but it can destroy only nonbasic lands and consumes the caster’s land drop. Sinkhole costs a spell and two black mana, but it can destroy anything while leaving the caster’s mana base intact.</p>
+<p>Together they created redundancy. A deck could attack nonbasics for free, then use Sinkhole on a basic land or the replacement source. Fetch lands made targets plentiful but also allowed opponents to search for basics, turning the sequencing of Wasteland and Sinkhole into a meaningful decision.</p>
+<p>The combination was strongest against mana bases built for efficiency rather than resilience. Three-color decks with few lands could lose a dual land, fetch a basic, and discover that Sinkhole was waiting for the supposedly safe replacement.</p></section>
+
+<section id="decline"><div class="chapter-number">XII · The Pressure Test</div><h2>Why two mana stopped being enough</h2>
+<p>Sinkhole’s text never became inefficient. The surrounding game became more resistant. Creatures grew cheaper, free spells multiplied, one-mana cantrips improved draw quality, and many decks learned to function with only one or two lands. A card that trades one-for-one without affecting the battlefield can be dangerous when the opponent already has a threat in play.</p>
+<p>Fetch lands also allow decks to choose basics strategically. Graveyard engines may welcome lands being destroyed. Delve, escape, threshold, and recursion can convert the graveyard into value. Combo decks may need only a single untap step, making a sorcery-speed denial spell too slow when it is not backed by discard or pressure.</p>
+<p>Sinkhole therefore became more contextual. The rate remained extraordinary, but the decks capable of exploiting it became narrower.</p></section>
+
+<section id="legacy"><div class="chapter-number">XIII · The Modern Eternal</div><h2>Legacy legality and modern reality</h2>
+<p>Sinkhole remains legal in Legacy. That fact is sometimes surprising because its reputation sounds like a banned card’s reputation. In practice, the format has repeatedly demonstrated that legality and prominence are different things.</p>
+<p>Wasteland provides land interaction without occupying a spell slot. <span class="card-name" data-card="Daze" tabindex="0">Daze</span> and <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span> punish players who spend two mana without affecting a creature already on the battlefield. Delver strategies prefer one-mana threats and flexible disruption. Dedicated Pox decks still use Sinkhole at times, but it is no longer an automatic four-of even there.</p>
+<p>Its modern Legacy role is thus a test of commitment. A deck must want resource denial strongly enough to accept a weak topdeck, double-black mana, and the possibility that the opponent can operate on fewer lands than expected.</p></section>
+
+<section id="pauper"><div class="chapter-number">XIV · The Rarity</div><h2>The common too strong for Pauper</h2>
+<p>Sinkhole’s original common rarity created an unusual digital consequence. When the card appeared in Masters Edition IV on Magic Online, it had a common printing that could have placed it within Pauper’s card pool.</p>
+<p>Pauper does not permit it. The format bans Sinkhole, preserving a minimum cost and speed for unconditional land destruction among commons. A turn-one or turn-two Sinkhole backed by Dark Ritual and discard would attack the resource base of decks whose primary strength is efficiency rather than access to rare recovery engines.</p>
+<p>The ban is a reminder that rarity is historical, not a reliable measure of safety. Alpha called Sinkhole common. Later formats understood the rate as exceptional.</p></section>
+
+<section id="descendants"><div class="chapter-number">XV · The Lineage</div><h2>The descendants of Sinkhole</h2>
+<p>Magic continued printing land destruction, but nearly every successor reveals a safety valve. <span class="card-name" data-card="Rain of Tears" tabindex="0">Rain of Tears</span> keeps the black identity and raises the cost to three. <span class="card-name" data-card="Choking Sands" tabindex="0">Choking Sands</span> adds damage but cannot destroy a Swamp. <span class="card-name" data-card="Rancid Earth" tabindex="0">Rancid Earth</span> rewards threshold at three mana. <span class="card-name" data-card="Icequake" tabindex="0">Icequake</span> adds a conditional life-loss clause while retaining the three-mana baseline.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Smallpox&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The philosophical descendant</div><h3>Smallpox</h3><p><span class="card-name" data-card="Smallpox" tabindex="0">Smallpox</span> costs the same two black mana, but the land destruction is symmetrical and bundled with losses of life, a card, and a creature. It preserves black’s willingness to destroy resources while requiring the caster to build around the damage.</p></div></div>
+<p>Other descendants changed the battlefield rather than the mana cost. <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> moved the effect onto a land and limited it to nonbasics. <span class="card-name" data-card="Vindicate" tabindex="0">Vindicate</span> broadened the target range and added a color. <span class="card-name" data-card="Fulminator Mage" tabindex="0">Fulminator Mage</span> attached conditional destruction to a creature. None simply repeated BB: destroy target land.</p></section>
+
+<section id="art"><div class="chapter-number">XVI · The Image</div><h2>A landscape collapsing</h2>
+<p>Sandra Everingham’s original art is quiet compared with the spell’s reputation. There is no visible mage and no explosive beam. The earth has simply opened. Trees lean toward the darkness, rock falls inward, and the landscape’s apparent permanence is exposed as temporary.</p>
+<p>Dave Allsop’s 2010 judge-promo art made the destruction more infernal and theatrical, framing the collapse as a violent rupture of heat and depth. Titus Lunter’s Eternal Masters interpretation expanded the scale into a catastrophic vista, emphasizing the helplessness of structures and inhabitants above the opening ground.</p>
+<p>Each version understands the same idea: the target was not merely damaged. The foundation beneath it ceased to exist.</p></section>
+
+<section id="formats"><div class="chapter-number">XVII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Old School</span><h3>A defining black weapon</h3><p>Rulesets commonly permit four copies, making Sinkhole central to mono-black discard and resource-denial strategies.</p></div>
+<div class="format-card"><span class="impact">Legacy and Vintage</span><h3>Legal but specialized</h3><p>The card survives in Pox, mono-black, and historical tempo shells, though modern efficiency has narrowed its role.</p></div>
+<div class="format-card"><span class="impact">Pauper</span><h3>Banned</h3><p>Its common printing does not grant access. Two-mana unconditional land destruction remains outside the format.</p></div></div>
+<p>Commander generally permits Sinkhole, but one-for-one land destruction carries a social cost in multiplayer. Competitive use may target a crucial utility land or combo piece; casual tables often distinguish that surgical purpose from destroying an ordinary mana source simply because it is available.</p></section>
+
+<section id="memory"><div class="chapter-number">XVIII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>“Keep a two-land hand” stopped sounding like responsible advice when the opponent led on Swamp.</blockquote><cite>The emotional history of Sinkhole is the fear that a functional opening hand is only one sorcery away from becoming unplayable.</cite></div>
+<p>Players remember checking whether the second land was basic. They remember deciding whether to expose a dual land to Wasteland or fetch the basic that Sinkhole could still destroy. They remember a Dark Ritual start followed by a threat, then watching the land needed for the answer disappear.</p>
+<p>Sinkhole’s reputation is built from games in which almost nothing happened. That is precisely the point. The card became iconic by removing the resource from which the rest of the game would have emerged.</p></section>
+
+<section id="decks"><div class="chapter-number">XIX · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve three major uses of Sinkhole: the Old School mono-black vise of discard and mana denial, the aggressive tempo plan of 2008 Eva Green, and Reid Duke’s complete Pox resource-denial system from the 2011 StarCityGames Invitational.</p>
+<div class="deck-archive"><details class="deck"><summary><span><strong>Old School Mono-Black Discard</strong><small>93/94 EC representative list · 62/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>This representative Old School build shows Sinkhole in its first natural habitat. Dark Ritual accelerates Hypnotic Specter, The Rack rewards an empty hand, and Sinkhole joins Strip Mine to prevent the opponent from deploying whatever survives the discard.</p>
+<div class="deck-meta"><div><b>Old School Mono-Black Discard</b><div class="small">93/94 EC representative list · 62/15</div></div><button class="copy" data-target="old-school-sinkhole">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 13</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Black Knight" tabindex="0">Black Knight</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div></div><div class="group"><h4>Instants and Sorceries · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Paralyze" tabindex="0">Paralyze</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and Enchantments · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">14</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg" tabindex="0">Urborg</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ashes to Ashes" tabindex="0">Ashes to Ashes</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Gloom" tabindex="0">Gloom</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pestilence" tabindex="0">Pestilence</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div></div></div></div>
+<pre hidden id="old-school-sinkhole">Old School Mono-Black Discard
+93/94 EC representative list · 62/15
+
+Creatures · 13
+2 Black Knight
+4 Hypnotic Specter
+4 Order of the Ebon Hand
+2 Royal Assassin
+1 Sengir Vampire
+
+Instants and Sorceries · 18
+4 Dark Ritual
+1 Demonic Tutor
+1 Drain Life
+4 Hymn to Tourach
+1 Mind Twist
+3 Paralyze
+4 Sinkhole
+
+Artifacts and Enchantments · 8
+1 Greed
+1 Icy Manipulator
+1 Mox Jet
+1 Sol Ring
+4 The Rack
+
+Lands · 23
+1 Maze of Ith
+4 Mishra&#x27;s Factory
+3 Strip Mine
+14 Swamp
+1 Urborg
+
+Sideboard · 15
+2 Animate Dead
+1 Ashes to Ashes
+1 Disrupting Scepter
+2 Drain Life
+3 Gloom
+1 Nevinyrral&#x27;s Disk
+1 Pestilence
+4 Terror</pre></div></details><details class="deck"><summary><span><strong>Eva Green</strong><small>Legacy archetype list · November 2008 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Eva Green treated Sinkhole as a tempo spell. Thoughtseize and Hymn to Tourach stripped away cheap interaction, Wasteland attacked nonbasics, and large undercosted creatures ended the game before the opponent could recover the missing land drop.</p>
+<div class="deck-meta"><div><b>Eva Green</b><div class="small">Legacy archetype list · November 2008 · 60/15</div></div><button class="copy" data-target="eva-green-sinkhole">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tombstalker" tabindex="0">Tombstalker</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Nantuko Shade" tabindex="0">Nantuko Shade</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Snuff Out" tabindex="0">Snuff Out</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Smother" tabindex="0">Smother</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div></div><div class="group"><h4>Sorceries · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div>
+<div class="row"><span class="qty">7</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Krosan Grip" tabindex="0">Krosan Grip</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Diabolic Edict" tabindex="0">Diabolic Edict</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div></div>
+<pre hidden id="eva-green-sinkhole">Eva Green
+Legacy archetype list · November 2008 · 60/15
+
+Creatures · 16
+4 Tombstalker
+4 Hypnotic Specter
+4 Nantuko Shade
+4 Tarmogoyf
+
+Instants · 9
+3 Snuff Out
+2 Smother
+4 Dark Ritual
+
+Sorceries · 12
+4 Sinkhole
+4 Thoughtseize
+4 Hymn to Tourach
+
+Artifacts · 2
+2 Umezawa&#x27;s Jitte
+
+Lands · 21
+3 Bayou
+4 Bloodstained Mire
+3 Polluted Delta
+7 Swamp
+4 Wasteland
+
+Sideboard · 15
+4 Leyline of the Void
+3 Krosan Grip
+2 Diabolic Edict
+3 Pithing Needle
+2 Powder Keg
+1 Yixlid Jailer</pre></div></details><details class="deck"><summary><span><strong>Reid Duke — Mono-Black Pox</strong><small>StarCityGames Invitational, Charlotte · 3rd place · 2011 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Reid Duke's Pox list made Sinkhole one part of a complete resource-denial system. Wasteland, Smallpox, discard, Liliana of the Veil, and Sinkhole forced both players toward topdeck mode, where Nether Spirit, Mishra's Factory, and Cursed Scroll were built to survive.</p>
+<div class="deck-meta"><div><b>Reid Duke — Mono-Black Pox</b><div class="small">StarCityGames Invitational, Charlotte · 3rd place · 2011 · 60/15</div></div><button class="copy" data-target="reid-duke-pox">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nether Spirit" tabindex="0">Nether Spirit</span></div></div><div class="group"><h4>Planeswalkers · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Liliana of the Veil" tabindex="0">Liliana of the Veil</span></div></div><div class="group"><h4>Spells · 29</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Nether Void" tabindex="0">Nether Void</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pox" tabindex="0">Pox</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Spinning Darkness" tabindex="0">Spinning Darkness</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Innocent Blood" tabindex="0">Innocent Blood</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Smallpox" tabindex="0">Smallpox</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Inquisition of Kozilek" tabindex="0">Inquisition of Kozilek</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">13</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Perish" tabindex="0">Perish</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Engineered Plague" tabindex="0">Engineered Plague</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Spinning Darkness" tabindex="0">Spinning Darkness</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Extirpate" tabindex="0">Extirpate</span></div></div></div></div>
+<pre hidden id="reid-duke-pox">Reid Duke — Mono-Black Pox
+StarCityGames Invitational, Charlotte · 3rd place · 2011 · 60/15
+
+Creatures · 2
+2 Nether Spirit
+
+Planeswalkers · 4
+4 Liliana of the Veil
+
+Spells · 29
+4 Hymn to Tourach
+3 Cursed Scroll
+4 Dark Ritual
+1 Nether Void
+4 Sinkhole
+1 Pox
+1 Spinning Darkness
+3 Innocent Blood
+4 Smallpox
+4 Inquisition of Kozilek
+
+Lands · 25
+4 Wasteland
+4 Mishra&#x27;s Factory
+13 Swamp
+4 Urborg, Tomb of Yawgmoth
+
+Sideboard · 15
+1 The Abyss
+2 Perish
+4 Engineered Plague
+2 Spinning Darkness
+2 Pithing Needle
+2 Leyline of the Void
+2 Extirpate</pre></div></details></div></section>
+
+<section id="sources"><div class="chapter-number">XX · The Object</div><h2>Printings and sources</h2>
+<p>Sinkhole’s paper history is sparse compared with most Alpha commons. The original Sandra Everingham art appeared in Alpha, Beta, and Unlimited, after which the card vanished from ordinary core sets. It returned as an alternate-art judge reward in 2010 and as an accessible tournament-legal reprint in Eternal Masters in 2016. The 30th Anniversary Edition later recreated its original presentation as a non-tournament-legal collectible.</p>
+<div class="printings">
+<figure class="printing"><img alt="Sinkhole from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Sinkhole&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Sandra Everingham · original printing</figcaption></figure>
+<figure class="printing"><img alt="Sinkhole from Unlimited Edition" src="https://api.scryfall.com/cards/named?exact=Sinkhole&amp;set=2ed&amp;format=image&amp;version=normal"><figcaption>Unlimited Edition · 1993<br>Sandra Everingham · final early core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Sinkhole judge promo" src="https://api.scryfall.com/cards/named?exact=Sinkhole&amp;set=g10&amp;format=image&amp;version=normal"><figcaption>Judge Gift Cards 2010<br>Dave Allsop · first alternate artwork</figcaption></figure>
+<figure class="printing"><img alt="Sinkhole from Eternal Masters" src="https://api.scryfall.com/cards/named?exact=Sinkhole&amp;set=ema&amp;format=image&amp;version=normal"><figcaption>Eternal Masters · 2016<br>Titus Lunter · modern booster reprint</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/129/sinkhole">Scryfall — Sinkhole, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original rarity, artist, printings, and current format legality.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Sinkhole">Wizards of the Coast Gatherer — Sinkhole</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/tweak-review-2002-04-01">Mark Rosewater — Tweak in Review</a><span>Official design discussion of Stone Rain as the foundational land-destruction template and the importance of mana cost, speed, and restrictions.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/acts-destruction-2014-08-11">Mark Rosewater — Acts of Destruction</a><span>Official color-pie context for how Magic assigns permanent destruction among the colors.</span></li>
+<li><a href="https://www.mtgsalvation.com/forums/the-game/legacy-type-1-5/legacy-archives/183371-eva-green">MTG Salvation — Eva Green archive, 2008</a><span>Contemporary archetype discussion, documented decklists, and debate over Sinkhole’s role as tempo alongside Wasteland.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/introducing-mono-black-pox-in-legacy/">Reid Duke — Introducing Mono-Black Pox in Legacy</a><span>Complete 2011 tournament decklist and detailed explanation of Sinkhole within a total resource-denial strategy.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-mono-black-discard-9394-ec/">Old School Mono-Black Discard — 93/94 EC</a><span>Representative 62-card list for Sinkhole’s Old School discard-and-land-denial shell.</span></li>
+<li><a href="https://www.magiclibrarities.net/55-rarities-judge-gift-cards-english-cards-index.html">Magic Librarities — Judge Gift Cards</a><span>2010 judge-promo printing and alternate-art reference.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current legality reference, including Pauper’s prohibition of Sinkhole.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Sinkhole%22&amp;unique=prints">Scryfall — Sinkhole printing search</a><span>Cross-set artwork, frame, date, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> The Old School list is preserved exactly as the cited 62-card representative construction. The Eva Green list comes from contemporary 2008 archetype discussion. Reid Duke’s Pox list and result follow the published StarCityGames Invitational record.</div>
+<div class="end-nav"><a href="037-mind-twist.html"><small>Previous numbered entry</small>Mind Twist</a><a href="index.html?focus=entry-039#entry-039"><small>Next numbered entry</small>Stone Rain</a></div></section>
+</article>
+<aside class="sidebar-note"><b>Entry 038</b><br>Sinkhole made the opponent’s mana base a direct target and established the rate against which every later land-destruction spell would be judged.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
