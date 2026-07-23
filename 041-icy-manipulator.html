@@ -1,0 +1,1051 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Icy Manipulator: Alpha, combat control, mana denial, Royal Assassin, Winter Orb, prison, the 1994 World Championship, Pro Tour New York, artwork, printings, and decklists."><title>Icy Manipulator: Nothing Moved Without Permission — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+</style></head>
+<body><header class="hero icy-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-041#entry-041">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 041 · The Foundational Canon</div>
+<h1>Nothing Moved Without Permission</h1>
+<p class="deckline">Icy Manipulator turned one repeatable tap into combat control, mana denial, prison engineering, and one of the first combinations generations of players learned to fear.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 30 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="040-howling-mine.html">← Entry 040 · Howling Mine</a><div class="center">Entry 041 of 1,000</div><a href="index.html?focus=entry-042#entry-042">Entry 042 · Nevinyrral’s Disk →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Nothing Moved Without Permission</a>
+<a href="#alpha">Alpha’s universal controller</a>
+<a href="#modes">One artifact, four jobs</a>
+<a href="#combat">The combat step belonged to Icy</a>
+<a href="#mana">Turning upkeep into denial</a>
+<a href="#rules">What Icy Manipulator actually does</a>
+<a href="#assassin">The Icy Assassin</a>
+<a href="#orb">Winter Orb becomes one-sided</a>
+<a href="#meekstone">Meekstone, Stasis, and prison</a>
+<a href="#worlds">The first World Champion’s toolbox</a>
+<a href="#pro-tour">The artifact everywhere at Pro Tour New York</a>
+<a href="#control">Why control decks wanted repeatability</a>
+<a href="#decline">Why four mana became too much</a>
+<a href="#limited">The return as a Limited institution</a>
+<a href="#descendants">The descendants of Icy</a>
+<a href="#art">The machine behind the nickname</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Lever</div><h2>Nothing Moved Without Permission</h2>
+<p class="opening dropcap">Icy Manipulator was not removal, countermagic, mana denial, or a combat trick. It was a machine that could imitate all four badly enough—and repeatedly enough—that early control decks built entire games around its next activation.</p>
+<p>A creature could be tapped before it attacked or blocked. A land could be tapped during upkeep so its mana would not survive into the main phase. An artifact could be tapped before its controller found the right moment to use it. A supposedly symmetrical prison card could be turned off just long enough for Icy’s controller to escape.</p>
+<p>That breadth made the card one of Alpha’s foundational lessons in optionality. Four mana and an activation looked expensive, but the controller did not have to decide what the card was for while building the deck. Icy waited on the battlefield and became the answer the current turn demanded.</p>
+<div class="card-lead"><img alt="Icy Manipulator from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Icy Manipulator</h3><p><b>{4} · Artifact</b></p><p>{1}, {T}: Tap target artifact, creature, or land.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Douglas Shuler</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Historical role</b>Universal tap control</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Device</div><h2>Alpha’s universal controller</h2>
+<p>Icy Manipulator entered Magic as a <i>Mono Artifact</i>, an obsolete type that indicated the artifact could be used only once before it had to untap. The original wording did not use the modern tap symbol because the symbol did not yet exist. The rules of the type supplied the physical action.</p>
+<p>The name quickly shortened to “Icy.” That nickname mattered. Players did not speak about it like a singular fantasy object with elaborate lore. They spoke about it like a familiar piece of equipment: draw Icy, play Icy, activate Icy, keep one mana open for Icy.</p>
+<p>Alpha contained more powerful artifacts, but few were as interactive. <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span> and <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span> accelerated. <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span> drew. <span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span> eventually destroyed. Icy made a decision every turn and forced the opponent to account for that decision before committing anything important.</p>
+</section>
+
+<div class="pullquote">Icy Manipulator did not answer every permanent. It made nearly every permanent ask whether it was allowed to matter.<small>Repeatable control through timing</small></div>
+
+<section id="modes"><div class="chapter-number">III · The Options</div><h2>One artifact, four jobs</h2>
+<p>The card’s efficiency cannot be measured by comparing it with a single spell. Each activation occupies a different strategic category.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Creature</span><h3>Control combat</h3><p>Tap an attacker before combat or remove the best blocker before declaring attacks.</p></div>
+<div class="format-card"><span class="impact">Land</span><h3>Constrain mana</h3><p>Tap a source during upkeep and force its controller either to spend the mana immediately or lose it before the main phase.</p></div>
+<div class="format-card"><span class="impact">Artifact</span><h3>Interrupt machinery</h3><p>Force the controller of a tap-ability artifact to use it early or leave it unavailable until the next untap.</p></div>
+</div>
+<p>The fourth job was self-manipulation. Icy could tap the controller’s own <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span>, or another artifact whose effect depended on remaining untapped. The card did not merely control the opponent’s board. It rewired the controller’s board.</p>
+</section>
+
+<section id="combat"><div class="chapter-number">IV · The Battlefield</div><h2>The combat step belonged to Icy</h2>
+<p>Against creatures, Icy behaves like repeatable temporary removal. Before attackers are declared, it can tap the creature most likely to attack. Before blockers are declared, it can tap the creature most likely to block.</p>
+<p>Timing is essential. Tapping a creature after it has been declared as an attacker does not remove it from combat or prevent its damage. Tapping a blocker after it has blocked does not make the attacker unblocked. Icy’s controller must act before the relevant declaration.</p>
+<p>The threat of activation can be more valuable than the activation itself. An opponent may decline to cast a large creature, hold back multiple attackers, or sequence a combat phase awkwardly because the best permanent will not be allowed to participate. One untapped Icy changes every visible combat calculation.</p>
+</section>
+
+<section id="mana"><div class="chapter-number">V · The Upkeep</div><h2>Turning upkeep into denial</h2>
+<p>Tapping a land does not erase its mana ability. The land’s controller may respond by tapping it for mana. But mana empties when the upkeep step ends, so the resource must be spent during upkeep or it will not be available in the main phase.</p>
+<p>That makes Icy especially effective against sorcery-speed curves. A control player can tap the opponent’s only white source before <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, the fourth land before a major threat, or the lone untapped Island that would otherwise represent countermagic.</p>
+<p>Repeated land tapping does not create card advantage. It creates a tax measured in timing and flexibility. The opponent may still use the mana for an instant or activated ability, but the planned turn is forced to change before it begins.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">VI · The Activation</div><h2>What Icy Manipulator actually does</h2>
+<p>Icy Manipulator’s activated ability targets one artifact, creature, or land. Paying the cost requires one mana and tapping Icy. When the ability resolves, the target becomes tapped if it is still legal.</p>
+<p>A tapped permanent cannot be tapped again to pay a cost. However, once a player announces a spell or activated ability and begins paying its costs, it is too late to use Icy to prevent that permanent from being tapped for the cost. Priority must be used before the action is announced.</p>
+<p>Tapping a permanent does not remove its static abilities. Most artifacts continue functioning while tapped unless their own text says otherwise. Winter Orb and Howling Mine contain explicit untapped conditions because their historic gameplay depends on that state.</p>
+<div class="article-note"><b>Icy does not “freeze” text.</b> It changes a permanent’s tapped status. The strategic consequences come from combat rules, activation costs, mana timing, and cards that explicitly care whether they are untapped.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Douglas Shuler’s original Icy Manipulator</b>The device appears less like a weapon than an occult control panel: a bone-white sphere, a hand on the mechanism, and energy directed toward something outside the frame.</div></div>
+
+<section id="assassin"><div class="chapter-number">VII · The Execution</div><h2>The Icy Assassin</h2>
+<p><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span> can destroy a tapped creature. Icy Manipulator can tap a creature. Together they formed one of the first two-card combinations many players discovered without needing a rulebook explanation.</p>
+<p>The interaction converted Icy’s temporary control into permanent removal. The opponent could not avoid the Assassin merely by refusing to attack. Icy supplied the required state, and the Assassin supplied the death sentence.</p>
+<p>It was slow, fragile, and mana-intensive by modern standards. It was also unforgettable. At kitchen tables, “Icy Assassin” represented the moment players realized that cards could manufacture one another’s conditions rather than merely operate as isolated effects.</p>
+</section>
+
+<section id="orb"><div class="chapter-number">VIII · The Lock</div><h2>Winter Orb becomes one-sided</h2>
+<p><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> restricts each player to untapping one land while the Orb is untapped. Icy Manipulator turns that symmetry into a schedule.</p>
+<p>The controller leaves Winter Orb untapped through the opponent’s untap step. Near the end of the opponent’s turn, Icy taps the Orb. The controller begins the next turn with Winter Orb tapped and untaps all lands normally. Winter Orb itself then untaps, restoring the restriction before the opponent’s next turn.</p>
+<p>Additional Icys deepen the lock. One can tap Winter Orb while another taps the single land the opponent was allowed to untap. Official strategy writing has used this configuration as an example of a long-term prison in which the opponent’s basic ability to play the game is nearly paralyzed.</p>
+</section>
+
+<section id="meekstone"><div class="chapter-number">IX · The Architecture</div><h2>Meekstone, Stasis, and prison</h2>
+<p>Icy was uniquely suited to early prison because it interacted with both sides of the lock. With <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, it could tap a large creature and ensure that creature would not untap normally. With <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, it could control the few permanents that still mattered while neither player untapped.</p>
+<p><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span> made opposing permanents enter tapped. Howling Mine accelerated both players through the lock. Winter Orb reduced mana. Icy served as the adjustable component, responding to whichever permanent escaped the static restrictions.</p>
+<p>This combination of fixed rules and flexible enforcement defined early control. The enchantments and artifacts established the prison. Icy patrolled it.</p>
+</section>
+
+<section id="worlds"><div class="chapter-number">X · The Champion</div><h2>The first World Champion’s toolbox</h2>
+<p>Zak Dolan’s 1994 World Championship deck contained one Icy Manipulator amid an extraordinary collection of singletons and overlapping prison pieces. The list included Meekstone, Stasis, Winter Orb, Kismet, Howling Mine, removal, theft, and Serra Angels.</p>
+<p>Icy’s singleton status did not make it marginal. It made it representative of the deck’s philosophy. Dolan did not rely on one linear lock. He assembled enough defensive relationships that whichever pieces appeared could be combined into a controlled battlefield.</p>
+<p>The card could restrain a Juggernaut, cooperate with Meekstone, tap a land under Winter Orb, or clear a path for Serra Angel. In the first World Championship final, flexibility was itself a win condition.</p>
+</section>
+
+<section id="pro-tour"><div class="chapter-number">XI · The Peak</div><h2>The artifact everywhere at Pro Tour New York</h2>
+<p>The first Pro Tour in 1996 displayed Icy Manipulator’s breadth more clearly than any single deck. Shawn Regnier’s blue-white control deck played three copies. Bertrand Lestrée’s Erhnamgeddon deck played two. Mark Justice’s red-white control deck played four.</p>
+<p>These were not minor variations on one archetype. Blue-white used Icy to defend a Millstone plan. Erhnamgeddon used it beside mana creatures, large threats, and Armageddon. Red-white used it with Winter Orb, Howling Mine, burn, and artifact control.</p>
+<p>An artifact playable across such different strategies had become more than a card choice. It was part of the period’s strategic infrastructure: expensive, colorless, repeatable, and trusted to solve whatever permanent-based problem the matchup presented.</p>
+</section>
+
+<section id="control"><div class="chapter-number">XII · The Repetition</div><h2>Why control decks wanted repeatability</h2>
+<p>Early decks contained fewer enters-the-battlefield effects, fewer haste threats, and fewer cheap cards that replaced themselves. Games lasted longer, and a single permanent could influence many turns.</p>
+<p>That environment favored Icy. Spending four mana once was acceptable if one activation prevented an attack, the next constrained mana, and the next removed a blocker. The card generated no conventional card advantage, but it accumulated relevance.</p>
+<p>Colorlessness also mattered. White control, red prison, green-white midrange, black decks, and five-color control could all access the same tool. Icy provided interaction to colors and decks whose own cards could not always answer every permanent type cleanly.</p>
+</section>
+
+<section id="decline"><div class="chapter-number">XIII · The Clock</div><h2>Why four mana became too much</h2>
+<p>Magic accelerated. Creatures became cheaper and more efficient. Enter-the-battlefield abilities generated value before Icy could tap anything. Planeswalkers and enchantments sat outside its target range. Removal became less expensive, and tempo losses became more punishing.</p>
+<p>A four-mana artifact that required another mana before its first activation could no longer assume there would be enough future turns to repay the investment. If the opponent’s creature had already drawn a card, destroyed a permanent, or produced tokens, tapping it was not an answer.</p>
+<p>Icy therefore shifted from Constructed infrastructure to historical tool, casual favorite, and Limited control card. Its text remained versatile. The speed at which the versatility became available no longer matched most competitive formats.</p>
+</section>
+
+<section id="limited"><div class="chapter-number">XIV · The Return</div><h2>The return as a Limited institution</h2>
+<p>Reprints in Ice Age, Mirrodin, Ninth Edition, Tenth Edition, Dominaria, and Dominaria Remastered repeatedly introduced new generations to the card. In Limited, four mana is less prohibitive and repeatable board control is more difficult to replace.</p>
+<p>The Mirrodin printing placed Icy inside an artifact world where almost every deck could cast it and artifact tapping carried additional texture. Dominaria returned it as a recognizable piece of the plane’s history, with new art depicting the device as an ancient machine still capable of imposing order.</p>
+<p>Limited preserved the experience that Constructed outgrew: untap with Icy, leave one mana available, and watch every combat step reorganize itself around the threat.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XV · The Bloodline</div><h2>The descendants of Icy</h2>
+<p><span class="card-name" data-card="Puppet Strings" tabindex="0">Puppet Strings</span> can tap or untap a creature. <span class="card-name" data-card="Ring of Gix" tabindex="0">Ring of Gix</span> lowers the initial mana cost but demands echo. <span class="card-name" data-card="Tumble Magnet" tabindex="0">Tumble Magnet</span> removes the activation mana but limits the number of uses with charge counters.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Tumble%20Magnet&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The modern Limited descendant</div><h3>Tumble Magnet</h3><p><span class="card-name" data-card="Tumble Magnet" tabindex="0">Tumble Magnet</span> compresses Icy’s combat role into three free activations. It cannot control lands or artifacts, but it affects the board immediately and asks the controller to spend its finite uses at the most valuable moments.</p></div></div>
+<p><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span> places repeatable land tapping on a land. <span class="card-name" data-card="Opposition" tabindex="0">Opposition</span> turns creatures into a network of Icys. <span class="card-name" data-card="Icebind Pillar" tabindex="0">Icebind Pillar</span> narrows the target but rewards snow mana. <span class="card-name" data-card="Pacification Array" tabindex="0">Pacification Array</span> reduces the casting cost while increasing the activation cost.</p>
+<p>Each descendant separates one function from the original package. Icy Manipulator remains unusual because its flexibility crosses combat, mana, artifacts, and self-tapping interactions in one colorless permanent.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVI · The Image</div><h2>The machine behind the nickname</h2>
+<p>Douglas Shuler’s Alpha art established the Manipulator as a strange handheld or console-mounted apparatus dominated by a pale orb. The object is legible at card size because of Shuler’s high-contrast composition: black field, white mechanism, concentrated energy.</p>
+<p>Amy Weber’s Ice Age version became known to many players as the “bone crank,” presenting the device as a skeletal machine surrounded by gears and diagrams. Mark Zug’s Mirrodin art transformed it into a miniature model of the plane itself, an artifact that manipulated Mirrodin because it resembled Mirrodin.</p>
+<p>Titus Lunter’s Dominaria interpretation returned to the mysterious orb while embedding it in a monumental frozen mechanism. Across the printings, the object never becomes ordinary. The name says what it does; the art refuses to explain how.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XVII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Old School</span><h3>Core control infrastructure</h3><p>Icy remains central to prison, artifact-control, and midrange decks that exploit Winter Orb, Meekstone, and long games.</p></div>
+<div class="format-card"><span class="impact">Modern and Pioneer</span><h3>Legal, historically outpaced</h3><p>Later reprints make it legal, but four mana plus an activation is rarely competitive against modern threats.</p></div>
+<div class="format-card"><span class="impact">Cube and Commander</span><h3>A flexible relic</h3><p>It appears where repeatable political control, artifact synergies, nostalgia, or deliberate low-power gameplay matter.</p></div>
+</div>
+<p>Icy Manipulator is legal in Vintage and Legacy but largely absent from current competitive construction. It is not Pauper legal because its recognized printings are uncommon. Its most authentic modern home may be historical formats and carefully designed cubes where a repeated tap remains worth the time required to establish it.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XVIII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The card was untapped. Therefore the best thing you controlled was not.</blockquote><cite>Icy Manipulator’s reputation was built from the permanent threat of one activation and the many different turns that activation could ruin.</cite></div>
+<p>Players remember the click of the bone crank in Amy Weber’s art. They remember the Royal Assassin waiting beside it. They remember tapping Winter Orb at the end of the opponent’s turn and explaining—sometimes repeatedly—why their own lands would untap.</p>
+<p>Most of all, they remember calling it “Icy” without needing to explain which card they meant. Very few cards earn a nickname simply by becoming part of the table’s furniture.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XIX · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Icy Manipulator at three stages of its early peak: Zak Dolan’s 1994 World Championship control-prison toolbox, Shawn Regnier’s Millstone control deck, and Mark Justice’s Winter Orb shell from the first Pro Tour in 1996.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Zak Dolan — Control/Prison</strong><small>World Championship 1994 · Champion · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The first World Champion used a single Icy Manipulator as a universal control piece inside a dense web of Meekstone, Stasis, Winter Orb, Kismet, removal, and Serra Angels. Its value was not raw efficiency but its ability to become whichever answer the board required.</p>
+<div class="deck-meta"><div><b>Zak Dolan — Control/Prison</b><div class="small">World Championship 1994 · Champion · 60/15</div></div><button class="copy" data-target="zak-dolan-worlds-1994">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div></div><div class="group"><h4>Instants and Sorceries · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren&#x27;s Call" tabindex="0">Siren&#x27;s Call</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div>
+<pre hidden id="zak-dolan-worlds-1994">Zak Dolan — Control/Prison
+World Championship 1994 · Champion · 60/15
+
+Creatures · 11
+1 Birds of Paradise
+1 Clone
+1 Ley Druid
+2 Old Man of the Sea
+4 Serra Angel
+1 Time Elemental
+1 Vesuvan Doppelganger
+
+Instants and Sorceries · 15
+1 Ancestral Recall
+1 Armageddon
+2 Disenchant
+1 Mana Drain
+1 Recall
+1 Regrowth
+1 Siren&#x27;s Call
+4 Swords to Plowshares
+1 Time Walk
+1 Timetwister
+1 Wrath of God
+
+Enchantments · 4
+1 Control Magic
+1 Kismet
+2 Stasis
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+2 Strip Mine
+4 Tropical Island
+4 Tundra
+
+Sideboard · 15
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 Floral Spuzzem
+1 In the Eye of Chaos
+2 Karma
+1 Kismet
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Shawn “Hammer” Regnier — U/W Control</strong><small>Pro Tour New York 1996 · Quarterfinalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Regnier's deck used three Icys to keep creatures out of combat, constrain mana, and protect a Millstone endgame. The artifact gave a creatureless control deck repeatable interaction without requiring another colored spell every turn.</p>
+<div class="deck-meta"><div><b>Shawn “Hammer” Regnier — U/W Control</b><div class="small">Pro Tour New York 1996 · Quarterfinalist · 60/15</div></div><button class="copy" data-target="shawn-regnier-pro-tour-1996">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Blast" tabindex="0">Spell Blast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Millstone" tabindex="0">Millstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">6</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Svyelunite Temple" tabindex="0">Svyelunite Temple</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Abbey Gargoyles" tabindex="0">Abbey Gargoyles</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Arenson&#x27;s Aura" tabindex="0">Arenson&#x27;s Aura</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sea Sprite" tabindex="0">Sea Sprite</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Steal Artifact" tabindex="0">Steal Artifact</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Truce" tabindex="0">Truce</span></div></div></div></div>
+<pre hidden id="shawn-regnier-pro-tour-1996">Shawn “Hammer” Regnier — U/W Control
+Pro Tour New York 1996 · Quarterfinalist · 60/15
+
+Instants · 20
+4 Counterspell
+4 Disenchant
+4 Power Sink
+4 Spell Blast
+4 Swords to Plowshares
+
+Sorceries · 6
+1 Balance
+1 Recall
+4 Wrath of God
+
+Artifacts · 8
+3 Icy Manipulator
+1 Ivory Tower
+3 Millstone
+1 Zuran Orb
+
+Enchantments · 3
+3 Land Tax
+
+Lands · 23
+4 Adarkar Wastes
+1 City of Brass
+4 Island
+3 Mishra&#x27;s Factory
+6 Plains
+1 Ruins of Trokair
+4 Svyelunite Temple
+
+Sideboard · 15
+1 Abbey Gargoyles
+1 Arenson&#x27;s Aura
+2 Circle of Protection: Black
+2 Circle of Protection: Red
+1 Divine Offering
+1 Feldon&#x27;s Cane
+1 Fountain of Youth
+2 Memory Lapse
+1 Sea Sprite
+2 Steal Artifact
+1 Truce</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Mark Justice — R/W Orb Control</strong><small>Pro Tour New York 1996 · Top 8 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Justice made Icy Manipulator part of a four-copy Howling Mine and three-copy Winter Orb prison shell. Icy could tap opposing permanents during the lock or tap Winter Orb before Justice's own untap step, turning a symmetrical restriction into a one-sided game.</p>
+<div class="deck-meta"><div><b>Mark Justice — R/W Orb Control</b><div class="small">Pro Tour New York 1996 · Top 8 · 60/15</div></div><button class="copy" data-target="mark-justice-pro-tour-1996">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stormbind" tabindex="0">Stormbind</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 20</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Elkin Bottle" tabindex="0">Elkin Bottle</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester&#x27;s Cap" tabindex="0">Jester&#x27;s Cap</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dwarven Ruins" tabindex="0">Dwarven Ruins</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Havenwood Battleground" tabindex="0">Havenwood Battleground</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Anarchy" tabindex="0">Anarchy</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Eron the Relentless" tabindex="0">Eron the Relentless</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div></div></div></div>
+<pre hidden id="mark-justice-pro-tour-1996">Mark Justice — R/W Orb Control
+Pro Tour New York 1996 · Top 8 · 60/15
+
+Instants · 11
+2 Incinerate
+4 Lightning Bolt
+2 Shatter
+3 Swords to Plowshares
+
+Sorceries · 6
+1 Balance
+1 Detonate
+1 Earthquake
+3 Fireball
+
+Enchantments · 2
+2 Stormbind
+
+Artifacts · 20
+1 Black Vise
+1 Elkin Bottle
+1 Feldon&#x27;s Cane
+3 Fellwar Stone
+4 Howling Mine
+4 Icy Manipulator
+1 Ivory Tower
+1 Jester&#x27;s Cap
+3 Winter Orb
+1 Zuran Orb
+
+Lands · 21
+2 City of Brass
+4 Dwarven Ruins
+1 Havenwood Battleground
+4 Karplusan Forest
+3 Mountain
+4 Mishra&#x27;s Factory
+3 Plains
+
+Sideboard · 15
+2 Anarchy
+1 Detonate
+2 Eron the Relentless
+2 Fountain of Youth
+3 Pyroblast
+3 Serrated Arrows
+2 Shatter</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XX · The Object</div><h2>Printings and sources</h2>
+<p>Icy Manipulator disappeared after Unlimited before returning in Ice Age with Amy Weber’s radically different mechanical image. Mirrodin, later core sets, Dominaria, and Dominaria Remastered repeatedly revived it as both a playable artifact and a piece of Magic’s foundational visual language.</p>
+<div class="printings">
+<figure class="printing"><img alt="Icy Manipulator from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Douglas Shuler · original printing</figcaption></figure>
+<figure class="printing"><img alt="Icy Manipulator from Ice Age" src="https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&amp;set=ice&amp;format=image&amp;version=normal"><figcaption>Ice Age · 1995<br>Amy Weber · the “bone crank”</figcaption></figure>
+<figure class="printing"><img alt="Icy Manipulator from Mirrodin" src="https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&amp;set=mrd&amp;format=image&amp;version=normal"><figcaption>Mirrodin · 2003<br>Mark Zug · a model of the plane</figcaption></figure>
+<figure class="printing"><img alt="Icy Manipulator from Dominaria" src="https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&amp;set=dom&amp;format=image&amp;version=normal"><figcaption>Dominaria · 2018<br>Titus Lunter · the ancient machine restored</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/248/icy-manipulator">Scryfall — Icy Manipulator, Limited Edition Alpha</a><span>Card identity, collector number, original type line, Oracle text, original artist, rarity, rulings, legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Icy%20Manipulator">Wizards of the Coast Gatherer — Icy Manipulator</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/worlds-1994-milwaukee-zak-dolan-standard/">Zak Dolan — 1994 World Championship deck</a><span>Complete 60-card main deck and 15-card sideboard, including Icy Manipulator, Meekstone, Stasis, Winter Orb, and Kismet.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 decks</a><span>Historical tournament context and description of Dolan’s control-prison strategy.</span></li>
+<li><a href="https://mtg.wiki/page/1996_Pro_Tour_New_York/Standard_decks">Pro Tour New York 1996 — Standard deck archive</a><span>Complete lists and event context for Shawn Regnier, Bertrand Lestrée, Mark Justice, and other early Icy Manipulator decks.</span></li>
+<li><a href="https://deckstats.net/decks/200484/3987626-ptc-1996-shawn-regnier/en">Shawn Regnier — U/W Control</a><span>Independent archive of the 60-card main deck and 15-card sideboard.</span></li>
+<li><a href="https://mtg.wtf/deck/ptc/bertrand-lestree-finalist/download_with_printings">Bertrand Lestrée — Erhnamgeddon</a><span>Machine-readable Pro Tour Collector Set decklist documenting Icy’s use in green-white midrange.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28">Wizards of the Coast — The Top 50 Artifacts of All Time</a><span>Official historical discussion of Winter Orb prison decks using Icy Manipulator and other tap effects.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/sideboarding-strategies-and-tactics-part-1-2013-08-29">Wizards of the Coast — Sideboarding Strategies and Tactics, Part 1</a><span>Official strategy example describing the Icy Manipulator and Winter Orb long-term lock.</span></li>
+<li><a href="https://scryfall.com/card/ice/322/icy-manipulator">Scryfall — Ice Age Icy Manipulator</a><span>Amy Weber artwork, frame, and printing reference.</span></li>
+<li><a href="https://scryfall.com/card/mrd/186/icy-manipulator">Scryfall — Mirrodin Icy Manipulator</a><span>Mark Zug artwork, flavor text, and Mirrodin printing reference.</span></li>
+<li><a href="https://scryfall.com/card/dom/219/icy-manipulator">Scryfall — Dominaria Icy Manipulator</a><span>Titus Lunter artwork, modern reprint, rulings, and legality reference.</span></li>
+<li><a href="https://about.dragonshield.com/artist-interview/douglas-shuler-interview/">Dragon Shield — Douglas Shuler interview</a><span>The original artist’s discussion of high-contrast composition and creating art that remained readable at card size.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Icy+Manipulator%22&amp;unique=prints">Scryfall — Icy Manipulator printing search</a><span>Cross-set frame, artwork, date, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Zak Dolan’s deck follows the archived 1994 World Championship list. Shawn Regnier’s and Mark Justice’s lists follow the Pro Tour Collector Set records for Pro Tour New York 1996.</div>
+<div class="end-nav"><a href="040-howling-mine.html"><small>Previous numbered entry</small>Howling Mine</a><a href="index.html?focus=entry-042#entry-042"><small>Next numbered entry</small>Nevinyrral’s Disk</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 041</b><br>Icy Manipulator made tapped status into a universal control language and gave early decks a single artifact that could govern combat, mana, machinery, and prison pieces.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
