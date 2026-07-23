@@ -1,0 +1,1074 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Jayemdae Tome: Alpha, repeatable colorless card draw, card advantage, The Deck, Pro Tour New York 1996, its name and Tome family, artwork, printings, and decklists."><title>Jayemdae Tome: Every Quiet Turn Became a Card — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+</style></head>
+<body><header class="hero jayemdae-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-043#entry-043">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 043 · The Foundational Canon</div>
+<h1>Every Quiet Turn Became a Card</h1>
+<p class="deckline">Jayemdae Tome taught control players to treat unused mana as future knowledge, transforming patient defense into the original colorless engine of long-game card advantage.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 31 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="042-nevinyrrals-disk.html">← Entry 042 · Nevinyrral’s Disk</a><div class="center">Entry 043 of 1,000</div><a href="index.html?focus=entry-044#entry-044">Entry 044 · Black Vise →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Every Quiet Turn Became a Card</a>
+<a href="#alpha">Alpha’s patient engine</a>
+<a href="#arithmetic">The first activation only breaks even</a>
+<a href="#mana">Turning unused mana into inevitability</a>
+<a href="#rules">What Jayemdae Tome actually does</a>
+<a href="#endstep">Why the opponent’s end step mattered</a>
+<a href="#the-deck">The book inside The Deck</a>
+<a href="#card-advantage">A machine for card advantage theory</a>
+<a href="#pro-tour">The Tome at the first Pro Tour</a>
+<a href="#midrange">A colorless engine beyond blue</a>
+<a href="#name">The meaning of Jayemdae</a>
+<a href="#family">The family of named Tomes</a>
+<a href="#book">From artifact to Book</a>
+<a href="#decline">Why eight mana for the first card became too slow</a>
+<a href="#limited">The core-set classroom</a>
+<a href="#descendants">The descendants of the Tome</a>
+<a href="#art">Knowledge made into machinery</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Investment</div><h2>Every Quiet Turn Became a Card</h2>
+<p class="opening dropcap">Jayemdae Tome asks for eight mana before it produces its first card: four to place the book on the battlefield and four more to open it. By modern standards, the exchange is almost impossibly slow. In early Magic, that slowness was the point.</p>
+<p>The Tome belonged to decks that expected to survive. They spent the first turns trading cards, protecting life totals, countering threats, and accumulating lands. Eventually a turn arrived when the opponent did nothing important. The mana held open for defense would normally disappear unused. Jayemdae Tome turned that silence into another card.</p>
+<p>Once active, the book changed every future turn. The controller no longer needed the opponent to cooperate by presenting a target. Removal could remain in hand, counters could remain available, and excess mana could be converted into knowledge just before untapping. The game did not need to end quickly because time itself now favored the player with the Tome.</p>
+<div class="card-lead"><img alt="Jayemdae Tome from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Jayemdae Tome</h3><p><b>{4} · Artifact — Book</b></p><p>{4}, {T}: Draw a card.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Mark Tedin</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Repeatable colorless card draw</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Library</div><h2>Alpha’s patient engine</h2>
+<p>Alpha contained spectacular card drawing. <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span> produced three cards immediately for one blue mana. <span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span> scaled with investment. <span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span> refilled both hands. Jayemdae Tome offered something none of them did: a permanent source of private cards available to every color.</p>
+<p>The effect was deliberately expensive. Colorless artifacts could supplement a color's weaknesses, but they were expected to do so less efficiently than colored spells. A red, green, white, or black deck could draw cards repeatedly, provided it was willing to devote enormous amounts of mana and time to the process.</p>
+<p>The original card was a <i>Mono Artifact</i>, an obsolete classification signaling that its ability required the artifact to tap. The modern tap symbol and activated ability preserve the same rhythm: use the book once, wait for it to untap, then pay for another lesson.</p>
+</section>
+
+<div class="pullquote">Jayemdae Tome did not reward the turn when something happened. It rewarded the turn when nothing had to happen.<small>Unused mana converted into inevitability</small></div>
+
+<section id="arithmetic"><div class="chapter-number">III · The Ledger</div><h2>The first activation only breaks even</h2>
+<p>Raw card accounting explains why the Tome is an investment rather than an immediate advantage. The controller spends one card to cast the artifact. The first activation draws one card, replacing the cardboard invested in the Tome. Only the second successful activation produces a net gain in cards.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Cast</span><h3>One card invested</h3><p>The Tome leaves the hand and creates no immediate replacement. Four mana has produced a promise.</p></div>
+<div class="format-card"><span class="impact">First activation</span><h3>Break even</h3><p>One card is drawn. The controller has recovered the card spent on the artifact but has not yet moved ahead.</p></div>
+<div class="format-card"><span class="impact">Second and later</span><h3>Accumulate advantage</h3><p>Every additional activation creates another card without consuming the Tome itself.</p></div>
+</div>
+<p>The artifact therefore asks two questions. Can the controller survive long enough to activate it twice? And can the controller afford to spend twelve total mana before realizing the first clean card of advantage? Early control decks were designed to answer yes.</p>
+</section>
+
+<section id="mana"><div class="chapter-number">IV · The Conversion</div><h2>Turning unused mana into inevitability</h2>
+<p>Control decks must preserve mana because the opponent may cast something dangerous. That creates a recurring inefficiency: when no dangerous spell appears, the reserved mana disappears as the turn ends.</p>
+<p>Jayemdae Tome converts that otherwise wasted resource. The controller passes with Counterspell available. If the opponent acts, the mana protects the game. If the opponent does not, the same mana draws a card. Either outcome advances the control plan.</p>
+<p>This is the foundation of the “mana sink.” The Tome does not need to be efficient when compared with a dedicated draw spell. It needs to make mana productive at the exact moment that mana would have accomplished nothing.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Activation</div><h2>What Jayemdae Tome actually does</h2>
+<p>Jayemdae Tome has an activated ability costing four generic mana and tapping the artifact. When the ability resolves, its controller draws one card.</p>
+<p>The ability may be activated whenever its controller has priority, including during an opponent's turn. Removing or destroying the Tome after the ability has been activated does not counter the ability; the card is still drawn unless the ability itself is countered.</p>
+<p>An ordinary noncreature artifact is not affected by summoning sickness and may use a tap ability on the turn it enters. If the Tome has become a creature, however, it cannot pay a tap cost unless its controller has controlled it continuously since the beginning of that controller's most recent turn or it has haste.</p>
+<div class="article-note"><b>No timing restriction.</b> The word “Tome” suggests a slow sorcery-speed action, but the ability is usable at instant speed. Historical control play centered on activating it as late as possible.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Mark Tedin’s original Jayemdae Tome</b>The book is inseparable from the mechanism around it. Knowledge is not found by simply reading; it must be extracted through an apparatus of lenses, arms, and occult machinery.</div></div>
+
+<section id="endstep"><div class="chapter-number">VI · The Window</div><h2>Why the opponent’s end step mattered</h2>
+<p>The ideal activation occurs after the opponent has passed the final meaningful opportunity of the turn. Until that moment, four mana can represent <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span>, removal, or several possible responses.</p>
+<p>Once the opponent ends the turn, those defensive possibilities are no longer needed. The Tome uses the mana, draws a card, and then untaps with the controller's lands. The controller receives both the information concealed by untapped mana and the card obtained after the bluff has served its purpose.</p>
+<p>Activating earlier can expose the controller. Four lands become unavailable, and the opponent may respond while permission is down. The Tome teaches patience twice: wait before casting the expensive artifact, then wait again before opening it.</p>
+</section>
+
+<section id="the-deck"><div class="chapter-number">VII · The Architecture</div><h2>The book inside The Deck</h2>
+<p>Brian Weissman's The Deck included one Jayemdae Tome in the main deck and another in the sideboard of the documented list later presented by Wizards. The singleton sat beside <span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span>, <span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span>, Moat, permission, removal, and a very small number of finishers.</p>
+<p>The Deck's purpose was to survive, exchange resources efficiently, and reach a state where its machinery generated more value than the opponent could match. The Tome supplied the positive half of that engine. Disrupting Scepter removed cards from the opponent. Jayemdae Tome added cards to the controller.</p>
+<p><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> made the activation easier. Mana generated during the controller's main phase could pay for the Tome or another expensive permanent, allowing permission to become long-term material advantage rather than merely a one-for-one answer.</p>
+</section>
+
+<section id="card-advantage"><div class="chapter-number">VIII · The Theory</div><h2>A machine for card advantage theory</h2>
+<p>Early strategic writing needed physical examples of card advantage. Jayemdae Tome was almost diagrammatic. After the initial repayment, every activation increased the controller's available cardboard without decreasing any other resource except mana.</p>
+<p>The slowness made the lesson clearer. Ancestral Recall was too extraordinary to establish a normal expectation. The Tome showed that card advantage could be accumulated gradually and that a deck could be built to make gradual advantage decisive.</p>
+<p>It also exposed the difference between cards and tempo. The Tome could eventually dominate a long game while losing a short one. Drawing three additional cards was meaningless if spending twelve mana on the engine allowed an opposing creature to deal lethal damage.</p>
+</section>
+
+<section id="pro-tour"><div class="chapter-number">IX · The Championship</div><h2>The Tome at the first Pro Tour</h2>
+<p>At Pro Tour New York in 1996, Jayemdae Tome appeared across several Top 8 strategies. Michael Loconto won the event with blue-white Millstone control containing one copy. Eric Tam reached the quarterfinals with a four-color midrange-control deck containing one. Shawn Regnier and other control players also relied on the artifact.</p>
+<p>Loconto's deck was built for endurance. Counterspell, Wrath of God, Swords to Plowshares, Land Tax, Icy Manipulator, and Millstone prolonged the game. The Tome ensured that a prolonged game did not become a topdeck contest.</p>
+<p>The first Pro Tour final became famous for its extraordinary length. In that environment, a repeatable card every several turns was not too slow. It was exactly the kind of inevitability a championship control deck expected to need.</p>
+</section>
+
+<section id="midrange"><div class="chapter-number">X · The Portability</div><h2>A colorless engine beyond blue</h2>
+<p>Eric Tam's Top 8 list demonstrates why the Tome's colorlessness mattered. The deck was not a pure permission shell. It played Birds of Paradise, Erhnam Djinn, Serra Angel, Autumn Willow, burn, sweepers, Icy Manipulator, Stormbind, and Zur's Weirding across several colors.</p>
+<p>After the large threats and removal traded, Jayemdae Tome offered a plan that did not depend on drawing blue mana or a particular colored spell. Fellwar Stone and a developed mana base could support it regardless of which colors were available.</p>
+<p>The artifact therefore served as a universal late game. Any deck capable of reaching eight or twelve mana over several turns could adopt the same promise: if the opponent failed to end the game, the Tome would begin creating another hand.</p>
+</section>
+
+<section id="name"><div class="chapter-number">XI · The Initials</div><h2>The meaning of Jayemdae</h2>
+<p>“Jayemdae” is a phonetic rendering of J.M.D. The initials stand for James Michael Davis, a friend of Richard Garfield who accompanied Garfield to the first meeting with Wizards of the Coast while Garfield was attempting to sell his game.</p>
+<p>Official Wizards retrospectives identify the intended pronunciation as “J.M.D. Tome.” The elaborate fantasy name is therefore also a personal dedication hidden in plain sight.</p>
+<p>This naming method became part of early Magic's texture. People close to the game appeared as anagrams, phonetic initials, reversed names, and fictional owners of objects. Jayemdae Tome was among the most influential because it started a small lineage of designer-named books.</p>
+</section>
+
+<section id="family"><div class="chapter-number">XII · The Shelf</div><h2>The family of named Tomes</h2>
+<p><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span> followed in Antiquities. “Jalum” encodes J.L.M., the initials of designer Joel L. Mick. The artifact trades a card for a new card, turning the pure accumulation of Jayemdae into filtering.</p>
+<p><span class="card-name" data-card="Emmessi Tome" tabindex="0">Emmessi Tome</span> represents M.S.E., designer Michael S. Elliott. It costs more to cast but allows two cards to be discarded to draw two, again reshaping the relationship between a named book and card flow.</p>
+<p><span class="card-name" data-card="Mangara&#x27;s Tome" tabindex="0">Mangara&#x27;s Tome</span>, <span class="card-name" data-card="Alchor&#x27;s Tomb" tabindex="0">Alchor&#x27;s Tomb</span>, and many later books expanded the library of magical texts, but Jayemdae established the convention: an artifact could imply an unseen scholar, and a private name could become fantasy vocabulary through sound alone.</p>
+</section>
+
+<section id="book"><div class="chapter-number">XIII · The Type</div><h2>From artifact to Book</h2>
+<p>For most of its existence, Jayemdae Tome was simply an artifact. Later Oracle updates gave it the subtype Book, retroactively placing it within a growing mechanical and flavorful category.</p>
+<p>The subtype does not change how the card functions on its own. Its importance is organizational and relational. Cards can now refer to Books as a group, and the Tome's identity as a specific kind of object is represented in the rules rather than only its name and art.</p>
+<p>The change is appropriate for a card whose influence was always larger than its single line of text. Jayemdae Tome did not merely draw cards. It defined what a magical book was expected to do.</p>
+</section>
+
+<section id="decline"><div class="chapter-number">XIV · The Cost</div><h2>Why eight mana for the first card became too slow</h2>
+<p>Competitive Magic compressed. Creatures became cheaper and produced value immediately. Card-draw spells improved. Planeswalkers offered repeatable advantage while affecting the board. Artifacts began drawing cards for smaller activation costs or with useful additional abilities.</p>
+<p>Jayemdae Tome asks the controller to spend turn four doing nothing to the battlefield and another four mana before receiving the first card. If the artifact is destroyed after one activation, the controller has invested eight mana merely to replace the card spent on it.</p>
+<p>The Tome's original advantage—availability to every color—also became less unique. Colorless draw engines multiplied, and the color pie gave most colors their own conditional forms of card advantage. The book was no longer the only library everyone could enter.</p>
+</section>
+
+<section id="limited"><div class="chapter-number">XV · The Classroom</div><h2>The core-set classroom</h2>
+<p>Repeated reprints from Fifth Edition through Tenth Edition, Magic 2013, and Magic Origins allowed new players to encounter the classic engine long after it had left top-tier Constructed play.</p>
+<p>In Limited, slow board states can still make the Tome formidable. A control deck with removal, blockers, and abundant lands may activate it several times, and each activation improves the likelihood of drawing another answer.</p>
+<p>The card also teaches restraint. It tempts players to spend mana drawing rather than defending, then punishes them when the opponent uses the opening. Learning when not to activate the Tome is part of learning what repeatable card advantage actually costs.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XVI · The Bloodline</div><h2>The descendants of the Tome</h2>
+<p><span class="card-name" data-card="Urza&#x27;s Blueprints" tabindex="0">Urza&#x27;s Blueprints</span> draws automatically during upkeep but costs six mana and carries echo. <span class="card-name" data-card="Staff of Nin" tabindex="0">Staff of Nin</span> combines an automatic card with repeatable damage. <span class="card-name" data-card="Mind&#x27;s Eye" tabindex="0">Mind&#x27;s Eye</span> turns opponents' draws into paid opportunities in multiplayer.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Mazemind%20Tome&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The compressed modern descendant</div><h3>Mazemind Tome</h3><p><span class="card-name" data-card="Mazemind Tome" tabindex="0">Mazemind Tome</span> costs two mana, can either scry freely or draw for two mana, and exiles itself after four uses to gain life. It delivers the old promise faster while placing a firm limit on how much inevitability one artifact can create.</p></div></div>
+<p><span class="card-name" data-card="Arcane Encyclopedia" tabindex="0">Arcane Encyclopedia</span> is the clearest rate update: three mana to cast and three to draw. <span class="card-name" data-card="Endless Atlas" tabindex="0">Endless Atlas</span> is cheaper but demands a basic-land condition. <span class="card-name" data-card="The Immortal Sun" tabindex="0">The Immortal Sun</span> and planeswalkers package card flow with several other effects.</p>
+<p>Each descendant negotiates with the same problem. Repeatable colorless card draw must be accessible enough to matter but expensive or constrained enough that every deck does not automatically play it.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVII · The Image</div><h2>Knowledge made into machinery</h2>
+<p>Mark Tedin's original art does not depict a conventional book resting on a desk. The Tome is mounted inside a complex device, surrounded by articulated arms, glass, metal, and glowing energy. Reading appears to be a technological or alchemical extraction process.</p>
+<p>Donato Giancola's Seventh Edition replacement turns the object into a monumental illuminated manuscript. Golden fittings, heavy pages, and an architectural setting emphasize scholarship rather than machinery.</p>
+<p>The contrast captures two interpretations of the card. Tedin presents card drawing as a machine that converts mana into information. Giancola presents it as a lifetime of accumulated knowledge made physically accessible.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XVIII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Old School</span><h3>A genuine control engine</h3><p>The Tome remains part of The Deck and other slow control strategies capable of protecting it and exploiting long games.</p></div>
+<div class="format-card"><span class="impact">Pioneer, Modern, and Eternal</span><h3>Legal, historically outpaced</h3><p>Later core-set printings grant broad legality, but modern engines produce cards earlier or offer additional board impact.</p></div>
+<div class="format-card"><span class="impact">Cube and Commander</span><h3>A deliberate power-level choice</h3><p>It appears in nostalgic, low-powered, Book-themed, artifact, and colorless decks where the original rate is part of the appeal.</p></div>
+</div>
+<p>Jayemdae Tome is not Pauper legal because it has no qualifying common printing. In contemporary Commander, it is usually surpassed by Mind's Eye, Endless Atlas, Staff of Nin, and numerous commander-specific engines, but it remains the ancestor those cards quietly acknowledge.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XIX · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>Four mana remained untapped. The question was whether it represented an answer or another page.</blockquote><cite>Jayemdae Tome made unused mana visible as future knowledge and taught control players to delay every decision until the last responsible moment.</cite></div>
+<p>Players remember the old pronunciation problem, followed by the revelation that the name was simply J.M.D. They remember the elaborate Mark Tedin machinery, the heavy Fourth Edition book, and games in which one activation became two, then three, then an opponent conceding to the inevitability rather than the current battlefield.</p>
+<p>Most of all, they remember when paying four mana to draw one card felt powerful—not because the rate was efficient, but because the game had finally become quiet enough that the rate no longer mattered.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XX · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve the Tome's foundational competitive arc: Brian Weissman's card-advantage architecture, Michael Loconto's victory at the inaugural Pro Tour, and Eric Tam's demonstration that a slow colorless draw engine could support a very different multicolor strategy in the same Top 8.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Brian Weissman — The Deck</strong><small>Historic control archetype · documented 60/15 list</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Jayemdae Tome was the repeatable draw engine inside Magic's first great card-advantage control deck. Removal, Moat, permission, and Mind Twist stretched the game until four spare mana ceased to be a luxury. The Tome then converted every quiet opposing end step into another option.</p>
+<div class="deck-meta"><div><b>Brian Weissman — The Deck</b><div class="small">Historic control archetype · documented 60/15 list</div></div><button class="copy" data-target="weissman-the-deck">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod&#x27;s Crypt" tabindex="0">Tormod&#x27;s Crypt</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div></div>
+<pre hidden id="weissman-the-deck">Brian Weissman — The Deck
+Historic control archetype · documented 60/15 list
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Enchantments · 2
+2 Moat
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod&#x27;s Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Michael Loconto — U/W Millstone Control</strong><small>Pro Tour New York 1996 · Champion · documented 62/15 list</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The inaugural Pro Tour champion played one Jayemdae Tome beside Land Tax, Millstone, Icy Manipulator, and a deep defensive package. The surviving archival list contains 62 main-deck cards; it is preserved here without silent normalization.</p>
+<div class="deck-meta"><div><b>Michael Loconto — U/W Millstone Control</b><div class="small">Pro Tour New York 1996 · Champion · documented 62/15 list</div></div><button class="copy" data-target="michael-loconto-pt-new-york">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span></div></div><div class="group"><h4>Instants and Sorceries · 19</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Deflection" tabindex="0">Deflection</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Ground" tabindex="0">Hallowed Ground</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Millstone" tabindex="0">Millstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">7</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Svyelunite Temple" tabindex="0">Svyelunite Temple</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wizards&#x27; School" tabindex="0">Wizards&#x27; School</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aeolipile" tabindex="0">Aeolipile</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester&#x27;s Cap" tabindex="0">Jester&#x27;s Cap</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sea Sprite" tabindex="0">Sea Sprite</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Steal Artifact" tabindex="0">Steal Artifact</span></div></div></div></div>
+<pre hidden id="michael-loconto-pt-new-york">Michael Loconto — U/W Millstone Control
+Pro Tour New York 1996 · Champion · documented 62/15 list
+
+Creatures · 2
+2 Blinking Spirit
+
+Instants and Sorceries · 19
+1 Balance
+4 Counterspell
+1 Deflection
+4 Disenchant
+1 Recall
+4 Swords to Plowshares
+4 Wrath of God
+
+Enchantments · 6
+2 Control Magic
+2 Hallowed Ground
+2 Land Tax
+
+Artifacts · 11
+1 Feldon&#x27;s Cane
+2 Fountain of Youth
+2 Icy Manipulator
+1 Ivory Tower
+1 Jayemdae Tome
+3 Millstone
+1 Zuran Orb
+
+Lands · 24
+4 Adarkar Wastes
+4 Island
+4 Mishra&#x27;s Factory
+7 Plains
+1 Ruins of Trokair
+1 Strip Mine
+2 Svyelunite Temple
+1 Wizards&#x27; School
+
+Sideboard · 15
+2 Aeolipile
+2 Circle of Protection: Red
+1 Control Magic
+1 Divine Offering
+2 Hydroblast
+1 Jester&#x27;s Cap
+2 Sea Sprite
+2 Serrated Arrows
+2 Steal Artifact</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Eric Tam — Four-Color Midrange Control</strong><small>Pro Tour New York 1996 · Quarterfinalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Eric Tam's deck demonstrated that the Tome was not limited to creatureless permission shells. Mana creatures and Fellwar Stones accelerated large threats and removal, while one Jayemdae Tome gave the deck a colorless way to keep producing cards after the battlefield had stabilized.</p>
+<div class="deck-meta"><div><b>Eric Tam — Four-Color Midrange Control</b><div class="small">Pro Tour New York 1996 · Quarterfinalist · 60/15</div></div><button class="copy" data-target="eric-tam-pt-new-york">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Autumn Willow" tabindex="0">Autumn Willow</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Orgg" tabindex="0">Orgg</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Instants and Sorceries · 17</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icatian Town" tabindex="0">Icatian Town</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Stormbind" tabindex="0">Stormbind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zur&#x27;s Weirding" tabindex="0">Zur&#x27;s Weirding</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="An-Zerrin Ruins" tabindex="0">An-Zerrin Ruins</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Apocalypse Chime" tabindex="0">Apocalypse Chime</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Autumn Willow" tabindex="0">Autumn Willow</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Dwarven Catapult" tabindex="0">Dwarven Catapult</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Storm" tabindex="0">Energy Storm</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icatian Town" tabindex="0">Icatian Town</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ring of Renewal" tabindex="0">Ring of Renewal</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div></div>
+<pre hidden id="eric-tam-pt-new-york">Eric Tam — Four-Color Midrange Control
+Pro Tour New York 1996 · Quarterfinalist · 60/15
+
+Creatures · 11
+1 Autumn Willow
+3 Birds of Paradise
+1 Blinking Spirit
+4 Erhnam Djinn
+1 Orgg
+1 Serra Angel
+
+Instants and Sorceries · 17
+1 Balance
+4 Disenchant
+1 Earthquake
+2 Fireball
+2 Incinerate
+1 Icatian Town
+1 Lightning Bolt
+3 Swords to Plowshares
+2 Wrath of God
+
+Enchantments · 4
+1 Land Tax
+2 Stormbind
+1 Zur&#x27;s Weirding
+
+Artifacts · 8
+3 Fellwar Stone
+3 Icy Manipulator
+1 Jayemdae Tome
+1 Zuran Orb
+
+Lands · 20
+4 Brushland
+2 City of Brass
+4 Karplusan Forest
+2 Mishra&#x27;s Factory
+4 Mountain
+4 Plains
+
+Sideboard · 15
+1 An-Zerrin Ruins
+1 Apocalypse Chime
+1 Autumn Willow
+1 Circle of Protection: Red
+1 Disrupting Scepter
+1 Divine Offering
+1 Dwarven Catapult
+1 Energy Storm
+1 Icatian Town
+2 Nevinyrral&#x27;s Disk
+1 Reverse Damage
+1 Ring of Renewal
+1 Serrated Arrows
+1 Swords to Plowshares</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXI · The Object</div><h2>Printings and sources</h2>
+<p>Jayemdae Tome remained in Magic's core set from Alpha through Tenth Edition, disappeared briefly, and returned in Magic 2013 and Magic Origins. Mark Tedin's original mechanical book carried the card through Fifth Edition. Seventh Edition introduced Donato Giancola's illuminated manuscript, which became the standard modern image.</p>
+<div class="printings">
+<figure class="printing"><img alt="Jayemdae Tome from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Mark Tedin · original printing</figcaption></figure>
+<figure class="printing"><img alt="Jayemdae Tome from Fifth Edition" src="https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&amp;set=5ed&amp;format=image&amp;version=normal"><figcaption>Fifth Edition · 1997<br>Mark Tedin · final original-art core printing</figcaption></figure>
+<figure class="printing"><img alt="Jayemdae Tome from Seventh Edition" src="https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&amp;set=7ed&amp;format=image&amp;version=normal"><figcaption>Seventh Edition · 2001<br>Donato Giancola · new illuminated-manuscript art</figcaption></figure>
+<figure class="printing"><img alt="Jayemdae Tome from Magic Origins" src="https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&amp;set=ori&amp;format=image&amp;version=normal"><figcaption>Magic Origins · 2015<br>Donato Giancola · final Standard printing</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/254/jayemdae-tome">Scryfall — Jayemdae Tome, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, Book subtype, original artist, rarity, current legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Jayemdae%20Tome">Wizards of the Coast Gatherer — Jayemdae Tome</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">Mike Flores — The Deck</a><span>Official retrospective, complete documented list, and explanation of Brian Weissman's card-advantage control architecture.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/card-advantage-2014-02-10">Mike Flores — Card Advantage</a><span>Official foundational explanation of card advantage as a strategic resource.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/trivial-pursuit-whats-in-a-name">Mark Rosewater — Trivial Pursuit: What’s in a Name?</a><span>Official explanation that J.M.D. stands for James Michael Davis and that Davis accompanied Richard Garfield to his first Wizards meeting.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/top-8-and-half-tales-2014-11-24">Mark Rosewater — Top 8 and a Half Tales</a><span>Official discussion of the Jayemdae, Jalum, and Emmessi Tome naming tradition.</span></li>
+<li><a href="https://mtg.wiki/page/1996_Pro_Tour_New_York/Standard_decks">Pro Tour New York 1996 — Standard deck archive</a><span>Historical event context and Top 8 decklists containing Jayemdae Tome.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/1996-ny-pro-tour-championship-1-michael-loconto/">Michael Loconto — U/W Millstone Control</a><span>Archived championship list preserved at its documented 62-card main-deck size.</span></li>
+<li><a href="https://www.magiclibrarities.net/490-rarities-pro-tour-deck-support-cards-english-cards-list.html">Magic Librarities — Pro Tour Deck support cards</a><span>Complete Eric Tam Pro Tour Collector Set decklist and historical product record.</span></li>
+<li><a href="https://scryfall.com/card/5ed/384/jayemdae-tome">Scryfall — Fifth Edition Jayemdae Tome</a><span>Mark Tedin artwork and final original-art core-set printing.</span></li>
+<li><a href="https://scryfall.com/card/7ed/305/jayemdae-tome">Scryfall — Seventh Edition Jayemdae Tome</a><span>Donato Giancola artwork and first modern visual interpretation.</span></li>
+<li><a href="https://scryfall.com/card/ori/231/jayemdae-tome">Scryfall — Magic Origins Jayemdae Tome</a><span>Final Standard printing, modern rarity, flavor text, and artwork reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Jayemdae+Tome%22&amp;unique=prints">Scryfall — Jayemdae Tome printing search</a><span>Cross-set frame, artwork, date, rarity, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> The Deck follows Wizards' official 60-card retrospective list. Eric Tam's list is preserved as a conventional 60-card main deck. Michael Loconto's surviving archival list contains 62 main-deck cards and is presented exactly at that size rather than silently normalized.</div>
+<div class="end-nav"><a href="042-nevinyrrals-disk.html"><small>Previous numbered entry</small>Nevinyrral’s Disk</a><a href="index.html?focus=entry-044#entry-044"><small>Next numbered entry</small>Black Vise</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 043</b><br>Jayemdae Tome made repeatable card draw available to every color and turned the opponent’s quiet end step into the place where control decks accumulated inevitability.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
