@@ -1,0 +1,942 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Howling Mine: Alpha, symmetrical draw, Continuous Artifacts, Turbo Stasis, Owling Mine, Turbo Fog, Group Hug, artwork, printings, and decklists."><title>Howling Mine: The Gift Was Never Free — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+</style></head>
+<body><header class="hero howlingmine-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-040#entry-040">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 040 · The Foundational Canon</div>
+<h1>The Gift Was Never Free</h1>
+<p class="deckline">Howling Mine offered both players more cards, then taught generations of deck builders that symmetrical text becomes profoundly unfair when only one player is prepared for the new rules.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 31 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="039-stone-rain.html">← Entry 039 · Stone Rain</a><div class="center">Entry 040 of 1,000</div><a href="index.html?focus=entry-041#entry-041">Entry 041 · Icy Manipulator →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Gift Was Never Free</a>
+<a href="#alpha">Alpha’s symmetrical engine</a>
+<a href="#symmetry">Why the opponent draws first</a>
+<a href="#untapped">The strange untapped clause</a>
+<a href="#rules">What Howling Mine actually does</a>
+<a href="#asymmetry">How players broke the symmetry</a>
+<a href="#stasis">Turbo Stasis and the birth of “Turbo”</a>
+<a href="#decking">Drawing as a win condition</a>
+<a href="#owling">Owling Mine weaponizes abundance</a>
+<a href="#fog">Turbo Fog and useless cards</a>
+<a href="#tempo">The Mine is not card advantage</a>
+<a href="#design">The design lesson of symmetrical effects</a>
+<a href="#descendants">The descendants of Howling Mine</a>
+<a href="#commander">From prison piece to Group Hug icon</a>
+<a href="#art">The sound beneath the mountain</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Invitation</div><h2>The Gift Was Never Free</h2>
+<p class="opening dropcap">Howling Mine promises fairness with the most dangerous word in its text: each. Each player draws an additional card. Each player receives more options. Each player should benefit equally. Yet almost every important Howling Mine deck was built around proving that equality of text is not equality of outcome.</p>
+<p>The opponent usually receives the first extra card. The Mine’s controller spends a card and two mana to place it on the battlefield. Read literally, this looks generous to the point of self-sabotage. The card became historic because players learned to make the extra draw occur inside games where only one side could use it.</p>
+<p>Under Stasis, the opponent drew cards without untapping the mana needed to cast them. Under Turbo Fog, the opponent drew creatures whose attacks would be prevented. In Owling Mine, the growing hand became the source of damage. In Commander, the same artifact became a symbol of negotiated generosity—though the oldest lesson remained intact. A gift that changes the rules is rarely free.</p>
+<div class="card-lead"><img alt="Howling Mine from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Howling%20Mine&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Howling Mine</h3><p><b>{2} · Artifact</b></p><p>At the beginning of each player’s draw step, if this artifact is untapped, that player draws an additional card.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Mark Poole</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Symmetrical draw engine</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Engine</div><h2>Alpha’s symmetrical engine</h2>
+<p>Alpha contained the greatest one-sided draw spell ever printed in <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>. It also contained Howling Mine, a card that approached card drawing from the opposite direction. Rather than exchange mana for an immediate private advantage, the Mine altered the resource system for as long as it remained on the battlefield.</p>
+<p>That distinction made it feel less like a spell and more like a rule. Normal Magic grants one card during each draw step. Howling Mine changes the rule to two. Multiple Mines continue adding draws, turning the game into an accelerating contest of hand size, library depth, and the ability to convert cards into action.</p>
+<p>Howling Mine was printed as a <i>Continuous Artifact</i>, part of an early artifact taxonomy whose rules tied continuous effects to the permanent remaining untapped. The modern untapped clause preserves that history long after the obsolete type disappeared.</p>
+</section>
+
+<div class="pullquote">Howling Mine gave both players more cards. The deck around it decided whether those cards were resources or evidence.<small>Symmetry transformed by context</small></div>
+
+<section id="symmetry"><div class="chapter-number">III · The First Draw</div><h2>Why the opponent draws first</h2>
+<p>When Howling Mine is cast during its controller’s main phase, that player’s draw step has already passed. Unless an extra turn, flash effect, or unusual sequence intervenes, the opponent reaches the next draw step and receives the first additional card.</p>
+<p>This creates an immediate deficit. The controller has spent Howling Mine itself and the mana used to cast it, while the opponent receives a card before the controller receives any repayment. If the Mine is destroyed before the controller’s next draw step, the exchange may have benefited only the opponent.</p>
+<p>Successful Mine decks therefore do not ask whether both players draw. They ask what the first extra card can accomplish. If the opponent is locked under <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, protected against by Fog effects, constrained by bounce, or punished for having a large hand, the apparent head start becomes irrelevant or actively harmful.</p>
+</section>
+
+<section id="untapped"><div class="chapter-number">IV · The Fossil</div><h2>The strange untapped clause</h2>
+<p>Howling Mine’s modern text checks whether the artifact is untapped because the original card belonged to Magic’s “Continuous Artifact” class. Under early rules, tapping such an artifact shut off its continuous effect. When that category was removed, explicit text was required to preserve the familiar interaction.</p>
+<p>The clause became strategically central. A controller could tap Howling Mine during their own end step with <span class="card-name" data-card="Relic Barrier" tabindex="0">Relic Barrier</span>, <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span>, or another effect. The Mine would be tapped at the beginning of the opponent’s draw step, denying the additional card. It would then untap during the controller’s next untap step and provide the controller’s extra draw.</p>
+<p>A supposedly symmetrical engine could therefore become a private one. The exploit was not hidden in obscure wording. It was printed directly into the historical scar left by an obsolete artifact type.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Trigger</div><h2>What Howling Mine actually does</h2>
+<p>Howling Mine triggers at the beginning of each player’s draw step only if it is untapped at that moment. The active player has already drawn the normal card for the turn before the triggered ability is placed on the stack.</p>
+<p>The ability checks the Mine’s tapped status again when it resolves. If the artifact becomes tapped before resolution, the player does not draw the additional card. If it leaves the battlefield after triggering, the game uses its last known tapped or untapped status.</p>
+<p>Each Howling Mine creates a separate trigger. Two untapped Mines produce two additional cards. The draws happen one at a time as the triggers resolve, which can matter for replacement effects, draw triggers, and effects that cause a player to lose when drawing from an empty library.</p>
+<div class="article-note"><b>Timing matters twice.</b> The Mine must be untapped both when the draw step begins and when its trigger resolves. Tapping it after the trigger is on the stack still prevents the additional draw.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Mark Poole’s original Howling Mine</b>The cave mouth does not merely contain treasure. It exhales a spectral presence, making the promise of endless riches inseparable from the voices of those who entered before.</div></div>
+
+<section id="asymmetry"><div class="chapter-number">VI · The Theft</div><h2>How players broke the symmetry</h2>
+<p>Symmetrical cards reward preparation. The controller chooses when the effect enters the game and can construct an entire deck around it. The opponent discovers the new rule only after shuffling a deck built for normal Magic.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Deny the draw</span><h3>Tap the Mine</h3><p>Relic Barrier and Icy Manipulator can leave it tapped during the opponent’s draw step and untapped during yours.</p></div>
+<div class="format-card"><span class="impact">Deny the use</span><h3>Lock the resources</h3><p>Stasis and Kismet allow the opponent to collect cards while preventing the mana and permanents needed to deploy them.</p></div>
+<div class="format-card"><span class="impact">Punish the abundance</span><h3>Make hand size lethal</h3><p>Black Vise, Ebony Owl Netsuke, Sudden Impact, and decking turn the extra cards into a liability.</p></div>
+</div>
+<p>A fourth method is subtler: ensure that the opponent’s deck contains the wrong kind of cards. Turbo Fog gives an aggressive opponent more creatures and combat tricks, then invalidates combat damage. The Mine’s controller draws prevention and counters; the opponent draws redundant threats that accomplish nothing.</p>
+</section>
+
+<section id="stasis"><div class="chapter-number">VII · The Lock</div><h2>Turbo Stasis and the birth of “Turbo”</h2>
+<p>Turbo Stasis became Howling Mine’s first great archetypal identity. <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span> prevented untapping. <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span> made opposing permanents enter tapped. Howling Mine accelerated the controller toward Islands, counters, bounce, and the pieces required to sustain the lock.</p>
+<p>Matt Place piloted Turbo Stasis to the Top 8 of the 1996 U.S. Nationals during the era remembered as Black Summer. The deck could compete with Necropotence not by drawing fewer cards, but by making the entire game operate on a different axis.</p>
+<p>The “Turbo” name outlived Stasis. Decks that used multiple Howling Mine effects to accelerate toward a nontraditional endgame inherited the prefix. Turbo Fog, Turbo Mill, and related strategies carried forward a naming convention born from the Mine’s ability to make the game consume itself faster.</p>
+</section>
+
+<section id="decking"><div class="chapter-number">VIII · The Library</div><h2>Drawing as a win condition</h2>
+<p>Howling Mine appears to help a player avoid running out of options. In a locked game, it does the opposite. Every additional draw removes another card from the library, shortening the distance to a loss by decking.</p>
+<p>Turbo Stasis protected itself with <span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span> and could allow the opponent to draw through an entire library. Turbo Fog later used Howling Mine, <span class="card-name" data-card="Font of Mythos" tabindex="0">Font of Mythos</span>, and planeswalkers to produce the same result while preventing combat damage.</p>
+<p>This inversion is one of the card’s most elegant qualities. The Mine does not contain text about milling, library size, or losing the game. It simply increases the rate of draw until abundance becomes exhaustion.</p>
+</section>
+
+<section id="owling"><div class="chapter-number">IX · The Punishment</div><h2>Owling Mine weaponizes abundance</h2>
+<p>Owling Mine made the card’s hidden cruelty explicit. At Pro Tour Honolulu in 2006, Antoine Ruel reached the Top 8 with a deck containing Howling Mine, <span class="card-name" data-card="Kami of the Crescent Moon" tabindex="0">Kami of the Crescent Moon</span>, bounce spells, <span class="card-name" data-card="Exhaustion" tabindex="0">Exhaustion</span>, and <span class="card-name" data-card="Ebony Owl Netsuke" tabindex="0">Ebony Owl Netsuke</span>.</p>
+<p>The deck worked by making cards enter the opponent’s hand faster than they could leave it. Boomerang and <span class="card-name" data-card="Eye of Nowhere" tabindex="0">Eye of Nowhere</span> returned permanents, often lands, to hand. Gigadrowse and Exhaustion consumed turns. The Owl dealt damage when the opponent began upkeep with seven or more cards, while <span class="card-name" data-card="Sudden Impact" tabindex="0">Sudden Impact</span> converted the final hand size directly into damage.</p>
+<p>Howling Mine was no longer merely an engine supporting the lock. It was the mechanism filling the weapon’s ammunition.</p>
+</section>
+
+<section id="fog"><div class="chapter-number">X · The Prevention</div><h2>Turbo Fog and useless cards</h2>
+<p>Turbo Fog exploits a different asymmetry. Aggressive decks are built from creatures, removal, and combat enhancement. If every combat step is answered by <span class="card-name" data-card="Holy Day" tabindex="0">Holy Day</span>, <span class="card-name" data-card="Pollen Lullaby" tabindex="0">Pollen Lullaby</span>, <span class="card-name" data-card="Angelsong" tabindex="0">Angelsong</span>, or a similar effect, drawing more creatures does not solve the problem.</p>
+<p>The Mine player, by contrast, draws additional copies of exactly the cards required to survive. Multiple draw artifacts also accelerate toward Jace Beleren’s library attack or the simple moment when the opponent has no cards left to draw.</p>
+<p>Koji Takanashi’s 2009 Japanese qualifier-winning list used Howling Mine beside Font of Mythos, four Jaces, two Tezzerets, counters, prevention, and defensive permanents. The deck demonstrated the core principle in its purest form: both players drew more, but only one player’s cards answered the game being played.</p>
+</section>
+
+<section id="tempo"><div class="chapter-number">XI · The Accounting</div><h2>The Mine is not card advantage</h2>
+<p>Howling Mine is often described casually as card draw, but it does not produce conventional card advantage by itself. The caster spends one card. The opponent receives the first additional draw. If the artifact survives, both players continue drawing at the same increased rate.</p>
+<p>The Mine produces velocity, not automatic advantage. It moves both libraries into both hands more quickly. Advantage appears only when the controller uses timing, deck construction, or punishment to make the cards unequal.</p>
+<p>This distinction explains why the card is dangerous in casual deck building. Adding Howling Mine to a slow deck because the deck “needs more cards” may simply give faster opponents more threats and answers. The Mine requires a theory of why its controller benefits more.</p>
+</section>
+
+<section id="design"><div class="chapter-number">XII · The Lesson</div><h2>The design lesson of symmetrical effects</h2>
+<p>Howling Mine helped teach one of Magic’s foundational strategic lessons: symmetrical text favors the player who planned for it. <span class="card-name" data-card="Balance" tabindex="0">Balance</span>, <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, and <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> all appear fair only if the surrounding game state is ignored.</p>
+<p>The Mine is especially instructive because the benefit is positive. Destroying everything obviously invites manipulation. Giving everyone cards appears generous. Yet a resource can be harmful when it arrives at the wrong time, cannot be spent, triggers a punishment, or brings a player closer to an empty library.</p>
+<p>Later design retained the appeal while often removing the tap loophole. New “Howling Mine” effects may be enchantments, creatures, or artifacts whose draw ability functions regardless of tapped status. Others grant the controller an additional benefit, making the intended asymmetry visible rather than emergent.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XIII · The Bloodline</div><h2>The descendants of Howling Mine</h2>
+<p><span class="card-name" data-card="Font of Mythos" tabindex="0">Font of Mythos</span> doubles the extra cards at twice the mana. <span class="card-name" data-card="Kami of the Crescent Moon" tabindex="0">Kami of the Crescent Moon</span> places the effect on a legendary creature. <span class="card-name" data-card="Dictate of Kruphix" tabindex="0">Dictate of Kruphix</span> adds flash, allowing its controller to cast it before their own turn and receive the first additional draw.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Fevered%20Visions&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The Owling descendant</div><h3>Fevered Visions</h3><p><span class="card-name" data-card="Fevered Visions" tabindex="0">Fevered Visions</span> combines symmetrical drawing with the punishment Owling Mine once assembled from separate cards. The controller receives the same extra draw, but opponents with large hands take damage.</p></div></div>
+<p><span class="card-name" data-card="Temple Bell" tabindex="0">Temple Bell</span> moves the draw to an activated ability. <span class="card-name" data-card="Otherworld Atlas" tabindex="0">Otherworld Atlas</span> scales with charge counters. <span class="card-name" data-card="Rites of Flourishing" tabindex="0">Rites of Flourishing</span> adds lands as well as cards. <span class="card-name" data-card="Humble Defector" tabindex="0">Humble Defector</span> turns generosity into a political exchange.</p>
+<p>The descendants divide Howling Mine’s identities among them: speed, symmetry, politics, hand-size punishment, flash timing, and the ability to decide exactly when the gift is offered.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XIV · The Table</div><h2>From prison piece to Group Hug icon</h2>
+<p>Commander transformed Howling Mine’s public image. In a duel, the card is suspicious: why would a player give the opponent cards unless the deck plans to exploit them? In multiplayer, giving every player an extra draw can function as diplomacy.</p>
+<p>Group Hug decks use symmetrical resources to encourage deals, accelerate the table, and redirect aggression. Howling Mine became one of the archetype’s visual symbols because it is cheap, recognizable, and genuinely benefits everyone who reaches a draw step while it remains untapped.</p>
+<p>The arithmetic is still unfavorable in raw terms. In a four-player game, the controller spends one card to give three opponents the first cycle of extra draws. The political return must compensate for the material loss—or the deck must contain hidden punishments, alternate wins, or ways to control who actually receives the cards.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XV · The Image</div><h2>The sound beneath the mountain</h2>
+<p>Mark Poole’s original art made the mine feel alive. A pale apparition extends from the entrance like breath in cold air, while the darkness inside suggests that whatever produces the howl is deeper than the visible tunnel.</p>
+<p>Dana Knutson’s Seventh Edition interpretation turned the mine into a monumental mouth of stone and machinery. Ralph Horsley’s Magic 2010 art emphasized spectral miners and inexhaustible riches, aligning with flavor text that links the treasure to spirits condemned to haunt it.</p>
+<p>Dan Mumford’s Secret Lair version pushes the concept toward psychedelic horror. The mine becomes less a location than a supernatural organism—an opening that gives endlessly because it consumes endlessly.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XVI · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Historic Standard</span><h3>A recurring combo engine</h3><p>Turbo Stasis, Owling Mine, and Turbo Fog each used the same artifact to support radically different forms of denial.</p></div>
+<div class="format-card"><span class="impact">Modern and Eternal</span><h3>Legal but specialized</h3><p>The card remains available, though faster engines and purpose-built descendants usually outperform the original outside dedicated strategies.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A cultural institution</h3><p>Howling Mine is both a Group Hug staple and a warning that symmetrical generosity may conceal an asymmetric plan.</p></div>
+</div>
+<p>Howling Mine is not Pauper legal because it has no common printing recognized by the format. In Cube, it usually requires explicit support: prison pieces, hand-size punishment, mill, artifact manipulation, or enough speed that the extra cards matter differently to each drafter.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XVII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The first extra card felt like a favor. The seventh felt like a countdown.</blockquote><cite>Howling Mine’s history is the gradual realization that receiving more resources does not mean being allowed to use them.</cite></div>
+<p>Players remember asking whether the Mine was tapped before drawing. They remember placing multiple triggers on the stack, counting libraries, and watching hands grow beyond seven cards. They remember the delight of receiving free cards in a kitchen-table game and the later discovery that the opponent had built an entire deck around that delight.</p>
+<p>The howl is the sound of the bargain revealing itself. There were riches in the mine. There was simply no promise that anyone entering would leave with them.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XVIII · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Howling Mine’s three most important competitive identities: Matt Place’s 1996 Turbo Stasis lock, Antoine Ruel’s Pro Tour Top 8 Owling Mine deck, and Koji Takanashi’s qualifier-winning 2009 Turbo Fog construction.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Matt Place — Turbo Stasis</strong><small>U.S. Nationals 1996 · Top 8 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Turbo Stasis used Howling Mine to keep Islands and protection flowing beneath Stasis. The opponent also drew extra cards, but Kismet, counters, Boomerang, and Despotic Scepter ensured those cards could not be deployed normally. The Mine accelerated both the lock and the opponent’s eventual decking.</p>
+<div class="deck-meta"><div><b>Matt Place — Turbo Stasis</b><div class="small">U.S. Nationals 1996 · Top 8 · 60/15</div></div><button class="copy" data-target="matt-place-turbo-stasis">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Arcane Denial" tabindex="0">Arcane Denial</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lim-Dûl&#x27;s Vault" tabindex="0">Lim-Dûl&#x27;s Vault</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div></div><div class="group"><h4>Enchantments · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 10</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Despotic Scepter" tabindex="0">Despotic Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">13</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Bauble" tabindex="0">Lodestone Bauble</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Wall of Air" tabindex="0">Wall of Air</span></div></div></div></div>
+<pre hidden id="matt-place-turbo-stasis">Matt Place — Turbo Stasis
+U.S. Nationals 1996 · Top 8 · 60/15
+
+Instants · 16
+4 Arcane Denial
+4 Boomerang
+4 Force of Will
+4 Lim-Dûl&#x27;s Vault
+
+Sorceries · 2
+2 Recall
+
+Enchantments · 7
+2 Kismet
+1 Land Tax
+4 Stasis
+
+Artifacts · 10
+3 Despotic Scepter
+1 Feldon&#x27;s Cane
+4 Howling Mine
+1 Ivory Tower
+1 Zuran Orb
+
+Lands · 25
+4 Adarkar Wastes
+4 City of Brass
+13 Island
+4 Underground River
+
+Sideboard · 15
+1 Black Vise
+2 Blue Elemental Blast
+2 Disenchant
+2 Hydroblast
+1 Kismet
+1 Lodestone Bauble
+3 Mana Short
+1 Swords to Plowshares
+2 Wall of Air</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Antoine Ruel — Owling Mine</strong><small>Pro Tour Honolulu 2006 · 8th place · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Owling Mine converted the apparent gift into damage. Howling Mine and Kami of the Crescent Moon filled the opponent’s hand; bounce and Exhaustion prevented those cards from being cast; Ebony Owl Netsuke and Sudden Impact punished the abundance the deck had created.</p>
+<div class="deck-meta"><div><b>Antoine Ruel — Owling Mine</b><div class="small">Pro Tour Honolulu 2006 · 8th place · 60/15</div></div><button class="copy" data-target="antoine-ruel-owling-mine">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kami of the Crescent Moon" tabindex="0">Kami of the Crescent Moon</span></div></div><div class="group"><h4>Instants · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Gigadrowse" tabindex="0">Gigadrowse</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sudden Impact" tabindex="0">Sudden Impact</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Exhaustion" tabindex="0">Exhaustion</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Eye of Nowhere" tabindex="0">Eye of Nowhere</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ebony Owl Netsuke" tabindex="0">Ebony Owl Netsuke</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">11</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mikokoro, Center of the Sea" tabindex="0">Mikokoro, Center of the Sea</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Goblin Flectomancer" tabindex="0">Goblin Flectomancer</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Cerebral Vortex" tabindex="0">Cerebral Vortex</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Evacuation" tabindex="0">Evacuation</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Gaze of Adamaro" tabindex="0">Gaze of Adamaro</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Twincast" tabindex="0">Twincast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div></div></div></div>
+<pre hidden id="antoine-ruel-owling-mine">Antoine Ruel — Owling Mine
+Pro Tour Honolulu 2006 · 8th place · 60/15
+
+Creatures · 4
+4 Kami of the Crescent Moon
+
+Instants · 18
+4 Boomerang
+4 Gigadrowse
+4 Remand
+4 Sudden Impact
+2 Pyroclasm
+
+Sorceries · 8
+4 Exhaustion
+4 Eye of Nowhere
+
+Artifacts · 8
+4 Ebony Owl Netsuke
+4 Howling Mine
+
+Lands · 22
+11 Island
+1 Mountain
+4 Shivan Reef
+4 Steam Vents
+2 Mikokoro, Center of the Sea
+
+Sideboard · 15
+1 Goblin Flectomancer
+4 Cerebral Vortex
+1 Evacuation
+3 Gaze of Adamaro
+1 Mana Leak
+3 Twincast
+2 Pyroclasm</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Koji Takanashi — Turbo Fog</strong><small>Japanese National Qualifier 2009 · 1st place · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>This qualifier-winning list turned Howling Mine into the engine of a pure prevention deck. Fogs made creature draws ineffective, Jace and Tezzeret supplied alternate endgames, and the opponent’s accelerated draw became the mechanism by which the opponent eventually ran out of library.</p>
+<div class="deck-meta"><div><b>Koji Takanashi — Turbo Fog</b><div class="small">Japanese National Qualifier 2009 · 1st place · 60/15</div></div><button class="copy" data-target="koji-takanashi-turbo-fog">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Planeswalkers · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Jace Beleren" tabindex="0">Jace Beleren</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tezzeret the Seeker" tabindex="0">Tezzeret the Seeker</span></div></div><div class="group"><h4>Instants and Sorceries · 24</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Holy Day" tabindex="0">Holy Day</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Pollen Lullaby" tabindex="0">Pollen Lullaby</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Negate" tabindex="0">Negate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Runed Halo" tabindex="0">Runed Halo</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Batwing Brume" tabindex="0">Batwing Brume</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Font of Mythos" tabindex="0">Font of Mythos</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mistvein Borderpost" tabindex="0">Mistvein Borderpost</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fieldmist Borderpost" tabindex="0">Fieldmist Borderpost</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">5</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">7</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Reliquary Tower" tabindex="0">Reliquary Tower</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hoofprints of the Stag" tabindex="0">Hoofprints of the Stag</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Oona, Queen of the Fae" tabindex="0">Oona, Queen of the Fae</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Runed Halo" tabindex="0">Runed Halo</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Glen Elendra Archmage" tabindex="0">Glen Elendra Archmage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div></div></div></div>
+<pre hidden id="koji-takanashi-turbo-fog">Koji Takanashi — Turbo Fog
+Japanese National Qualifier 2009 · 1st place · 60/15
+
+Planeswalkers · 6
+4 Jace Beleren
+2 Tezzeret the Seeker
+
+Instants and Sorceries · 24
+1 Wrath of God
+4 Holy Day
+4 Cryptic Command
+4 Pollen Lullaby
+4 Negate
+2 Runed Halo
+3 Batwing Brume
+2 Path to Exile
+
+Artifacts · 16
+4 Howling Mine
+4 Font of Mythos
+4 Mistvein Borderpost
+4 Fieldmist Borderpost
+
+Lands · 14
+5 Plains
+7 Island
+2 Reliquary Tower
+
+Sideboard · 15
+2 Pithing Needle
+4 Hoofprints of the Stag
+2 Oona, Queen of the Fae
+2 Runed Halo
+4 Glen Elendra Archmage
+1 Path to Exile</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XIX · The Object</div><h2>Printings and sources</h2>
+<p>Howling Mine remained in core sets from Alpha through Magic 2010 and later moved into Commander products, The List, premium releases, and The Brothers’ War Retro Artifacts. Its art history progresses from Mark Poole’s haunted cavern to increasingly literal and nightmarish interpretations of a mine whose abundance carries a cost.</p>
+<div class="printings">
+<figure class="printing"><img alt="Howling Mine from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Howling%20Mine&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Mark Poole · original printing</figcaption></figure>
+<figure class="printing"><img alt="Howling Mine from Seventh Edition" src="https://api.scryfall.com/cards/named?exact=Howling%20Mine&amp;set=7ed&amp;format=image&amp;version=normal"><figcaption>Seventh Edition · 2001<br>Dana Knutson · first major art replacement</figcaption></figure>
+<figure class="printing"><img alt="Howling Mine from Magic 2010" src="https://api.scryfall.com/cards/named?exact=Howling%20Mine&amp;set=m10&amp;format=image&amp;version=normal"><figcaption>Magic 2010 · 2009<br>Ralph Horsley · final Standard core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Howling Mine from Secret Lair Drop" src="https://api.scryfall.com/cards/sld/7046?format=image&amp;version=normal"><figcaption>Secret Lair Drop · 2025<br>Dan Mumford · psychedelic horror treatment</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/247/howling-mine">Scryfall — Howling Mine, Limited Edition Alpha</a><span>Card identity, collector number, original type, artist, rarity, Oracle text, rulings, current legality, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Howling%20Mine">Wizards of the Coast Gatherer — Howling Mine</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://mtg.wiki/page/Standard_Turbo_Stasis">MTG Wiki — Standard Turbo Stasis</a><span>Matt Place’s 1996 U.S. Nationals Top 8 list, strategic overview, and the historical connection between Howling Mine and the “Turbo” naming convention.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/turbo-stasis-by-matt-place-us-natl-1996/">Matt Place — Turbo Stasis, U.S. Nationals 1996</a><span>Independent decklist archive preserving the complete 60-card main deck and 15-card sideboard.</span></li>
+<li><a href="https://old.starcitygames.com/decks/16437">StarCityGames Deck Database — Antoine Ruel, Owling Mine</a><span>Pro Tour Honolulu 2006 eighth-place decklist and event result.</span></li>
+<li><a href="https://mtg.wiki/page/Standard_Owling_Mine_deck">MTG Wiki — Standard Owling Mine</a><span>Archetype summary and explanation of the Howling Mine, bounce, hand-size, and damage engine.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/reflecting-ruel-intelligent-netdecking-2-turbo-fog-in-barcelona/">Olivier Ruel — Turbo Fog in Barcelona</a><span>Koji Takanashi’s 2009 qualifier-winning list, the Ruels’ testing process, matchup analysis, and later refinements.</span></li>
+<li><a href="https://scryfall.com/card/7ed/300/howling-mine">Scryfall — Seventh Edition Howling Mine</a><span>Dana Knutson artwork and printing reference.</span></li>
+<li><a href="https://scryfall.com/card/m10/212/howling-mine">Scryfall — Magic 2010 Howling Mine</a><span>Ralph Horsley artwork, flavor text, rulings, and final core-set printing reference.</span></li>
+<li><a href="https://scryfall.com/card/sld/7046/howling-mine">Scryfall — Secret Lair Howling Mine</a><span>Dan Mumford artwork and premium printing reference.</span></li>
+<li><a href="https://scryfall.com/card/brr/20/howling-mine">Scryfall — The Brothers’ War Retro Artifacts Howling Mine</a><span>Modern retro-frame reprint and preservation of Mark Poole’s original artwork.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Howling+Mine%22&amp;unique=prints">Scryfall — Howling Mine printing search</a><span>Cross-set frame, artwork, date, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Matt Place’s Turbo Stasis and Antoine Ruel’s Owling Mine are preserved as documented tournament lists. Koji Takanashi’s Turbo Fog list is preserved from the National Qualifier-winning list reproduced in Olivier Ruel’s contemporary analysis.</div>
+<div class="end-nav"><a href="039-stone-rain.html"><small>Previous numbered entry</small>Stone Rain</a><a href="index.html?focus=entry-041#entry-041"><small>Next numbered entry</small>Icy Manipulator</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 040</b><br>Howling Mine created the game’s foundational symmetrical draw engine and taught players to turn generosity into prison, damage, decking, and politics.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
