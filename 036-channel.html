@@ -1,0 +1,919 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Channel: Alpha, life as mana, Channel-Fireball, the 1994 World Championship, early restrictions, color-pie history, Timeless, Eldrazi, artwork, printings, and player memory."><title>Channel: Life Becomes Mana — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+</style></head>
+<body><header class="hero channel-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-036#entry-036">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 036 · The Foundational Canon</div>
+<h1>Life Becomes Mana</h1>
+<p class="deckline">Channel made the life total spendable, created Magic’s most famous two-card kill, and showed how quickly a game could collapse when one resource became another.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 29 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="035-fireball.html">← Entry 035 · Fireball</a><div class="center">Entry 036 of 1,000</div><a href="index.html?focus=entry-037#entry-037">Entry 037 · Mind Twist →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Life Becomes Mana</a>
+<a href="#alpha">Green’s original dark bargain</a>
+<a href="#bank">The twenty-point bank account</a>
+<a href="#rules">What Channel actually does</a>
+<a href="#fireball">The other half of the oldest combo</a>
+<a href="#combo">A plus B equals game over</a>
+<a href="#worlds94">Channel reaches the first Worlds final</a>
+<a href="#vice-age">A singleton inside Vice Age</a>
+<a href="#banlist">The card that could not stay legal</a>
+<a href="#targets">When the targets grew larger</a>
+<a href="#timeless">The experiment returns digitally</a>
+<a href="#color">Why green lost this power</a>
+<a href="#descendants">The bloodline of conversion</a>
+<a href="#art">The image of expenditure</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Exchange</div><h2>Life Becomes Mana</h2>
+<p class="opening dropcap">Channel asks a question that Magic’s first rulebook could barely prepare a player to answer: how much of yourself are you willing to spend before the game has really begun?</p>
+<p>Two green mana buys a temporary permission. For the rest of the turn, life may be paid away one point at a time and converted into colorless mana. A player who begins at twenty life can preserve a single point and create nineteen mana before considering the lands, Moxen, or Black Lotus already available. The card does not merely accelerate the game. It compresses it. Turns that were supposed to occur later are dragged into the present, and the future value of survival is exchanged for the immediate certainty of doing something enormous.</p>
+<p>That exchange made Channel one of Alpha’s clearest demonstrations that Magic’s resources were not sealed compartments. Cards could become life. Life could become cards. Lands could become damage. Channel made life become mana, and because mana could become almost anything else, the spell functioned as a universal breach in the game’s economy.</p>
+<div class="card-lead"><img alt="Channel from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Channel&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">Current Oracle text</div><p><b>&#123;G&#125; &#123;G&#125; · Sorcery</b></p><p>Until end of turn, any time you could activate a mana ability, you may pay 1 life. If you do, add &#123;C&#125;.</p><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Richard Thomas</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Core identity</b>Life payment · fast mana · combo</div></div></div></div>
+<p>Channel is often remembered as one half of Channel–Fireball, but its deeper importance lies in the verb it gave the game. To channel a resource is to force it through a narrower path and release it as power. Magic would spend the next three decades designing safer, slower, or more conditional versions of that same act.</p>
+</section>
+<section id="alpha"><div class="chapter-number">II · The Transgression</div><h2>Green’s original dark bargain</h2>
+<p>Modern green is allowed to produce more mana than any other color, but it is usually expected to do so through growth: additional lands, creatures that tap, enchantments that enrich forests, or permanents that reward a large battlefield. Channel is different. It does not grow anything. It liquidates the player.</p>
+<p>That makes the card feel philosophically black even though its output is recognizably green. Black has long treated life as a negotiable resource, paying it for cards, creatures, or temporary advantage. Green has long treated mana as the expression of natural abundance. Channel fuses those ideas in a way Alpha frequently allowed: the color has the destination, while the cost belongs to a different part of the color pie.</p>
+<p>Richard Garfield’s earliest cards were less concerned with protecting those borders than with making the fantasy legible. A druid, mage, or desperate summoner draws upon vital force and turns it into raw magical energy. The story is perfectly understandable. The game balance is catastrophic.</p>
+<div class="pullquote">Channel did not ask green to wait for nature. It asked the player to burn through life and seize the future immediately.<small>The original bargain</small></div>
+</section>
+<section id="bank"><div class="chapter-number">III · The Account</div><h2>The twenty-point bank account</h2>
+<p>New players often treat life as a score. The player with more appears to be winning, and losing any amount feels inherently bad. Channel teaches the opposite lesson with unusual violence: life is valuable because it may be spent.</p>
+<div class="life-ledger"><div class="life-card"><b>Life at twenty</b><p>The player appears safe but has not yet converted that safety into action.</p></div><div class="life-card"><b>Pay nineteen</b><p>Channel preserves one life while generating nineteen colorless mana during the turn.</p></div><div class="life-card"><b>Spend the future</b><p>The game must end or become effectively unwinnable before the opponent exploits the remaining one life.</p></div></div>
+<p>The mathematics are simple, but the strategic effect is profound. A normal mana source provides value across multiple turns. Channel takes the opposite deal: it destroys future durability in exchange for an overwhelming present. The caster is not merely accelerating. The caster is declaring that later turns no longer matter.</p>
+<p>This is why the card’s drawback failed as a balancing mechanism. Life payment is dangerous only when the opponent is allowed to respond over time. If the converted mana wins immediately, the sacrificed life has no practical cost. The same principle would later define cards such as Necropotence, Yawgmoth’s Bargain, and Ad Nauseam: a resource ceases to be precious when the game ends before the bill arrives.</p>
+</section>
+<section id="rules"><div class="chapter-number">IV · The Permission</div><h2>What Channel actually does</h2>
+<p>Channel’s modern wording is unusual because it grants the player a temporary special permission rather than placing a conventional activated ability on a permanent. Until end of turn, whenever the player is at a moment when a mana ability could be activated, that player may pay one life to add one colorless mana.</p>
+<p>The payment can be repeated. It is not limited to sorcery speed after Channel resolves; the conversion can occur while casting spells, paying costs, or during other moments when mana abilities could normally be used. The effect still ends with the turn, so unused mana and the permission itself do not become a reserve for later.</p>
+<p>There is also a hard floor. A player cannot pay life that is not available. At one life, the player cannot make another payment and fall to zero. Channel therefore offers at most one less mana than the caster’s current life total, unless some other effect changes how life payments work.</p>
+<div class="article-note"><b>Rules distinction.</b> Channel is a sorcery that resolves and creates a temporary permission. Countering the spell prevents the permission entirely. Once it has resolved, the individual life payments are not separate spells waiting on the stack.</div>
+</section>
+<div class="art-break channel-art-break"><div class="art-caption"><b>Richard Thomas’s original Channel</b>The Alpha art does not depict prosperity. It depicts a body becoming a conduit—energy forced through flesh until the person and the spell are almost indistinguishable.</div></div>
+<section id="fireball"><div class="chapter-number">V · The Pairing</div><h2>The other half of the oldest combo</h2>
+<p>Fireball gave Channel the cleanest possible destination. Channel produced colorless mana in quantities the early game could not normally contain. Fireball accepted almost any amount of mana and turned it directly into damage. The green spell created the number; the red spell delivered it.</p>
+<div class="inline-image fireball-pair"><div class="image"></div><div class="copy"><div class="kicker">The iconic partner</div><h3>Fireball</h3><p>With one red mana available, Channel could convert nineteen life into nineteen additional mana. Fireball then transformed the entire total into lethal damage. The cards were individually understandable and together unforgettable.</p></div></div>
+<p>The combination became the prototype of the two-card kill because it was easy to explain, easy to imagine drawing, and dramatic when executed. No elaborate loop was required. There were no counters to track or repeated actions to demonstrate. One card turned life into mana. The second turned mana into death.</p>
+</section>
+<section id="combo"><div class="chapter-number">VI · The Language</div><h2>A plus B equals game over</h2>
+<p>Before players had a mature vocabulary for engines, deterministic kills, storm counts, or redundant combo shells, Channel–Fireball already expressed the central idea: two cards can be worth more together than the sum of their individual text boxes.</p>
+<p>The pair helped teach deck builders to search horizontally across the card pool. A card was not only what it did by itself. It was also every resource it generated, every restriction it ignored, and every other card capable of exploiting the result. Channel did not say “win the game.” Fireball did not say “use your life total.” The victory existed between them.</p>
+<p>That relationship became part of Magic’s public mythology. Wizards has repeatedly invoked Channel plus Fireball as an example of a combo as old as the game itself. Even players who have never cast either card know the hyphenated phrase. It is not merely a deck interaction; it is a piece of the game’s language.</p>
+</section>
+<section id="worlds94"><div class="chapter-number">VII · The Stage</div><h2>Channel reaches the first Worlds final</h2>
+<p>At the 1994 World Championship in Milwaukee, Bertrand Lestrée carried a red-green deck to the final against Zak Dolan. Lestrée’s list contained four Fireballs and one Channel alongside Kird Ape, Birds of Paradise, Chain Lightning, Lightning Bolt, Power, and a web of dual lands.</p>
+<p>The deck is important because it corrects the simplified memory of Channel–Fireball as a fragile novelty. Lestrée did not register a pile that could only win by finding two specific cards. He registered an aggressive, flexible deck that could attack, burn creatures, pressure life totals, and occasionally convert Channel into the most explosive finish available in the tournament.</p>
+<p>That singleton Channel reflected both the card’s power and the emerging restriction culture of organized Magic. One copy was enough to force opponents to respect a kill far beyond the apparent battlefield. When Channel was absent, Fireball remained a functional removal spell and finisher. When it appeared, every point of Lestrée’s life became potential damage.</p>
+<div class="memory"><blockquote>Channel–Fireball’s first great tournament lesson was not that combo must replace a deck. It was that combo could hide inside a deck that was already good.</blockquote><cite>Bertrand Lestrée’s 1994 World Championship runner-up list</cite></div>
+</section>
+<section id="vice-age"><div class="chapter-number">VIII · The Engine</div><h2>A singleton inside Vice Age</h2>
+<p>Henry Stern’s Vice Age deck, runner-up at the 1995 U.S. National Championship, used Channel in a different shell. Black Vise and Howling Mine attacked the opponent’s hand size. Stormbind turned spare cards into damage. Orcish Lumberjack generated bursts of mana. Jokulhaups threatened to erase the battlefield. Fireball tied those resources together.</p>
+<p>Channel again appeared as one copy rather than the entire identity of the deck. That is the card’s most revealing competitive form. Because the ceiling was so extreme and the cost so small, a deck that already wanted green mana and Fireball could devote a single slot to the possibility of ending a game immediately.</p>
+<p>It also illustrates how early deck building tolerated forms of strategic overlap that later formats would separate into archetypes. Vice Age could behave like prison, burn, land destruction, midrange, or combo depending on the draw. Channel was the most violent mode available, but not the only one.</p>
+</section>
+<section id="banlist"><div class="chapter-number">IX · The Boundary</div><h2>The card that could not stay legal</h2>
+<p>Channel is one of the cards through which Magic learned why organized formats need boundaries. The earliest environment had been designed around small collections and local trading, not a world in which players would assemble optimized decks from every powerful card printed. Once players could deliberately combine Channel with Fireball, Power, tutors, and perfect mana, the spell’s theoretical drawback stopped functioning.</p>
+<p>Over the years, Channel moved through restrictions and bans as formats acquired clearer identities. Today it remains banned in Legacy and Commander, restricted in Vintage and Timeless, and unavailable in most younger formats because of card-pool boundaries. The details differ, but the reason is consistent: two mana should not routinely unlock an entire life total as immediate mana.</p>
+<p>The card is therefore both playable history and a warning label. It demonstrates the thrilling discovery that made early Magic compelling, and the structural danger that made later rules necessary.</p>
+</section>
+<section id="targets"><div class="chapter-number">X · The Payload</div><h2>When the targets grew larger</h2>
+<p>Fireball was the original payload because it converted Channel’s mana directly into lethal damage. Later card pools gave the spell new ambitions. A player could cast an enormous artifact, activate a mana-hungry engine, or place an Eldrazi titan onto the stack before the opponent had developed a battlefield.</p>
+<div class="inline-image emrakul-descendant"><div class="image"></div><div class="copy"><div class="kicker">The modern fantasy</div><h3>Emrakul and the impossible turn</h3><p>Once creatures began costing ten, twelve, or fifteen mana, Channel no longer needed an X spell. It could simply drag a late-game threat into the opening turn and let the threat’s own text provide the ending.</p></div></div>
+<p>This change reveals how dangerous unrestricted conversion becomes as a game expands. Channel was printed into a small card pool where Fireball was its most obvious abuse. Every later set created additional things that nineteen mana could purchase. The spell did not need to improve; the universe around it kept becoming more exploitable.</p>
+</section>
+<section id="timeless"><div class="chapter-number">XI · The Return</div><h2>The experiment returns digitally</h2>
+<p>When Timeless launched on Magic Arena, it offered a digital environment built from the platform’s broadest card pool and a short restricted list. Channel was limited to one copy rather than removed entirely. That decision recreated an old tension with modern tools: the spell was difficult to draw naturally, but tutors, card selection, and enormous digital-era threats made the singleton meaningful.</p>
+<p>Early experiments immediately explored turn-one Channel decks. Some retained the ancient idea of a direct payoff. Others used Karn, the Great Creator, Realmbreaker, the Invasion Tree, Ulamog, or other massive permanents. The details were modern, but the deck-building impulse was identical to 1993: find the cheapest path from two green mana to an effect that should not exist yet.</p>
+<p>Timeless demonstrates why Channel remains fascinating even when everyone knows it is dangerous. Restriction turns the card into an event. Drawing it feels like opening a door to Magic’s earliest excess, with thirty years of new machinery waiting on the other side.</p>
+</section>
+<section id="color"><div class="chapter-number">XII · The Philosophy</div><h2>Why green lost this power</h2>
+<p>Green still receives explosive mana, but contemporary design generally asks it to invest in the battlefield. A mana creature can be removed. A land-search spell consumes time and deck space. A powerful enchantment can be answered. These cards create visible infrastructure and give the opponent windows to interact.</p>
+<p>Channel has almost none of that friction. It is cheap, temporary, and capable of generating more mana than an entire normal game. The life payment may look like a severe cost, but immediate combo turns convert that apparent drawback into decorative text.</p>
+<p>The modern color pie also places direct life-for-power bargains more comfortably in black. Green may risk creatures, lands, or accumulated board presence. Paying nearly all of one’s life for an explosive burst tells a different story: ambition consuming the body. Channel remains green because history preserves it, not because it represents a pattern green is likely to receive again.</p>
+</section>
+<section id="descendants"><div class="chapter-number">XIII · The Bloodline</div><h2>The bloodline of conversion</h2>
+<p>Few later cards reproduce Channel directly, but many inherit a piece of its design. Cadaverous Bloom converts cards into mana. Squandered Resources converts lands. Culling the Weak converts a creature. Phyrexian mana converts life into part of a spell’s cost. Bolas’s Citadel spends life to cast cards from the library. Treasonous Ogre offers repeated life-to-mana conversion at a much less favorable rate.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Cards become mana</span><h3>Cadaverous Bloom</h3><p>The resource changes, but the strategic promise remains: discard tomorrow to build an overwhelming turn today.</p></div><div class="format-card"><span class="impact">Life becomes cost</span><h3>Phyrexian mana</h3><p>Life payment escapes black and becomes a universal discount, repeating Channel’s lesson on a smaller scale.</p></div><div class="format-card"><span class="impact">Life becomes spells</span><h3>Bolas’s Citadel</h3><p>The life total again functions as a bank account whose value depends on ending the game before repayment matters.</p></div></div>
+<p>Channel’s descendants are usually constrained by rate, card type, setup, or color. Those constraints are the design lessons written by the original. Resource conversion is compelling because it creates choices. It becomes dangerous when the exchange rate is so favorable that there is no meaningful choice at all.</p>
+</section>
+<section id="art"><div class="chapter-number">XIV · The Image</div><h2>The image of expenditure</h2>
+<p>Richard Thomas’s original art makes Channel look painful. A figure twists beneath a column of force while green energy radiates through the body. It is not a tranquil communion with the land. It is magical self-extraction—the caster acting as both conduit and fuel.</p>
+<p>Rebecca Guay’s later interpretation, introduced in From the Vault: Exiled and reused in Iconic Masters, turns the moment into a luminous ritual. The figure appears calmer and more deliberate, but the central idea remains: power enters through the body and leaves transformed.</p>
+<p>Kristina Collantes’s Strixhaven Mystical Archive version makes the transaction scholarly and symbolic. The frame treats Channel as a spell important enough to be preserved by an academy, which is fitting. Few cards have taught more players about what a resource is worth.</p>
+</section>
+<section id="formats"><div class="chapter-number">XV · The Formats</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Foundational history</span><h3>Early constructed</h3><p>Channel appeared in elite red-green decks as a restricted explosive option rather than only as an all-in novelty.</p></div><div class="format-card"><span class="impact">Restricted access</span><h3>Vintage and Timeless</h3><p>One copy preserves the possibility of the impossible turn while forcing tutors and redundancy to carry the strategy.</p></div><div class="format-card"><span class="impact">Prohibited power</span><h3>Legacy and Commander</h3><p>The combination of low cost, minimal setup, and enormous conversion keeps the card outside formats built around broader access.</p></div></div>
+<p>Channel’s legal history is almost as important as its game history. The card helped define the distinction between preserving old cards and allowing every old interaction without limit. Vintage and Timeless use restriction to make Channel rare. Legacy and Commander use bans to prevent it from structuring games at all.</p>
+</section>
+<section id="memory"><div class="chapter-number">XVI · The Memory</div><h2>What players remember</h2>
+<div class="memory"><blockquote>Tap two Forests. Cast Channel. Pay nineteen life. Fireball you.</blockquote><cite>The sequence by which generations learned the meaning of “combo”</cite></div>
+<p>Players remember Channel as a sentence. The steps are recited in order, often by people who never owned the cards and never played a format where the combination was legal. That portability is the mark of a true cultural object. The combo can be transmitted as a story with no board diagram and almost no rules explanation.</p>
+<p>They also remember the shock of discovering that life could be spent so aggressively. Channel transforms twenty life from a defensive cushion into nineteen units of explosive potential. Once a player understands that conversion, every later life-payment card becomes easier to evaluate—and every life total becomes less like a score and more like a resource ledger.</p>
+<p>Most of all, Channel preserves the dangerous charm of Alpha. It is elegant, flavorful, obvious in hindsight, and far too powerful. The same qualities that made it a design mistake made it unforgettable.</p>
+</section>
+<section id="decks"><div class="chapter-number">XVII · The Archive</div><h2>The deck archive</h2><p class="deck-intro">These lists show Channel in three distinct eras: hidden inside Bertrand Lestrée’s 1994 World Championship finalist, embedded in Henry Stern’s 1995 Vice Age engine, and revived as a restricted digital experiment when Timeless opened the modern card pool to Alpha’s most dangerous conversion spell.</p><div class="deck-archive"><details class="deck"><summary><span><strong>Bertrand Lestrée — Red-Green Weenie</strong><small>1994 World Championship · runner-up</small></span><span class="plus">+</span></summary><div class="deck-body"><p>The most famous competitive Channel deck did not devote itself entirely to the combo. It was a fast red-green shell with burn, creatures, Power, and one Channel capable of turning any Fireball into a sudden ending.</p><div class="deck-meta"><div><b>Bertrand Lestrée — Red-Green Weenie</b><div class="small">Bertrand Lestrée · Milwaukee, 1994</div></div><button class="copy" data-target="bertrand-channel">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div>
+</div><div class="group"><h4>Sorceries · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Channel" tabindex="0">Channel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+</div><div class="group"><h4>Instants · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div>
+</div></div><div class="deck-col"><div class="group"><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+</div><div class="group"><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+</div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+</div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="City in a Bottle" tabindex="0">City in a Bottle</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flashfires" tabindex="0">Flashfires</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Forcefield" tabindex="0">Forcefield</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tsunami" tabindex="0">Tsunami</span></div>
+</div></div></div><pre hidden id="bertrand-channel">Bertrand Lestrée — Red-Green Weenie
+Bertrand Lestrée · Milwaukee, 1994
+
+Creatures · 12
+3 Argothian Pixies
+4 Kird Ape
+3 Birds of Paradise
+2 Whirling Dervish
+
+Sorceries · 13
+4 Fireball
+4 Chain Lightning
+1 Channel
+1 Time Walk
+1 Regrowth
+1 Demonic Tutor
+1 Mind Twist
+
+Instants · 7
+4 Lightning Bolt
+1 Ancestral Recall
+2 Psionic Blast
+
+Artifacts · 7
+1 Mox Emerald
+1 Mox Jet
+1 Mox Ruby
+1 Black Lotus
+1 Chaos Orb
+1 Icy Manipulator
+1 Mox Sapphire
+
+Enchantments · 1
+1 Control Magic
+
+Lands · 20
+2 City of Brass
+4 Taiga
+2 Bayou
+4 Tropical Island
+4 Mishra&#x27;s Factory
+4 Volcanic Island
+
+Sideboard · 15
+1 Control Magic
+1 City in a Bottle
+3 Disintegrate
+1 Flashfires
+1 Forcefield
+2 Lifeforce
+4 Serendib Efreet
+2 Tsunami</pre></div></details>
+<details class="deck"><summary><span><strong>Henry Stern — Vice Age</strong><small>1995 U.S. National Championship · runner-up</small></span><span class="plus">+</span></summary><div class="deck-body"><p>Channel survived here as a singleton inside a pressure engine of Black Vise, Howling Mine, Stormbind, Orcish Lumberjack, and Fireball. It could produce the spectacular kill, but it was also simply another way to turn a game already shaped by resource pressure into a lethal X spell.</p><div class="deck-meta"><div><b>Henry Stern — Vice Age</b><div class="small">Henry Stern · Philadelphia, 1995</div></div><button class="copy" data-target="stern-channel">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Orcish Lumberjack" tabindex="0">Orcish Lumberjack</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shivan Dragon" tabindex="0">Shivan Dragon</span></div>
+</div><div class="group"><h4>Instants and sorceries · 16</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Channel" tabindex="0">Channel</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Jokulhaups" tabindex="0">Jokulhaups</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div>
+</div></div><div class="deck-col"><div class="group"><h4>Artifacts and enchantments · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Stormbind" tabindex="0">Stormbind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div>
+</div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dwarven Ruins" tabindex="0">Dwarven Ruins</span></div>
+<div class="row"><span class="qty">7</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div>
+<div class="row"><span class="qty">6</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+</div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Anarchy" tabindex="0">Anarchy</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div>
+</div></div></div><pre hidden id="stern-channel">Henry Stern — Vice Age
+Henry Stern · Philadelphia, 1995
+
+Creatures · 8
+3 Birds of Paradise
+3 Orcish Lumberjack
+2 Shivan Dragon
+
+Instants and sorceries · 16
+1 Channel
+4 Fireball
+4 Incinerate
+2 Jokulhaups
+4 Lightning Bolt
+1 Shatter
+
+Artifacts and enchantments · 13
+4 Black Vise
+4 Howling Mine
+1 Lifeforce
+3 Stormbind
+1 Sylvan Library
+
+Lands · 23
+2 Dwarven Ruins
+7 Forest
+4 Karplusan Forest
+6 Mountain
+4 Strip Mine
+
+Sideboard · 15
+2 Anarchy
+2 Lifeforce
+2 Pyroblast
+3 Pyroclasm
+2 Shatter
+4 Whirling Dervish</pre></div></details>
+<details class="deck"><summary><span><strong>Uniforce — Channel Turn One</strong><small>Early Timeless experiment · January 2024</small></span><span class="plus">+</span></summary><div class="deck-body"><p>Timeless restored Channel as a restricted one-of and immediately encouraged new forms of excess. This documented Arena build uses free artifacts, Karn, and Realmbreaker to convert a single Channel into enormous permanents rather than a red X spell. The source records a six-card wishboard rather than a full fifteen.</p><div class="deck-meta"><div><b>Uniforce — Channel Turn One</b><div class="small">Uniforce · MTG Arena, January 2024</div></div><button class="copy" data-target="timeless-channel">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jin-Gitaxias, Progress Tyrant" tabindex="0">Jin-Gitaxias, Progress Tyrant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Urabrask the Hidden" tabindex="0">Urabrask the Hidden</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vorinclex, Monstrous Raider" tabindex="0">Vorinclex, Monstrous Raider</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vorinclex, Voice of Hunger" tabindex="0">Vorinclex, Voice of Hunger</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jin-Gitaxias, Core Augur" tabindex="0">Jin-Gitaxias, Core Augur</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sphinx of Foresight" tabindex="0">Sphinx of Foresight</span></div>
+</div><div class="group"><h4>Artifacts · 20</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Realmbreaker, the Invasion Tree" tabindex="0">Realmbreaker, the Invasion Tree</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Bauble" tabindex="0">Mishra&#x27;s Bauble</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Amber" tabindex="0">Mox Amber</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tormod&#x27;s Crypt" tabindex="0">Tormod&#x27;s Crypt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Astral Cornucopia" tabindex="0">Astral Cornucopia</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Bone Saw" tabindex="0">Bone Saw</span></div>
+</div></div><div class="deck-col"><div class="group"><h4>Instants · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Once Upon a Time" tabindex="0">Once Upon a Time</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="An Offer You Can&#x27;t Refuse" tabindex="0">An Offer You Can&#x27;t Refuse</span></div>
+</div><div class="group"><h4>Sorceries · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Channel" tabindex="0">Channel</span></div>
+</div><div class="group"><h4>Planeswalkers · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Karn, the Great Creator" tabindex="0">Karn, the Great Creator</span></div>
+</div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Barkchannel Pathway" tabindex="0">Barkchannel Pathway</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Aether Hub" tabindex="0">Aether Hub</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Botanical Sanctum" tabindex="0">Botanical Sanctum</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Confluence" tabindex="0">Mana Confluence</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Thran Portal" tabindex="0">Thran Portal</span></div>
+</div><div class="group"><h4>Documented wishboard · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Realmbreaker, the Invasion Tree" tabindex="0">Realmbreaker, the Invasion Tree</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chromatic Orrery" tabindex="0">Chromatic Orrery</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ugin, the Spirit Dragon" tabindex="0">Ugin, the Spirit Dragon</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wurmcoil Engine" tabindex="0">Wurmcoil Engine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ulamog, the Ceaseless Hunger" tabindex="0">Ulamog, the Ceaseless Hunger</span></div>
+</div></div></div><pre hidden id="timeless-channel">Uniforce — Channel Turn One
+Uniforce · MTG Arena, January 2024
+
+Creatures · 7
+1 Jin-Gitaxias, Progress Tyrant
+1 Urabrask the Hidden
+1 Vorinclex, Monstrous Raider
+1 Vorinclex, Voice of Hunger
+1 Jin-Gitaxias, Core Augur
+2 Sphinx of Foresight
+
+Artifacts · 20
+3 Realmbreaker, the Invasion Tree
+4 Mishra&#x27;s Bauble
+1 Mox Amber
+4 Tormod&#x27;s Crypt
+4 Astral Cornucopia
+4 Bone Saw
+
+Instants · 8
+4 Once Upon a Time
+4 An Offer You Can&#x27;t Refuse
+
+Sorceries · 1
+1 Channel
+
+Planeswalkers · 4
+4 Karn, the Great Creator
+
+Lands · 20
+4 Barkchannel Pathway
+4 Aether Hub
+4 Botanical Sanctum
+4 Mana Confluence
+4 Thran Portal
+
+Documented wishboard · 6
+1 Realmbreaker, the Invasion Tree
+1 Demonic Tutor
+1 Chromatic Orrery
+1 Ugin, the Spirit Dragon
+1 Wurmcoil Engine
+1 Ulamog, the Ceaseless Hunger</pre></div></details></div></section>
+<section id="sources"><div class="chapter-number">XVIII · The Object</div><h2>Printings and sources</h2>
+<p>Channel’s print history mirrors its transformation from an ordinary early-set uncommon into a curated emblem of forbidden power. Richard Thomas’s original illustration carried the card through Alpha, Beta, Unlimited, Revised, and Fourth Edition. From the Vault: Exiled commissioned Rebecca Guay’s ethereal reinterpretation, later reused for Iconic Masters. Strixhaven’s Mystical Archive gave the spell a new illuminated-manuscript identity and a Japanese alternate treatment.</p>
+<div class="printings">
+<figure class="printing"><img alt="Channel from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Channel&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Richard Thomas · original printing</figcaption></figure>
+<figure class="printing"><img alt="Channel from Fourth Edition" src="https://api.scryfall.com/cards/named?exact=Channel&amp;set=4ed&amp;format=image&amp;version=normal"><figcaption>Fourth Edition · 1995<br>Richard Thomas · final early core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Channel from From the Vault Exiled" src="https://api.scryfall.com/cards/named?exact=Channel&amp;set=v09&amp;format=image&amp;version=normal"><figcaption>From the Vault: Exiled · 2009<br>Rebecca Guay · luminous reinterpretation</figcaption></figure>
+<figure class="printing"><img alt="Channel from Strixhaven Mystical Archive" src="https://api.scryfall.com/cards/named?exact=Channel&amp;set=sta&amp;format=image&amp;version=normal"><figcaption>Strixhaven Mystical Archive · 2021<br>Kristina Collantes · archival spell treatment</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/188/channel">Scryfall — Channel, Limited Edition Alpha</a><span>Card identity, original printing, artist, rarity, Oracle text, rulings, and legality reference.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Channel">Wizards of the Coast Gatherer — Channel</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/it-takes-two-2013-08-29">Wizards of the Coast — It Takes Two</a><span>Official description of Channel plus Fireball as a combo as old as Magic itself.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">Wizards of the Coast — A Different Worlds</a><span>Mark Rosewater’s history of the 1994 World Championship and Bertrand Lestrée’s complete runner-up list.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=252616&amp;e=9186">MTGTop8 — Bertrand Lestrée, 1994 World Championship</a><span>Decklist, placement, event context, and sideboard cross-check.</span></li>
+<li><a href="https://mail.mtgtop8.com/event?d=771097&amp;e=75256&amp;f=ST">MTGTop8 — Henry Stern, Vice Age, 1995 U.S. Nationals</a><span>Runner-up decklist and event record.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/playing-type-1-2002-07-15">Wizards of the Coast — Playing to Type 1</a><span>Official retrospective on the creation of constructed rules, restrictions, and early eternal play.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Banned and Restricted Lists</a><span>Current official format status.</span></li>
+<li><a href="https://magic.gg/news/arena-championship-10-timeless-metagame-breakdown">Magic.gg — Arena Championship 10 Timeless Metagame Breakdown</a><span>Official explanation of Timeless and Channel’s restricted status in the format.</span></li>
+<li><a href="https://mtgdecks.net/Timeless/channel-turn-1-decklist-by-uniforce-1859280">MTGDecks — Uniforce, Channel Turn One</a><span>Documented January 2024 Timeless experiment and card-by-card list.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Channel%22&amp;unique=prints">Scryfall — Channel printing search</a><span>Cross-set artwork, frame, rarity, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Compulsive Research treats tournament lists and documented builder lists as historical artifacts. The first two decklists preserve competitive records; the Timeless list is explicitly identified as an early public experiment rather than a major-event result.</div>
+<div class="end-nav"><a href="035-fireball.html"><small>Previous numbered entry</small>Fireball</a><a href="index.html?focus=entry-037#entry-037"><small>Next numbered entry</small>Mind Twist</a></div>
+</section>
+</article><aside class="sidebar-note"><b>Entry 036</b><br>Channel converted the life total into immediate mana and made the oldest two-card kill in Magic feel less like a trick than a revelation.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
